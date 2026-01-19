@@ -25,17 +25,15 @@ require_once 'data/cursos.php';
     <?php include 'includes/header.php'; ?>
 
     <main>
-        <!-- Hero Section -->
-        <section id="inicio" class="hero">
-            <div class="hero-bg">
-                <div class="glow-circle glow-1"></div>
-                <div class="glow-circle glow-2"></div>
-            </div>
-            
-            <div class="container hero-content hidden-fade">
-                <h1>Potencia tu <span class="highlight">carrera profesional</span></h1>
-                <p>Formación especializada en Gestión de Proyectos, Agilidad y Liderazgo para el mundo real.</p>
-                <a href="#cursos" class="btn btn-primary shimmer">Ver Cursos</a>
+        <!-- Hero Section (Background Image) -->
+        <section id="inicio" class="hero-section">
+            <div class="hero-overlay-mobile"></div>
+            <div class="container hero-container">
+                <div class="hero-content slide-in-bottom">
+                    <h1>Conviértete en un profesional de la <span class="highlight">Gestión de Proyectos</span></h1>
+                    <p>Domina las metodologías ágiles y certificaciones internacionales con cursos prácticos y directos al grano.</p>
+                    <a href="#cursos" class="btn btn-primary btn-lg pill-btn">VER CURSOS</a>
+                </div>
             </div>
         </section>
 
