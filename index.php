@@ -30,9 +30,12 @@ require_once 'data/cursos.php';
             <div class="hero-overlay-mobile"></div>
             <div class="container hero-container">
                 <div class="hero-content slide-in-bottom">
-                    <h1>Conviértete en un profesional de la <span class="highlight">Gestión de Proyectos</span></h1>
-                    <p>Domina las metodologías ágiles y certificaciones internacionales con cursos prácticos y directos al grano.</p>
-                    <a href="#cursos" class="btn btn-primary btn-lg pill-btn">VER CURSOS</a>
+                    <h1>Domina la Gestión de Proyectos y <span class="highlight">Metodologías Ágiles</span></h1>
+                    <p>Aprende con un enfoque práctico y profesional. Certificaciones reconocidas, metodologías ágiles e investigación académica para impulsar tu carrera.</p>
+                    <div class="hero-btn-group">
+                        <a href="#cursos" class="btn btn-gold btn-lg pill-btn">Ver Cursos &nbsp; <i class="fas fa-arrow-right"></i></a>
+                        <a href="#sobre-mi" class="btn btn-outline-light btn-lg pill-btn"><i class="fas fa-play"></i> &nbsp; Conoce al Instructor</a>
+                    </div>
                 </div>
             </div>
         </section>

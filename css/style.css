@@ -73,6 +73,7 @@ ul {
 .highlight {
     color: var(--primary);
     background: linear-gradient(120deg, var(--primary), #7c92ff);
+    background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     font-weight: 800;
@@ -120,6 +121,31 @@ ul {
     background: var(--primary);
     color: white;
     box-shadow: 0 10px 20px rgba(82, 113, 255, 0.15);
+}
+
+.btn-gold {
+    background: #FFB703;
+    /* Gold/Orange from image */
+    color: #000;
+    box-shadow: 0 10px 20px rgba(255, 183, 3, 0.2);
+}
+
+.btn-gold:hover {
+    background: #ffa600;
+    transform: translateY(-3px);
+    box-shadow: 0 15px 30px rgba(255, 183, 3, 0.3);
+}
+
+.btn-outline-light {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: white;
+}
+
+.btn-outline-light:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: #fff;
+    color: white;
 }
 
 .shimmer::after {
@@ -245,11 +271,13 @@ ul {
     display: flex;
     align-items: center;
     position: relative;
-    padding-top: 80px;
-    background-image: url('../img/banner-hero.png');
+    padding-top: 130px;
+    /* Increased padding to clear header (approx 80px + 50px) */
+    /* Fallback dark color */
+    background-image: linear-gradient(to right, rgba(15, 23, 42, 0.9) 0%, rgba(15, 23, 42, 0.7) 40%, rgba(15, 23, 42, 0.1) 100%), url('../img/banner-hero.png');
     background-size: cover;
-    background-position: center center;
-    /* Person on right */
+    background-position: top center;
+    /* Anchors person to top so head isn't cut */
     overflow: hidden;
 }
 
@@ -276,11 +304,20 @@ ul {
 .hero-content h1 {
     font-size: 3.5rem;
     line-height: 1.1;
-    color: #1F2937;
-    /* Dark Deep Gray */
-    margin-bottom: 3.5rem;
+    color: #FFFFFF;
+    /* White text for dark banner */
+    margin-bottom: 2.5rem;
     font-weight: 800;
     letter-spacing: -1px;
+    text-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    /* improved readability */
+}
+
+.hero-content h1 span.highlight {
+    color: #FFB703;
+    /* Gold for hero title */
+    background: none;
+    -webkit-text-fill-color: #FFB703;
 }
 
 span.highlight {
@@ -292,31 +329,42 @@ span.highlight {
 
 .hero-content p {
     font-size: 1.25rem;
-    color: #4B5563;
-    /* Medium Gray */
+    color: #F3F4F6;
+    /* Light Gray for dark bg */
     margin-bottom: 2.5rem;
     line-height: 1.6;
     font-weight: 500;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    /* improved readability */
+    max-width: 90%;
+}
+
+.hero-btn-group {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
 }
 
 .pill-btn {
     border-radius: 50px;
-    padding: 1rem 3rem;
+    padding: 1rem 2.5rem;
     font-size: 1rem;
     font-weight: 700;
-    background: #2563EB;
-    /* Electric Blue */
-    color: white;
-    box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
-    /* Blue shadow */
     transition: all 0.3s ease;
-    align-self: flex-start;
+    display: inline-flex;
+    /* Ensure flex behavior */
+    align-items: center;
+    /* Vertically center icon and text */
+    justify-content: center;
+    gap: 0.8rem;
+    /* Space between icon and text */
+    white-space: nowrap;
+    /* Prevent text wrapping */
+    /* Removed color/bg/shadow to allow override */
 }
 
 .pill-btn:hover {
     transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(37, 99, 235, 0.4);
-    background: #1d4ed8;
 }
 
 .slide-in-bottom {
@@ -391,6 +439,12 @@ span.highlight {
     .hero-content p {
         color: #374151;
         /* Darker for readability on overlay */
+    }
+
+    .hero-btn-group {
+        justify-content: center;
+        flex-wrap: wrap;
+        width: 100%;
     }
 }
 
