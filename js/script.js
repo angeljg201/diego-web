@@ -57,4 +57,31 @@ document.addEventListener('DOMContentLoaded', () => {
             header.classList.remove('scrolled');
         }
     });
+
+    // Accordions (Course Detail)
+    const accordions = document.querySelectorAll('.accordion-header');
+    accordions.forEach(acc => {
+        acc.addEventListener('click', function () {
+            // Toggle current
+            this.classList.toggle('active');
+            const panel = this.nextElementSibling;
+
+            if (this.classList.contains('active')) {
+                panel.style.maxHeight = panel.scrollHeight + "px";
+            } else {
+                panel.style.maxHeight = null;
+            }
+
+            // Optional: Close others (Accordian behavior)
+            // Uncomment if you want only one open at a time
+            /*
+            accordions.forEach(other => {
+                if (other !== this && other.classList.contains('active')) {
+                    other.classList.remove('active');
+                    other.nextElementSibling.style.maxHeight = null;
+                }
+            });
+            */
+        });
+    });
 });

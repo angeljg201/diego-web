@@ -5,7 +5,7 @@ $cursos = [
         'descripcion' => 'Domina los fundamentos de la gestión de proyectos y prepárate para la certificación CAPM del PMI.',
         'imagen' => 'img/curso_proyectos.png', // Using proyectos for CAPM as it's related
         'precio' => 'S/ 350.00',
-        'link' => '#'
+        'link' => 'curso/?slug=gestion-proyectos'
     ],
     [
         'titulo' => 'Metodologías Ágiles',
