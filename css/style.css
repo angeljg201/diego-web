@@ -800,6 +800,7 @@ section {
     box-shadow: var(--shadow-hover);
 }
 
+
 .image-bg-glow {
     position: absolute;
     top: 25px;
@@ -837,20 +838,19 @@ section {
 
 .price-body {
     padding: 1.2rem;
-    /* Reduced from 2rem */
+    padding-top: 0;
+    /* Request: quites el padding top que sea 0 */
     text-align: center;
 }
 
 .price-display-large {
     font-size: 29px;
-    /* Precise size as requested */
     font-weight: 800;
     color: var(--primary);
     /* Navy */
     margin-bottom: 18px;
-    /* Precise spacing */
-    margin-top: 18px;
-    /* Precise requested top spacing */
+    margin-top: 0;
+    /* Removing top margin as requested to clear 'padding' */
     line-height: 1;
 }
 
@@ -1402,24 +1402,37 @@ textarea:focus {
 /* Sticky Sidebar */
 .sticky-sidebar {
     position: sticky;
-    top: 130px;
-    /* Offset for fixed header */
+    top: 110px;
+    /* Header is fixed, so we need space */
     z-index: 20;
-    /* Ensure it is above hero overlay/content if needed, but mainly above info bar */
+    transition: top 0.3s ease;
 }
 
 .details-sidebar {
     margin-top: -850px;
-    /* Pull up significantly to overlap Hero */
+    /* Pull up to overlap Hero */
+    margin-bottom: -850px;
+    /* Compensate footer push */
     position: relative;
     z-index: 30;
+    height: calc(100% + 850px);
+    /* Extend track length */
     pointer-events: none;
-    /* Allow clicks through empty space */
 }
 
 .details-sidebar>* {
     pointer-events: auto;
-    /* Re-enable pointer events */
+}
+
+@media (max-width: 992px) {
+    .details-sidebar {
+        margin-top: 0;
+        height: auto;
+    }
+
+    .sticky-sidebar {
+        position: static;
+    }
 }
 
 .pricing-card {
