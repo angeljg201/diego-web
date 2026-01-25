@@ -1,16 +1,62 @@
-<footer class="main-footer">
-    <div class="container footer-content">
-        <div class="footer-info">
-            <h3>Diego Ayasca</h3>
-            <p>Potenciando profesionales con educación de calidad.</p>
+<footer class="main-footer-dark">
+    <div class="container">
+        <div class="footer-grid">
+            <!-- Brand Column -->
+            <div class="footer-col brand-col">
+                <div class="footer-logo">
+                    <!-- Using text logo for now to match style, or keep image if preferred -->
+                    <h3>Diego Ayasca</h3> 
+                </div>
+                <p class="footer-desc">
+                    Somos una empresa en donde te preparamos y te enseñamos todo lo que necesitas saber para obtener las certificaciones PMP® y CAPM®.
+                </p>
+                <div class="contact-info">
+                    <p><i class="fab fa-whatsapp"></i> +51 984 539 997</p>
+                    <p><i class="fas fa-envelope"></i> contacto@diegoayasca.com</p>
+                </div>
+            </div>
+
+            <!-- Navigation Column -->
+            <div class="footer-col">
+                <h4>Navega</h4>
+                <ul class="footer-links">
+                    <li><a href="../index.php"><i class="fas fa-chevron-right"></i> Inicio</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Todo los Cursos</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Cursos Gratis</a></li>
+                </ul>
+            </div>
+
+            <!-- Legal Column -->
+            <div class="footer-col">
+                <h4>Avisos Legales</h4>
+                <ul class="footer-links">
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Terminos y Condiciones</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Política de Privacidad</a></li>
+                    <li><a href="#"><i class="fas fa-book"></i> Libro de Reclamaciones</a></li>
+                </ul>
+            </div>
+
+            <!-- Social Column -->
+            <div class="footer-col">
+                <h4>Síguenos</h4>
+                <div class="social-icons-footer">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
         </div>
-        <div class="social-links">
-            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-            <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
-            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+
+        <div class="footer-bottom-dark">
+            <p>Copyright © <?php echo date('Y'); ?> Diego Ayasca. Todos los derechos reservados</p>
+            <p class="legal-text">
+                PMP, CAPM, PMI-ACP, PgMP, PMI-RMP, PMI-SP, PMBOK, Project Management Professional, Certified Associate in Project Management (CAPM), Project Management Professional (PMP), PMI Agile Certified Practitioner (PMI-ACP), Program Management Professional (PgMP), PMI Risk Management Professional (PMI-RMP), PMI Scheduling Professional (PMI-SP), A Guide to the Project Management Body of Knowledge (PMBOK Guide) son marcas registradas del Project Management Institute, Inc.
+            </p>
         </div>
     </div>
-    <div class="footer-bottom">
-        <p>&copy; <?php echo date('Y'); ?> Diego Ayasca. Todos los derechos reservados.</p>
-    </div>
+    
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/51984539997" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
 </footer>

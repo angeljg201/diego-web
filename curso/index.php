@@ -163,6 +163,34 @@ $nav_prefix = '../index.php'; // On subpages, links go back to home
                                 <?php endforeach; ?>
                             </div>
                         </div>
+                        
+                        <!-- Instructor Section Moved Inside -->
+                        <div class="content-block hidden-fade" id="instructor">
+                             <h3>Conoce a tu <span class="highlight-text">Instructor</span></h3>
+                             <div class="instructor-card-inner">
+                                <div class="inst-inner-grid">
+                                    <div class="inst-img-wrapper">
+                                        <img src="../<?php echo $curso['instructor']['foto']; ?>" alt="<?php echo $curso['instructor']['nombre']; ?>">
+                                    </div>
+                                    <div class="inst-content-wrapper">
+                                        <h4><?php echo $curso['instructor']['nombre']; ?></h4>
+                                        <p class="inst-title"><?php echo $curso['instructor']['titulo_inst']; ?></p>
+                                        <p class="inst-bio"><?php echo $curso['instructor']['bio']; ?></p>
+                                        
+                                        <div class="inst-stats-mini">
+                                             <span><i class="fas fa-user-graduate"></i> +5k Alumnos</span>
+                                             <span><i class="fas fa-star"></i> 10+ Años Exp.</span>
+                                        </div>
+                                        
+                                        <div class="inst-socials">
+                                            <!-- Optional socials if data existed, or static for now -->
+                                            <a href="#"><i class="fab fa-linkedin"></i></a>
+                                            <a href="#"><i class="fas fa-envelope"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                             </div>
+                        </div>
 
                     </div>
 
@@ -197,39 +225,8 @@ $nav_prefix = '../index.php'; // On subpages, links go back to home
             </div>
         </section>
 
-        <!-- Instructor Full Section -->
-        <section class="instructor-section">
-             <div class="container">
-                <div class="instructor-grid">
-                    <div class="inst-image-col hidden-fade">
-                         <img src="../<?php echo $curso['instructor']['foto']; ?>" alt="<?php echo $curso['instructor']['nombre']; ?>">
-                    </div>
-                    <div class="inst-info-col hidden-fade">
-                        <h2>Conoce a tu <span class="highlight-text">Instructor</span></h2>
-                        <h3><?php echo $curso['instructor']['nombre']; ?></h3>
-                        <p class="lead"><?php echo $curso['instructor']['titulo_inst']; ?></p>
-                        <p><?php echo $curso['instructor']['bio']; ?></p>
-                        <div class="inst-stats">
-                             <div class="stat">
-                                <strong>+5k</strong> Alumnos
-                             </div>
-                             <div class="stat">
-                                <strong>10+</strong> Años Exp.
-                             </div>
-                        </div>
-                    </div>
-                </div>
-             </div>
-        </section>
-
-        <!-- Final CTA -->
-        <section class="cta-section">
-            <div class="container text-center hidden-fade">
-                <h2>¿Listo para impulsar tu carrera?</h2>
-                <p>Únete a cientos de profesionales que ya están transformando su futuro.</p>
-                <a href="#precio" class="btn btn-gold btn-lg pill-btn mt-2">Empezar Ahora</a>
-            </div>
-        </section>
+        <!-- Instructor Section removed from here (moved up) -->
+        <!-- CTA Section removed as requested -->
 
     </main>
 
