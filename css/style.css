@@ -502,10 +502,82 @@ section {
 }
 
 /* Cursos Cards - "Antigravity" Pro Design */
-.cursos-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 2.5rem;
+/* Cursos Carousel */
+/* Cursos Carousel */
+.carousel-wrapper {
+    position: relative;
+    /* Removed display: flex; to allow absolute buttons */
+    /* display: flex; */
+    /* align-items: center; */
+    padding: 0 1rem;
+    max-width: 1300px;
+    /* Reduced slightly to allow buttons on sides */
+    margin: 0 auto;
+}
+
+.carousel-container {
+    overflow: hidden;
+    width: 100%;
+    /* Ensure padding for shadow doesn't get clipped */
+    padding-bottom: 5px;
+}
+
+.carousel-track {
+    display: flex;
+    transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+    gap: 2rem;
+    padding: 1rem 0.5rem 2rem 0.5rem;
+    /* Padding for shadow/hover visibility */
+}
+
+/* Card Sizing in Carousel */
+.curso-card {
+    /* (100% - (GAP * (CARDS_VISIBLE - 1))) / CARDS_VISIBLE */
+    /* (100% - (2rem * 2)) / 3 = (100% - 4rem) / 3 */
+    width: calc((100% - 4rem) / 3);
+    min-width: calc((100% - 4rem) / 3);
+    flex-shrink: 0;
+}
+
+.carousel-btn {
+    background: var(--primary);
+    color: #fff;
+    border: none;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    font-size: 1.2rem;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: var(--transition);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+    position: absolute;
+    /* Floating */
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.prev-btn {
+    left: -20px;
+}
+
+.next-btn {
+    right: -20px;
+}
+
+.carousel-btn:hover {
+    background: var(--secondary);
+    /* Gold */
+    transform: translateY(-50%) scale(1.1);
+    /* Keep centered Y */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
+}
+
+.carousel-btn:active {
+    transform: translateY(-50%) scale(0.95);
 }
 
 .curso-card {
@@ -741,7 +813,44 @@ section {
     /* Subtle outline */
 }
 
-/* Contacto */
+/* Responsive Carousel */
+@media (max-width: 1100px) {
+    .curso-card {
+        /* (100% - 2rem) / 2 */
+        width: calc((100% - 2rem) / 2);
+        min-width: calc((100% - 2rem) / 2);
+    }
+}
+
+@media (max-width: 700px) {
+    .curso-card {
+        width: 100%;
+        min-width: 100%;
+        /* 1 card */
+    }
+
+    .carousel-wrapper {
+        padding: 0 2rem;
+        /* Give space for buttons */
+        gap: 0;
+    }
+
+    .carousel-btn {
+        width: 35px;
+        height: 35px;
+        font-size: 1rem;
+        /* Position adjustment for mobile */
+    }
+
+    .prev-btn {
+        left: 0;
+    }
+
+    .next-btn {
+        right: 0;
+    }
+}
+
 .contact-wrapper {
     max-width: 700px;
     margin: 0 auto;

@@ -58,6 +58,151 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    // Carousel Logic
+    const track = document.querySelector('.carousel-track');
+    if (track) {
+        const nextBtn = document.querySelector('.next-btn');
+        const prevBtn = document.querySelector('.prev-btn');
+
+        // Initial set of cards (before cloning)
+        let cards = Array.from(track.children);
+        if (cards.length === 0) return;
+
+        // Constants
+        const cloneCount = 3; // Max visible cards (desktop)
+
+        // Clone first and last cards
+        // Prepend last 'cloneCount' cards
+        for (let i = cards.length - cloneCount; i < cards.length; i++) {
+            // Handle case where we have fewer cards than cloneCount (e.g. 2 cards)
+            // But user has 4, so it's fine. If fewer, loop logic needs safety, assuming >=3 for now or wrap logic.
+            // Given 4 cards, safe to take last 3.
+            const clone = cards[i % cards.length].cloneNode(true);
+            clone.classList.add('clone');
+            track.insertBefore(clone, track.firstChild);
+        }
+
+        // Append first 'cloneCount' cards
+        for (let i = 0; i < cloneCount; i++) {
+            const clone = cards[i % cards.length].cloneNode(true);
+            clone.classList.add('clone');
+            track.appendChild(clone);
+        }
+
+        // Re-query cards to include clones
+        let allCards = Array.from(track.children);
+
+        let currentIndex = cloneCount; // Start at the first real card
+        let isTransitioning = false;
+
+        const updateCarousel = (transition = true) => {
+            const cardWidth = allCards[0].getBoundingClientRect().width;
+            const trackStyle = window.getComputedStyle(track);
+            const gap = parseFloat(trackStyle.gap) || 0;
+
+            const moveAmount = (cardWidth + gap) * currentIndex;
+
+            if (transition) {
+                track.style.transition = 'transform 0.5s cubic-bezier(0.25, 1, 0.5, 1)';
+            } else {
+                track.style.transition = 'none';
+            }
+
+            track.style.transform = `translateX(-${moveAmount}px)`;
+        };
+
+        // Initial setup
+        // Use setTimeout to ensure layout is computed
+        setTimeout(() => {
+            updateCarousel(false);
+        }, 100);
+
+        const nextSlide = () => {
+            if (isTransitioning) return;
+            if (currentIndex >= allCards.length - cloneCount) return; // Prevention
+
+            currentIndex++;
+            isTransitioning = true;
+            updateCarousel(true);
+        };
+
+        const prevSlide = () => {
+            if (isTransitioning) return;
+            if (currentIndex <= 0) return; // Prevention
+
+            currentIndex--;
+            isTransitioning = true;
+            updateCarousel(true);
+        };
+
+        // Handle Transition End for Loop
+        track.addEventListener('transitionend', () => {
+            isTransitioning = false;
+
+            const totalRealCards = cards.length;
+
+            // If we reached a clone at the end (Post-Clones)
+            // Index map: [Clones: 0..2] [Real: 3..6] [Clones: 7..9]
+            // If index is 7 (First Post-Clone, whic IS Card A), jump to 3 (Real Card A)
+            if (currentIndex >= cloneCount + totalRealCards) {
+                currentIndex = currentIndex - totalRealCards;
+                updateCarousel(false); // Jump without transition
+            }
+
+            // If we reached a clone at the start (Pre-Clones)
+            // If index is 2 (Last Pre-Clone, which IS Card D), jump to 6 (Real Card D)
+            if (currentIndex < cloneCount) {
+                currentIndex = currentIndex + totalRealCards;
+                updateCarousel(false); // Jump without transition
+            }
+        });
+
+        if (nextBtn) {
+            nextBtn.addEventListener('click', () => {
+                nextSlide();
+                resetAutoplay();
+            });
+        }
+
+        if (prevBtn) {
+            prevBtn.addEventListener('click', () => {
+                prevSlide();
+                resetAutoplay();
+            });
+        }
+
+        // Autoplay Logic
+        let autoplayInterval;
+
+        const startAutoplay = () => {
+            autoplayInterval = setInterval(() => {
+                nextSlide();
+            }, 3000);
+        };
+
+        const stopAutoplay = () => {
+            clearInterval(autoplayInterval);
+        };
+
+        const resetAutoplay = () => {
+            stopAutoplay();
+            startAutoplay();
+        };
+
+        // Pause on hover
+        track.addEventListener('mouseenter', stopAutoplay);
+        track.addEventListener('mouseleave', startAutoplay);
+
+        // Start initially
+        startAutoplay();
+
+        window.addEventListener('resize', () => {
+            // Recalculate position perfectly (width changes)
+            updateCarousel(false);
+            resetAutoplay();
+        });
+    }
+
     // Accordions (Course Detail)
     const accordions = document.querySelectorAll('.accordion-header');
     accordions.forEach(acc => {
