@@ -195,23 +195,31 @@ $nav_prefix = '../index.php'; // On subpages, links go back to home
                     <div class="details-sidebar">
                         <div class="sticky-sidebar hidden-fade">
                             <!-- Pricing Card Moved Here -->
+                            <!-- Pricing Card Redesign -->
                             <div class="pricing-card glass-card" id="precio">
-                                <div class="price-header">
-                                    <span class="price-label">Oferta Especial</span>
-                                    <div class="price-container">
-                                        <span class="old-price"><?php echo $curso['precio']; ?></span>
-                                        <span class="current-price"><?php echo $curso['precio_oferta']; ?></span>
-                                    </div>
+                                <div class="card-header-image">
+                                    <img src="../<?php echo $curso['imagen']; ?>" alt="<?php echo $curso['titulo']; ?>">
                                 </div>
+                                
                                 <div class="price-body">
-                                    <ul class="price-features">
-                                        <li><i class="fas fa-check text-green"></i> Acceso inmediato</li>
-                                        <li><i class="fas fa-check text-green"></i> Certificado incluido</li>
-                                        <li><i class="fas fa-check text-green"></i> Recursos descargables</li>
-                                        <li><i class="fas fa-check text-green"></i> Garantía de 7 días</li>
-                                    </ul>
-                                    <a href="#" class="btn btn-primary btn-block btn-lg">¡Inscribirme Ahora!</a>
-                                    <p class="guarantee-text"><i class="fas fa-shield-alt"></i> Compra 100% Segura</p>
+                                    <div class="price-display-large">
+                                        <?php echo $curso['precio']; ?>
+                                    </div>
+                                    
+                                    <div class="sidebar-actions">
+                                        <a href="#" class="btn btn-primary btn-block btn-lg uppercase-btn">MATRICÚLATE AHORA <i class="fas fa-chevron-right"></i></a>
+                                        <a href="#" class="btn btn-outline btn-block btn-lg uppercase-btn">MÁS INFORMACIÓN <i class="fas fa-external-link-alt"></i></a>
+                                    </div>
+                                    
+                                    <div class="features-list-container">
+                                        <h4 class="features-title">Esta capacitación incluye:</h4>
+                                        <ul class="price-features-new">
+                                            <li><i class="far fa-check-circle text-primary"></i> Certificado del Curso</li>
+                                            <li><i class="far fa-check-circle text-primary"></i> Entrenamiento online en Vivo</li>
+                                            <li><i class="far fa-check-circle text-primary"></i> Recursos descargables</li>
+                                            <li><i class="far fa-check-circle text-primary"></i> Acceso de por vida</li>
+                                        </ul>
+                                    </div>
                                 </div>
                             </div>
 
