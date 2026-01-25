@@ -1317,16 +1317,19 @@ textarea:focus {
         /* Show pricing first on mobile? Or maybe keeping it below is better for UX if there is a sticky CTA button bottom. Let's keep distinct order, maybe pricing first is good or after intro. Let's keep default (below content) for now, but adding a fixed bottom bar is common pro tactic. User didn't ask for it specifically. */
     }
 }
+
 /* =========================================
    Footer Dark Style (Refactor)
    ========================================= */
 .main-footer-dark {
-    background-color: #001f3f; /* Dark Navy Blue */
+    background-color: #001f3f;
+    /* Dark Navy Blue */
     color: #FFFFFF;
     padding: 4rem 0 2rem;
     font-size: 0.95rem;
     position: relative;
-    border-top: none; /* Reset if needed */
+    border-top: none;
+    /* Reset if needed */
     margin-top: 5rem;
 }
 
@@ -1341,12 +1344,13 @@ textarea:focus {
     font-size: 1.8rem;
     font-weight: 800;
     margin-bottom: 1rem;
-    color: #3b82f6; /* Lighter Blue accent for Logo text if needed, or White */
+    color: #3b82f6;
+    /* Lighter Blue accent for Logo text if needed, or White */
 }
 
 /* Specific PMPro style blue for logo if needed */
 .footer-logo h3 {
-    color: #3b82f6; 
+    color: #3b82f6;
 }
 
 .footer-desc {
@@ -1387,12 +1391,15 @@ textarea:focus {
 }
 
 .footer-links a i {
-    font-size: 0.7rem; /* Chevron size */
+    font-size: 0.7rem;
+    /* Chevron size */
 }
 
 .footer-links a:hover {
-    color: #fbbf24; /* Gold Hover */
-    padding-left: 5px; /* Slide effect */
+    color: #fbbf24;
+    /* Gold Hover */
+    padding-left: 5px;
+    /* Slide effect */
 }
 
 .social-icons-footer {
@@ -1555,7 +1562,7 @@ textarea:focus {
     .footer-links a {
         justify-content: center;
     }
-    
+
     .social-icons-footer {
         justify-content: center;
     }
@@ -1565,16 +1572,91 @@ textarea:focus {
         text-align: center;
         align-items: center;
     }
-    
+
     .inst-img-wrapper {
         margin-bottom: 1rem;
     }
-    
+
     .inst-stats-mini {
         justify-content: center;
     }
-    
+
     .inst-socials {
         justify-content: center;
+    }
+}
+
+/* =========================================
+   Info Bar Inline (Refactor)
+   ========================================= */
+.info-inline-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--border-light);
+    flex-wrap: wrap;
+}
+
+.info-inline-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex: 1;
+    /* Distribute space */
+    min-width: 200px;
+}
+
+.icon-circle {
+    width: 60px;
+    height: 60px;
+    background-color: #F3F4F6;
+    /* Light gray/blue base */
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: var(--primary);
+    flex-shrink: 0;
+}
+
+/* Specific colors if desired - REVERTED to Theme Defaults as requested */
+.icon-circle {
+    background-color: #F3F4F6;
+    /* Light Gray */
+    color: var(--primary);
+    /* Navy */
+}
+
+.info-label {
+    display: block;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--text-muted);
+    font-weight: 700;
+    margin-bottom: 0.2rem;
+}
+
+.info-val {
+    display: block;
+    font-size: 1rem;
+    font-weight: 800;
+    color: var(--primary);
+    line-height: 1.2;
+}
+
+@media (max-width: 600px) {
+    .info-inline-container {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 2rem;
+    }
+
+    .info-inline-item {
+        width: 100%;
     }
 }

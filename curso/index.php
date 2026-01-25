@@ -70,34 +70,7 @@ $nav_prefix = '../index.php'; // On subpages, links go back to home
             </div>
         </section>
 
-        <!-- Course Info Bar -->
-        <div class="course-info-bar">
-            <div class="container info-grid">
-                <div class="info-item">
-                    <i class="fas fa-clock"></i>
-                    <div>
-                        <span class="label">Duración</span>
-                        <span class="value"><?php echo $curso['info']['duracion']; ?></span>
-                    </div>
-                </div>
-                <div class="info-item">
-                    <i class="fas fa-video"></i>
-                    <div>
-                        <span class="label">Modalidad</span>
-                        <span class="value"><?php echo $curso['info']['modalidad']; ?></span>
-                    </div>
-                </div>
-                <!-- Level removed as requested -->
-                <!-- Optional Aula Virtual Access -->
-                 <div class="info-item">
-                    <i class="fas fa-laptop-code"></i>
-                    <div>
-                        <span class="label">Acceso</span>
-                        <span class="value">Aula Virtual 24/7</span>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <!-- Course Info Bar Moved -->
 
         <!-- Description & Learning -->
         <section class="course-details section-padding">
@@ -105,6 +78,30 @@ $nav_prefix = '../index.php'; // On subpages, links go back to home
                 <div class="details-grid">
                     <!-- Left Content -->
                     <div class="details-content">
+                        <!-- Info Bar Inline -->
+                        <div class="info-inline-container hidden-fade">
+                            <div class="info-inline-item">
+                                <div class="icon-circle"><i class="fas fa-clock"></i></div>
+                                <div>
+                                    <span class="info-label">DURACIÓN</span>
+                                    <span class="info-val"><?php echo $curso['info']['duracion']; ?></span>
+                                </div>
+                            </div>
+                            <div class="info-inline-item">
+                                <div class="icon-circle"><i class="fas fa-video"></i></div>
+                                <div>
+                                    <span class="info-label">MODALIDAD</span>
+                                    <span class="info-val"><?php echo $curso['info']['modalidad']; ?></span>
+                                </div>
+                            </div>
+                            <div class="info-inline-item">
+                                <div class="icon-circle"><i class="fas fa-laptop-code"></i></div>
+                                <div>
+                                    <span class="info-label">ACCESO</span>
+                                    <span class="info-val">Aula Virtual 24/7</span>
+                                </div>
+                            </div>
+                        </div>
                         <div class="content-block hidden-fade">
                             <h2>Descripción del <span class="highlight-text">Curso</span></h2>
                             <div class="rich-text">

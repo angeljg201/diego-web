@@ -38,7 +38,7 @@ $cursos_detalle = [
             ],
             [
                 'modulo' => 'Módulo 3: Metodologías Ágiles (Scrum)',
-                'lecciones' => ['Mindset Ágil vs Tradicional', 'El framework Scrum', 'Planificación y Estimación Ágil']
+                'lecciones' => ['Metodología Scrum: Roles, Eventos y Artefactos', 'Planificación y Estimación Ágil']
             ],
             [
                 'modulo' => 'Módulo 4: Cierre y Certificación',
@@ -49,7 +49,7 @@ $cursos_detalle = [
             'nombre' => 'Diego Ayasca',
             'titulo_inst' => 'PMP®, Scrum Master & Agile Coach',
             'bio' => 'Consultor senior con más de 10 años gestionando proyectos de tecnología e infraestructura. Ha capacitado a más de 5,000 profesionales en Latinoamérica. Apasionado por transformar la teoría compleja en práctica simple.',
-            'foto' => 'img/mi-foto.jpg' // Reusing existing image
+            'foto' => 'img/mi-foto.jpg' 
         ],
         'precio' => 'S/ 350.00',
         'precio_oferta' => 'S/ 299.00',
