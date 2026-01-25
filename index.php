@@ -55,17 +55,25 @@ $nav_prefix = '';
                 <div class="cursos-grid">
                     <?php foreach ($cursos as $curso): ?>
                         <article class="curso-card glass-card hidden-fade">
-                            <div class="card-image">
-                                <img src="<?php echo $curso['imagen']; ?>" alt="<?php echo $curso['titulo']; ?>">
-                                <div class="card-overlay"></div>
-                            </div>
-                            <div class="card-content">
-                                <h3><?php echo $curso['titulo']; ?></h3>
-                                <p><?php echo $curso['descripcion']; ?></p>
-                                <div class="card-footer">
-                                    <span class="price"><?php echo $curso['precio']; ?></span>
-                                    <a href="<?php echo $curso['link']; ?>" class="btn btn-sm btn-outline">Inscribirme</a>
+                            <div class="card-header">
+                                <div class="card-badge"><?php echo $curso['etiqueta']; ?></div>
+                                <div class="card-image">
+                                    <img src="<?php echo $curso['imagen']; ?>" alt="<?php echo $curso['titulo']; ?>">
+                                    <div class="card-overlay"></div>
                                 </div>
+                            </div>
+                            <div class="card-body">
+                                <h3 class="card-title"><?php echo $curso['titulo']; ?></h3>
+                                <div class="card-meta">
+                                    <span><i class="fas fa-book-open"></i> <?php echo $curso['lecciones']; ?></span>
+                                    <span><i class="far fa-clock"></i> <?php echo $curso['horas']; ?></span>
+                                    <span><i class="fas fa-user-graduate"></i> <?php echo $curso['estudiantes']; ?></span>
+                                </div>
+                                <p class="card-desc"><?php echo $curso['descripcion']; ?></p>
+                            </div>
+                            <div class="card-footer">
+                                <a href="<?php echo $curso['link']; ?>" class="btn btn-block btn-primary">Ver Curso <i class="fas fa-chevron-right"></i></a>
+                                <div class="price-tag"><?php echo $curso['precio']; ?></div>
                             </div>
                         </article>
                     <?php endforeach; ?>
