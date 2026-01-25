@@ -1118,8 +1118,10 @@ textarea:focus {
 
 /* Course Hero */
 .course-hero {
-    min-height: 90vh;
-    /* Increased height for impact */
+    min-height: auto;
+    /* Reduced from 90vh */
+    padding-bottom: 4rem;
+    /* Terminate shortly after text */
     display: flex;
     align-items: center;
     position: relative;
@@ -1128,6 +1130,7 @@ textarea:focus {
     background-position: center;
     overflow: hidden;
 }
+
 
 .hero-overlay {
     position: absolute;
@@ -1409,14 +1412,14 @@ textarea:focus {
 }
 
 .details-sidebar {
-    margin-top: -850px;
-    /* Pull up to overlap Hero */
-    margin-bottom: -850px;
-    /* Compensate footer push */
+    margin-top: -550px;
+    /* Adjusted for shorter hero */
+    margin-bottom: -550px;
+    /* Compensate */
     position: relative;
     z-index: 30;
-    height: calc(100% + 850px);
-    /* Extend track length */
+    height: calc(100% + 550px);
+    /* Adjusted track length */
     pointer-events: none;
 }
 

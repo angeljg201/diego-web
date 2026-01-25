@@ -57,12 +57,6 @@ $nav_prefix = '../index.php'; // On subpages, links go back to home
                         <?php endforeach; ?>
                     </ul>
 
-                    <div class="hero-actions">
-                         <!-- Removed primary CTA here as it is now in the card, but kept "Ver Temario" and maybe a secondary "Más Info" if desired, 
-                              but sticking to plan: "Floating Purchase Card... containing... Buy Now". 
-                              I will keep "Ver Temario" button here. -->
-                        <a href="#temario" class="btn btn-outline-light btn-lg pill-btn">Ver Temario <i class="fas fa-arrow-down"></i></a>
-                    </div>
                 </div>
                 
                 <!-- Pricing Card Moved to Sidebar -->
