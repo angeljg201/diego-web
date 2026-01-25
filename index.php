@@ -1,6 +1,10 @@
 <?php
 // Diego Ayasca - Landing Page "Antigravity Style"
-require_once 'data/cursos.php';
+require_once __DIR__ . '/data/cursos.php';
+
+// Base Path Definition
+$base_path = '';
+$nav_prefix = '';
 ?>
 <!DOCTYPE html>
 <html lang="es">

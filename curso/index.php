@@ -11,8 +11,13 @@ if (!$curso) {
     // For demo purposes, we fallback to the first course if slug is empty or invalid, 
     // or you could redirect: header("Location: index.php"); exit;
     // Let's default to 'gestion-proyectos' for better UX if accessed directly
+    // Let's default to 'gestion-proyectos' for better UX if accessed directly
     $curso = $cursos_detalle['gestion-proyectos'];
 }
+
+// Base Path Definition for Subdirectory
+$base_path = '../'; 
+$nav_prefix = '../index.php'; // On subpages, links go back to home
 ?>
 <!DOCTYPE html>
 <html lang="es">
