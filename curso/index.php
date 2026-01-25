@@ -43,7 +43,8 @@ $nav_prefix = '../index.php'; // On subpages, links go back to home
 
     <main>
         <!-- Course Hero Section -->
-        <section class="course-hero">
+        <section class="course-hero" style="background-image: url('../<?php echo $curso['imagen']; ?>');">
+            <div class="hero-overlay"></div>
             <div class="container course-hero-container">
                 <div class="course-hero-content slide-in-bottom">
                     <span class="badge-accent">Curso Online</span>
@@ -57,16 +58,15 @@ $nav_prefix = '../index.php'; // On subpages, links go back to home
                     </ul>
 
                     <div class="hero-actions">
-                        <a href="#precio" class="btn btn-gold btn-lg pill-btn">Inscribirme ahora <i class="fas fa-arrow-right"></i></a>
-                        <a href="#temario" class="btn btn-outline-light btn-lg pill-btn">Ver Temario</a>
+                         <!-- Removed primary CTA here as it is now in the card, but kept "Ver Temario" and maybe a secondary "Más Info" if desired, 
+                              but sticking to plan: "Floating Purchase Card... containing... Buy Now". 
+                              I will keep "Ver Temario" button here. -->
+                        <a href="#temario" class="btn btn-outline-light btn-lg pill-btn">Ver Temario <i class="fas fa-arrow-down"></i></a>
                     </div>
                 </div>
-                <div class="course-hero-image hidden-fade">
-                    <div class="image-wrapper-hero">
-                        <img src="../<?php echo $curso['imagen']; ?>" alt="<?php echo $curso['titulo']; ?>">
-                        <div class="glow-effect"></div>
-                    </div>
-                </div>
+                
+                <!-- Pricing Card Moved to Sidebar -->
+                <div class="course-hero-card hidden-fade" style="display: none;"></div>
             </div>
         </section>
 
@@ -87,13 +87,7 @@ $nav_prefix = '../index.php'; // On subpages, links go back to home
                         <span class="value"><?php echo $curso['info']['modalidad']; ?></span>
                     </div>
                 </div>
-                <div class="info-item">
-                    <i class="fas fa-signal"></i>
-                    <div>
-                        <span class="label">Nivel</span>
-                        <span class="value"><?php echo $curso['info']['nivel']; ?></span>
-                    </div>
-                </div>
+                <!-- Level removed as requested -->
                 <!-- Optional Aula Virtual Access -->
                  <div class="info-item">
                     <i class="fas fa-laptop-code"></i>
@@ -175,7 +169,7 @@ $nav_prefix = '../index.php'; // On subpages, links go back to home
                     <!-- Sidebar / Right Content -->
                     <div class="details-sidebar">
                         <div class="sticky-sidebar hidden-fade">
-                            <!-- Pricing Card -->
+                            <!-- Pricing Card Moved Here -->
                             <div class="pricing-card glass-card" id="precio">
                                 <div class="price-header">
                                     <span class="price-label">Oferta Especial</span>
@@ -196,13 +190,7 @@ $nav_prefix = '../index.php'; // On subpages, links go back to home
                                 </div>
                             </div>
 
-                            <!-- Instructor Mini Profile -->
-                             <div class="instructor-card glass-mini mt-2">
-                                <img src="../<?php echo $curso['instructor']['foto']; ?>" alt="<?php echo $curso['instructor']['nombre']; ?>" class="instructor-avatar">
-                                <h4><?php echo $curso['instructor']['nombre']; ?></h4>
-                                <p class="inst-title"><?php echo $curso['instructor']['titulo_inst']; ?></p>
-                                <p class="inst-bio"><?php echo substr($curso['instructor']['bio'], 0, 100) . '...'; ?></p>
-                             </div>
+                            <!-- Instructor Mini Profile Removed as requested -->
                         </div>
                     </div>
                 </div>
