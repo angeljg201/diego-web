@@ -12,6 +12,7 @@ $nav_prefix = '';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Diego Ayasca | Potencia tu carrera profesional</title>
+    <link rel="icon" href="img/logo.png" type="image/png">
     
     <!-- Google Fonts: Outfit -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -31,6 +32,10 @@ $nav_prefix = '';
     <main>
         <!-- Hero Section (Background Image) -->
         <section id="inicio" class="hero-section">
+            <div class="hero-slider">
+                <div class="slide slide-1"></div>
+                <div class="slide slide-2"></div>
+            </div>
             <div class="hero-overlay-mobile"></div>
             <div class="container hero-container">
                 <div class="hero-content slide-in-bottom">

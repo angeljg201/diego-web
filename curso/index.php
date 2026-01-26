@@ -25,6 +25,7 @@ $nav_prefix = '../index.php'; // On subpages, links go back to home
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo $curso['titulo']; ?> | Diego Ayasca</title>
+    <link rel="icon" href="../img/logo.png" type="image/png">
     
     <!-- Google Fonts: Outfit -->
     <link rel="preconnect" href="https://fonts.googleapis.com">

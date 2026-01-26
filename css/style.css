@@ -302,11 +302,65 @@ ul {
     padding-top: 130px;
     /* Increased padding to clear header (approx 80px + 50px) */
     /* Fallback dark color */
-    background-image: linear-gradient(to right, rgba(15, 23, 42, 0.9) 0%, rgba(15, 23, 42, 0.7) 40%, rgba(15, 23, 42, 0.1) 100%), url('../img/banner-hero.png');
+    background-color: #0f172a;
+    background-image: none;
+    /* Slider handles images */
+    overflow: hidden;
+}
+
+.hero-slider {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     background-size: cover;
     background-position: top center;
-    /* Anchors person to top so head isn't cut */
-    overflow: hidden;
+    animation: slideFade 4s infinite;
+    /* Total cycle time 4s (2s per slide) */
+    opacity: 0;
+}
+
+.slide-1 {
+    background-image: linear-gradient(to right, rgba(15, 23, 42, 0.9) 0%, rgba(15, 23, 42, 0.7) 40%, rgba(15, 23, 42, 0.1) 100%), url('../img/1.png');
+    animation-delay: 0s;
+}
+
+.slide-2 {
+    background-image: linear-gradient(to right, rgba(15, 23, 42, 0.9) 0%, rgba(15, 23, 42, 0.7) 40%, rgba(15, 23, 42, 0.1) 100%), url('../img/2.png');
+    animation-delay: 2s;
+    /* Offsets by 2s */
+}
+
+@keyframes slideFade {
+    0% {
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    60% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 0;
+    }
 }
 
 .hero-overlay-mobile {
@@ -1981,5 +2035,38 @@ textarea:focus {
 
     .info-inline-item {
         width: 100%;
+    }
+}
+
+/* Course Details Sticky Layout */
+.details-grid {
+    display: grid;
+    grid-template-columns: 1fr 380px;
+    gap: 3rem;
+    align-items: stretch;
+    position: relative;
+}
+
+.details-sidebar {
+    position: relative;
+    height: 100%;
+}
+
+.sticky-sidebar {
+    position: sticky;
+    top: 110px;
+    /* Adjust based on header height (~80-90px) + gap */
+    transition: top 0.3s ease;
+    z-index: 10;
+}
+
+@media (max-width: 992px) {
+    .details-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .sticky-sidebar {
+        position: static;
+        margin-top: 2rem;
     }
 }
