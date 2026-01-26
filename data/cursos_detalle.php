@@ -1,7 +1,7 @@
 <?php
 // Mock Data for Course Details
 $cursos_detalle = [
-    'gestion-proyectos' => [
+    'gestion-proyectos' => [ // Keeping as fallback or alias
         'titulo' => 'Gestión de Proyectos y Metodologías Ágiles',
         'subtitulo' => 'Domina el arte de liderar proyectos exitosos con enfoque tradicional y ágil.',
         'imagen' => 'img/curso_proyectos.png',
@@ -58,7 +58,226 @@ $cursos_detalle = [
             ['q' => '¿Las clases quedan grabadas?', 'a' => 'Sí, tendrás acceso de por vida a las grabaciones a través de nuestra aula virtual.'],
             ['q' => '¿Incluye el examen de certificación oficial?', 'a' => 'El curso incluye preparación y simulacros, pero el examen oficial se paga directamente a las entidades certificadoras (PMI, Scrum.org).']
         ]
+    ],
+    'metodologias-agiles' => [
+        'titulo' => 'Metodologías Ágiles (Scrum & Kanban)',
+        'subtitulo' => 'Gestiona equipos de alto rendimiento y entrega valor continuo con marcos de trabajo ágiles.',
+        'imagen' => 'img/curso_agiles.png',
+        'descripcion_corta' => 'Domina Scrum, Kanban y Lean para transformar la forma en que trabajas.',
+        'descripcion_larga' => '<p>En un entorno VUCA, la agilidad no es una opción, es una necesidad. Este curso te enseñará a implementar Scrum y Kanban desde cero, mejorando la colaboración, transparencia y velocidad de entrega de tus equipos.</p><p>Aprenderás a facilitar eventos efectivos, gestionar backlogs y utilizar métricas ágiles para la mejora continua.</p>',
+        'beneficios' => [
+            'Certificación Scrum Master (preparación).',
+            'Tableros Kanban físicos y digitales (Jira/Trello).',
+            'Dinámicas de retrospectiva innovadoras.',
+            'Escalado de agilidad en la empresa.'
+        ],
+        'aprenderas' => [
+            'Mindset Ágil vs Tradicional.',
+            'Framework Scrum: 3-5-3 (Roles, Eventos, Artefactos).',
+            'Método Kanban: Visualización y Flujo.',
+            'Historias de Usuario y Criterios de Aceptación.',
+            'Estimación Ágil (Planning Poker).',
+            'Métricas: Velocidad, Lead Time, Cycle Time.'
+        ],
+        'info' => [
+            'duracion' => '4 Semanas',
+            'modalidad' => '100% Online',
+            'nivel' => 'Todos los niveles',
+            'certificado' => 'Sí, Especialización en Agilidad'
+        ],
+        'temario' => [
+            [
+                'modulo' => 'Módulo 1: Introducción a la Agilidad',
+                'lecciones' => ['Manifiesto Ágil', 'Valores y Principios', '¿Por qué Agile?']
+            ],
+            [
+                'modulo' => 'Módulo 2: Scrum Framework',
+                'lecciones' => ['El Scrum Master y Product Owner', 'Sprints y Eventos', 'Artefactos']
+            ],
+            [
+                'modulo' => 'Módulo 3: Kanban y Lean',
+                'lecciones' => ['Principios de Kanban', 'WIP Limits', 'Gestión del Flujo']
+            ],
+            [
+                'modulo' => 'Módulo 4: Ejecución Ágil',
+                'lecciones' => ['Simulación de Sprint', 'Herramientas Digitales', 'Examen Final']
+            ]
+        ],
+        'instructor' => [
+            'nombre' => 'Diego Ayasca',
+            'titulo_inst' => 'Agile Coach & Trainer',
+            'bio' => 'Ha acompañado la transformación ágil en empresas de banca y retail. Certificado en Scrum, Kanban y SAFe.',
+            'foto' => 'img/mi-foto.jpg' 
+        ],
+        'precio' => 'S/ 300.00',
+        'precio_oferta' => 'S/ 249.00',
+        'faq' => [
+            ['q' => '¿Es solo para software?', 'a' => 'No, Scrum y Kanban se aplican en marketing, RRHH y cualquier área de gestión.'],
+            ['q' => '¿Qué certificación obtengo?', 'a' => 'Recibes un certificado del curso y preparación para PSM I (Scrum.org).']
+        ]
+    ],
+    'investigacion-academica' => [
+        'titulo' => 'Investigación Académica y Redacción Científica',
+        'subtitulo' => 'Domina las técnicas de redacción, citado y metodología para tesis y artículos científicos.',
+        'imagen' => 'img/curso_investigacion.png',
+        'descripcion_corta' => 'Aprende a estructurar, redactar y publicar investigaciones de alto impacto.',
+        'descripcion_larga' => '<p>Este curso está diseñado para estudiantes, tesistas e investigadores que desean perfeccionar sus habilidades en la redacción académica. Aprenderás a formular problemas de investigación, estructurar marcos teóricos sólidos y analizar datos con rigor científico.</p><p>Además, profundizaremos en las normas de citación (APA 7ma Edición) y estrategias para publicar en revistas indexadas.</p>',
+        'beneficios' => [
+            'Dominio de Normas APA 7ma Edición.',
+            'Estrategias para elegir y delimitar tu tema de tesis.',
+            'Uso de gestores bibliográficos (Mendeley/Zotero).',
+            'Plantillas para redacción de artículos científicos.'
+        ],
+        'aprenderas' => [
+            'Estructura de una Tesis y Artículo Científico (IMRD).',
+            'Búsqueda avanzada en bases de datos (Scopus, WoS).',
+            'Metodología de la Investigación: Enfoques cuanti y cuali.',
+            'Redacción académica clara y coherente.',
+            'Análisis e interpretación de resultados.',
+            'Gestión de referencias bibliográficas.'
+        ],
+        'info' => [
+            'duracion' => '4 Semanas',
+            'modalidad' => '100% Online (Clases en Vivo)',
+            'nivel' => 'Básico - Intermedio',
+            'certificado' => 'Sí, Certificado de Aprobación'
+        ],
+        'temario' => [
+            [
+                'modulo' => 'Módulo 1: El Proyecto de Investigación',
+                'lecciones' => ['Elección del tema y planteamiento del problema', 'Objetivos e hipótesis', 'Búsqueda bibliográfica efectiva']
+            ],
+            [
+                'modulo' => 'Módulo 2: Marco Teórico y Método',
+                'lecciones' => ['Antecedentes y bases teóricas', 'Diseño metodológico', 'Población y muestra']
+            ],
+            [
+                'modulo' => 'Módulo 3: Redacción y Normativa',
+                'lecciones' => ['Normas APA 7ma Edición', 'Citas y referencias', 'Evitar el plagio y uso de Turnitin']
+            ]
+        ],
+        'instructor' => [
+            'nombre' => 'Diego Ayasca',
+            'titulo_inst' => 'Investigador y Asesor de Tesis',
+            'bio' => 'Experiencia asesorando más de 200 tesis de pregrado y posgrado. Publicaciones en revistas indexadas y conferencias internacionales.',
+            'foto' => 'img/mi-foto.jpg' 
+        ],
+        'precio' => 'S/ 250.00',
+        'precio_oferta' => 'S/ 199.00',
+        'faq' => [
+            ['q' => '¿Sirve para cualquier carrera?', 'a' => 'Sí, los fundamentos de investigación son transversales, aunque se dan ejemplos de diversas áreas.'],
+            ['q' => '¿Enseñan estadística?', 'a' => 'Se ven conceptos básicos para la interpretación, pero no es un curso de software estadístico avanzado.']
+        ]
+    ],
+    'liderazgo-equipos-it' => [
+        'titulo' => 'Liderazgo de Equipos IT y Habilidades Directivas',
+        'subtitulo' => 'Desarrolla habilidades blandas y directivas para liderar equipos tecnológicos con éxito.',
+        'imagen' => 'img/curso_proyectos.png',
+        'descripcion_corta' => 'Pasa de ser un líder técnico a un líder de personas inspirador y efectivo.',
+        'descripcion_larga' => '<p>En el sector tecnológico, las habilidades técnicas no bastan. Este curso te prepara para los desafíos de gestionar talento humano en entornos IT. Aprenderás a motivar equipos, resolver conflictos, negociar con stakeholders y comunicar visión estratégica.</p><p>Ideal para Tech Leads, Engineering Managers y CTOs en formación.</p>',
+        'beneficios' => [
+            'Técnicas de comunicación asertiva y feedback.',
+            'Gestión de conflictos en equipos remotos.',
+            'Mentoring y desarrollo de carrera para tu equipo.',
+            'Inteligencia emocional para líderes.'
+        ],
+        'aprenderas' => [
+            'Transición de Dev a Lead.',
+            'Delegación efectiva y empoderamiento.',
+            'Gestión del desempeño y OKRs.',
+            'Contratación y Onboarding en IT.',
+            'Cultura de ingeniería y seguridad psicológica.',
+            'Gestión del estrés y burnout en equipos.'
+        ],
+        'info' => [
+            'duracion' => '6 Semanas',
+            'modalidad' => '100% Online (Taller Práctico)',
+            'nivel' => 'Intermedio',
+            'certificado' => 'Sí, Certificado de Liderazgo'
+        ],
+        'temario' => [
+            [
+                'modulo' => 'Módulo 1: El Rol del Líder Técnico',
+                'lecciones' => ['Diferencia entre gestión y liderazgo', 'Estilos de liderazgo', 'Autoliderazgo']
+            ],
+            [
+                'modulo' => 'Módulo 2: Gestión de Personas',
+                'lecciones' => ['Reuniones 1:1 efectivas', 'Dar y recibir Feedback', 'Plan de desarrollo individual']
+            ],
+            [
+                'modulo' => 'Módulo 3: Equipos de Alto Rendimiento',
+                'lecciones' => ['Seguridad psicológica', 'Gestión de conflictos', 'Comunicación en equipos distribuidos']
+            ]
+        ],
+        'instructor' => [
+            'nombre' => 'Diego Ayasca',
+            'titulo_inst' => 'Engineering Manager & Coach',
+            'bio' => 'Ha liderado equipos de ingeniería en startups y corporativos. Especialista en formar líderes técnicos humanos y efectivos.',
+            'foto' => 'img/mi-foto.jpg' 
+        ],
+        'precio' => 'S/ 400.00',
+        'precio_oferta' => 'S/ 350.00',
+        'faq' => [
+            ['q' => '¿Es solo para programadores?', 'a' => 'Está enfocado en líderes de tecnología (Devs, QA, UX), pero los principios aplican a cualquier líder de equipos creativos.'],
+            ['q' => '¿Incluye sesiones de coaching?', 'a' => 'Incluye prácticas de role-playing en vivo, pero el coaching individual es un servicio aparte.']
+        ]
+    ],
+    'certificacion-capm' => [
+        'titulo' => 'Certificación CAPM® - Gestión de Proyectos',
+        'subtitulo' => 'Domina los fundamentos de la gestión de proyectos y prepárate para la certificación CAPM del PMI.',
+        'imagen' => 'img/curso_proyectos.png',
+        'descripcion_corta' => 'Tu puerta de entrada al mundo de la gestión de proyectos profesional certificada.',
+        'descripcion_larga' => '<p>El Certified Associate in Project Management (CAPM)® es una certificación reconocida mundialmente que valida tu comprensión de la terminología y los procesos fundamentales de la gestión eficaz de proyectos. Este curso cubre todo el contenido del ECO (Examination Content Outline) vigente.</p>',
+        'beneficios' => [
+            'Alineado al PMBOK 7ma Edición.',
+            'Simulador de examen con +500 preguntas.',
+            'Plan de estudio personalizado.',
+            'Certificado de 23 horas de contacto (Requisito PMI).'
+        ],
+        'aprenderas' => [
+            'Fundamentos y conceptos clave de proyectos.',
+            'Metodologías Predictivas (Cascada).',
+            'Metodologías Ágiles y Adaptativas.',
+            'Análisis de Negocio.',
+            'Ética y Conducta Profesional.',
+            'Tips y estrategias para aprobar el examen.'
+        ],
+        'info' => [
+            'duracion' => '5 Semanas',
+            'modalidad' => '100% Online',
+            'nivel' => 'Básico - Intermedio',
+            'certificado' => 'Sí, Certificado válido para PMI'
+        ],
+        'temario' => [
+            [
+                'modulo' => 'Módulo 1: Introducción a la Gestión de Proyectos',
+                'lecciones' => ['Conceptos fundamentales', 'Roles y responsabilidades', 'Ciclo de vida']
+            ],
+            [
+                'modulo' => 'Módulo 2: Enfoques Predictivos',
+                'lecciones' => ['Planificación', 'Ejecución y Control', 'Cierre']
+            ],
+            [
+                'modulo' => 'Módulo 3: Enfoques Ágiles',
+                'lecciones' => ['Manifiesto Ágil', 'Marcos de trabajo (Scrum, Kanban)', 'Prácticas ágiles']
+            ],
+            [
+                'modulo' => 'Módulo 4: Análisis de Negocio',
+                'lecciones' => ['Roles de BA', 'Recopilación de requisitos', 'Validación de la solución']
+            ]
+        ],
+        'instructor' => [
+            'nombre' => 'Diego Ayasca',
+            'titulo_inst' => 'PMP®, Instructor Certificado',
+            'bio' => 'Instructor con amplia experiencia preparando alumnos para certificaciones PMI con alta tasa de aprobados.',
+            'foto' => 'img/mi-foto.jpg' 
+        ],
+        'precio' => 'S/ 350.00',
+        'precio_oferta' => 'S/ 299.00',
+        'faq' => [
+            ['q' => '¿Cuáles son los requisitos para el examen?', 'a' => 'Necesitas diploma de secundaria y 23 horas de educación en gestión de proyectos (que este curso cubre).'],
+            ['q' => '¿El precio incluye el examen?', 'a' => 'No, el examen se paga directo al PMI. Este curso es la preparación completa.']
+        ]
     ]
-    // Add more courses here if needed
 ];
 ?>
