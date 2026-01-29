@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (mobileToggle && mainNav) {
         mobileToggle.addEventListener('click', () => {
             mainNav.classList.toggle('active');
+            mobileToggle.classList.toggle('active'); // Toggle class on button too
             const icon = mobileToggle.querySelector('i');
             if (mainNav.classList.contains('active')) {
                 icon.classList.remove('fa-bars');
@@ -15,19 +16,31 @@ document.addEventListener('DOMContentLoaded', () => {
                 icon.classList.add('fa-bars');
             }
         });
-    }
 
-    // Close mobile menu when clicking a link
-    document.querySelectorAll('.main-nav a').forEach(link => {
-        link.addEventListener('click', () => {
-            if (mainNav.classList.contains('active')) {
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.main-nav a').forEach(link => {
+            link.addEventListener('click', () => {
+                if (mainNav.classList.contains('active')) {
+                    mainNav.classList.remove('active');
+                    mobileToggle.classList.remove('active');
+                    const icon = mobileToggle.querySelector('i');
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                }
+            });
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (mainNav.classList.contains('active') && !mainNav.contains(e.target) && !mobileToggle.contains(e.target)) {
                 mainNav.classList.remove('active');
+                mobileToggle.classList.remove('active');
                 const icon = mobileToggle.querySelector('i');
                 icon.classList.remove('fa-times');
                 icon.classList.add('fa-bars');
             }
         });
-    });
+    }
 
     // Scroll Reveal Animation (Intersection Observer)
     const observerOptions = {

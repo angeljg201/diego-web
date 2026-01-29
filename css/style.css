@@ -320,6 +320,11 @@ ul {
     color: var(--primary);
 }
 
+.mobile-toggle.active {
+    color: var(--primary) !important;
+    /* Force dark color when open */
+}
+
 /* Hero Section (Background Image) */
 .hero-section {
     min-height: 100vh;
