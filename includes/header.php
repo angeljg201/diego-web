@@ -1,7 +1,8 @@
 <header class="main-header">
     <div class="container header-content">
         <a href="<?php echo $base_path; ?>index.php" class="logo">
-            <img src="<?php echo $base_path; ?>img/logo.png" alt="Diego Ayasca Logo">
+            <img src="<?php echo $base_path; ?>img/logo-white.png" alt="Diego Ayasca Logo" class="logo-default">
+            <img src="<?php echo $base_path; ?>img/logo.png" alt="Diego Ayasca Logo" class="logo-scrolled">
             <span>Diego Ayasca</span>
         </a>
         

@@ -276,6 +276,28 @@ ul {
     /* Slightly larger for better visibility */
     width: auto;
     object-fit: contain;
+    transition: opacity 0.3s ease;
+}
+
+.logo-default {
+    display: block;
+    opacity: 1;
+}
+
+.logo-scrolled {
+    display: none;
+    opacity: 0;
+}
+
+/* Scrolled Logo Logic */
+.main-header.scrolled .logo-default {
+    display: none;
+    opacity: 0;
+}
+
+.main-header.scrolled .logo-scrolled {
+    display: block;
+    opacity: 1;
 }
 
 .main-nav ul {
