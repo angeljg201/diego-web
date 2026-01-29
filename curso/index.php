@@ -203,7 +203,7 @@ $nav_prefix = '../index.php'; // On subpages, links go back to home
                                     
                                     <div class="sidebar-actions">
                                         <a href="#" class="btn btn-primary btn-block btn-lg uppercase-btn">MATRICÚLATE AHORA <i class="fas fa-chevron-right"></i></a>
-                                        <a href="#" class="btn btn-outline btn-block btn-lg uppercase-btn">MÁS INFORMACIÓN <i class="fas fa-external-link-alt"></i></a>
+                                        <a href="https://wa.me/51979611826?text=<?php echo urlencode('Hola, estoy en la página web y deseo acceder al CURSO: *' . $curso['titulo'] . '*'); ?>" class="btn btn-outline btn-block btn-lg uppercase-btn" target="_blank">MÁS INFORMACIÓN <i class="fas fa-external-link-alt"></i></a>
                                     </div>
                                     
                                     <div class="features-list-container">
