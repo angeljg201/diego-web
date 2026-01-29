@@ -36,8 +36,8 @@ $nav_prefix = '';
             <div class="hero-overlay-mobile"></div>
             <div class="container hero-container">
                 <div class="hero-content slide-in-bottom">
-                    <h1>Domina la Gestión de Proyectos y <span class="highlight">Metodologías Ágiles</span></h1>
-                    <p>Aprende con un enfoque práctico y profesional. Certificaciones reconocidas, metodologías ágiles e investigación académica para impulsar tu carrera.</p>
+                    <h1>Lleva la Gestión de Proyectos al <span class="highlight">Siguiente Nivel</span></h1>
+                    <p>Domina metodologías ágiles y predictivas, y conviértete en un agente de cambio en la dirección de proyectos. Aprende a aplicar lo que estudias y genera impacto real en tu organización.</p>
                     <div class="hero-btn-group">
                         <a href="#cursos" class="btn btn-gold btn-lg pill-btn">Ver Cursos &nbsp; <i class="fas fa-arrow-right"></i></a>
                         <a href="#sobre-mi" class="btn btn-outline-light btn-lg pill-btn"><i class="fas fa-play"></i> &nbsp; Conoce al Instructor</a>
