@@ -11,7 +11,7 @@
                     Somos una empresa en donde te preparamos y te enseñamos todo lo que necesitas saber para obtener las certificaciones PMP® y CAPM®.
                 </p>
                 <div class="contact-info">
-                    <p><i class="fab fa-whatsapp"></i> +51 984 539 997</p>
+                    <p><i class="fab fa-whatsapp"></i> +51 979 611 826</p>
                     <p><i class="fas fa-envelope"></i> contacto@diegoayasca.com</p>
                 </div>
             </div>
@@ -56,7 +56,7 @@
     </div>
     
     <!-- WhatsApp Floating Button -->
-    <a href="https://wa.me/51984539997" class="whatsapp-float" target="_blank">
+    <a href="https://wa.me/51979611826?text=Buen%20d%C3%ADa%2C%20estoy%20en%20la%20pagina%20web%20y%20estoy%20interesado%20en%20inscribirme.%20%C2%BFPodr%C3%ADan%20proporcionarme%20m%C3%A1s%20informaci%C3%B3n%3F" class="whatsapp-float" target="_blank">
         <i class="fab fa-whatsapp"></i>
     </a>
 </footer>
