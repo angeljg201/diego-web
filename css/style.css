@@ -1057,6 +1057,23 @@ section {
     .next-btn {
         right: 0;
     }
+
+    /* Stack footer items on mobile */
+    .card-footer {
+        flex-direction: column-reverse;
+        gap: 1rem;
+        text-align: center;
+    }
+
+    .curso-card .btn-block {
+        width: 100%;
+        margin-top: 5px;
+    }
+
+    .price-tag {
+        font-size: 1.6rem;
+        /* Slightly larger for emphasis */
+    }
 }
 
 .contact-wrapper {

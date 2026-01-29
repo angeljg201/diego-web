@@ -72,6 +72,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Carousel Logic
+    // Carousel Logic
     const track = document.querySelector('.carousel-track');
     if (track) {
         const nextBtn = document.querySelector('.next-btn');
@@ -84,20 +85,33 @@ document.addEventListener('DOMContentLoaded', () => {
         // Constants
         const cloneCount = 3; // Max visible cards (desktop)
 
-        // Clone first and last cards
-        // Prepend last 'cloneCount' cards
-        for (let i = cards.length - cloneCount; i < cards.length; i++) {
-            // Handle case where we have fewer cards than cloneCount (e.g. 2 cards)
-            // But user has 4, so it's fine. If fewer, loop logic needs safety, assuming >=3 for now or wrap logic.
-            // Given 4 cards, safe to take last 3.
-            const clone = cards[i % cards.length].cloneNode(true);
+        // Ensure we have enough copies if real cards < cloneCount
+        // To be safe, we want at least (cloneCount * 2) + 1 items usually, 
+        // but simple cloning of existing items works if we loop carefully.
+
+        // Clone for infinite loop
+        // If we have very fewer cards (e.g. 1 or 2), we might need to clone the whole set multiple times.
+        // Simplified approach: reliable cloning.
+
+        // Prepend copies for backward loop
+        for (let i = 0; i < cloneCount; i++) {
+            // Index from end: cards.length - 1 - i
+            let index = (cards.length - 1 - i);
+            // Wrap index protection
+            index = ((index % cards.length) + cards.length) % cards.length;
+
+            const clone = cards[index].cloneNode(true);
             clone.classList.add('clone');
             track.insertBefore(clone, track.firstChild);
         }
 
-        // Append first 'cloneCount' cards
+        // Append copies for forward loop
         for (let i = 0; i < cloneCount; i++) {
-            const clone = cards[i % cards.length].cloneNode(true);
+            let index = i;
+            // Wrap index protection
+            index = index % cards.length;
+
+            const clone = cards[index].cloneNode(true);
             clone.classList.add('clone');
             track.appendChild(clone);
         }
@@ -125,15 +139,12 @@ document.addEventListener('DOMContentLoaded', () => {
         };
 
         // Initial setup
-        // Use setTimeout to ensure layout is computed
         setTimeout(() => {
             updateCarousel(false);
         }, 100);
 
         const nextSlide = () => {
             if (isTransitioning) return;
-            if (currentIndex >= allCards.length - cloneCount) return; // Prevention
-
             currentIndex++;
             isTransitioning = true;
             updateCarousel(true);
@@ -141,8 +152,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const prevSlide = () => {
             if (isTransitioning) return;
-            if (currentIndex <= 0) return; // Prevention
-
             currentIndex--;
             isTransitioning = true;
             updateCarousel(true);
@@ -154,19 +163,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const totalRealCards = cards.length;
 
-            // If we reached a clone at the end (Post-Clones)
-            // Index map: [Clones: 0..2] [Real: 3..6] [Clones: 7..9]
-            // If index is 7 (First Post-Clone, whic IS Card A), jump to 3 (Real Card A)
+            // Forward Loop Check
             if (currentIndex >= cloneCount + totalRealCards) {
                 currentIndex = currentIndex - totalRealCards;
-                updateCarousel(false); // Jump without transition
+                updateCarousel(false);
             }
 
-            // If we reached a clone at the start (Pre-Clones)
-            // If index is 2 (Last Pre-Clone, which IS Card D), jump to 6 (Real Card D)
+            // Backward Loop Check
             if (currentIndex < cloneCount) {
+                // If we are at index 2 (clone) and real start is 3. We want to go to valid real equivalent.
+                // If cloneCount is 3. 0,1,2 are clones. 3 is real start.
+                // If we are at 2, we want (2 + totalRealCards).
                 currentIndex = currentIndex + totalRealCards;
-                updateCarousel(false); // Jump without transition
+                updateCarousel(false);
             }
         });
 
@@ -190,7 +199,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const startAutoplay = () => {
             autoplayInterval = setInterval(() => {
                 nextSlide();
-            }, 3000);
+            }, 2000); // 2 seconds
         };
 
         const stopAutoplay = () => {
@@ -210,7 +219,6 @@ document.addEventListener('DOMContentLoaded', () => {
         startAutoplay();
 
         window.addEventListener('resize', () => {
-            // Recalculate position perfectly (width changes)
             updateCarousel(false);
             resetAutoplay();
         });
