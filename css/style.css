@@ -303,65 +303,13 @@ ul {
     /* Increased padding to clear header (approx 80px + 50px) */
     /* Fallback dark color */
     background-color: #0f172a;
-    background-image: none;
-    /* Slider handles images */
+    background-image: linear-gradient(to right, rgba(15, 23, 42, 0.9) 0%, rgba(15, 23, 42, 0.7) 40%, rgba(15, 23, 42, 0.1) 100%), url('../img/banner-inicio-diego-ayasca.png');
+    background-size: cover;
+    background-position: top center;
     overflow: hidden;
 }
 
-.hero-slider {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 0;
-}
 
-.slide {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-size: cover;
-    background-position: top center;
-    animation: slideFade 4s infinite;
-    /* Total cycle time 4s (2s per slide) */
-    opacity: 0;
-}
-
-.slide-1 {
-    background-image: linear-gradient(to right, rgba(15, 23, 42, 0.9) 0%, rgba(15, 23, 42, 0.7) 40%, rgba(15, 23, 42, 0.1) 100%), url('../img/1.png');
-    animation-delay: 0s;
-}
-
-.slide-2 {
-    background-image: linear-gradient(to right, rgba(15, 23, 42, 0.9) 0%, rgba(15, 23, 42, 0.7) 40%, rgba(15, 23, 42, 0.1) 100%), url('../img/2.png');
-    animation-delay: 2s;
-    /* Offsets by 2s */
-}
-
-@keyframes slideFade {
-    0% {
-        opacity: 0;
-    }
-
-    10% {
-        opacity: 1;
-    }
-
-    50% {
-        opacity: 1;
-    }
-
-    60% {
-        opacity: 0;
-    }
-
-    100% {
-        opacity: 0;
-    }
-}
 
 .hero-overlay-mobile {
     display: none;

@@ -1,0 +1,10 @@
+RewriteEngine On
+
+# Redirect to correct php file for courses
+RewriteRule ^curso/([a-zA-Z0-9-]+)$ curso/index.php?slug=$1 [L,QSA]
+
+# Optional: Add trailing slash if missing
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_URI} !index.php
+RewriteCond %{REQUEST_URI} !(.*)/$
+RewriteRule ^(.*)$ $1/ [L,R=301]
