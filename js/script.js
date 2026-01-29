@@ -73,60 +73,103 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Carousel Logic
     // Carousel Logic
+    // Carousel Logic
     const track = document.querySelector('.carousel-track');
+
     if (track) {
         const nextBtn = document.querySelector('.next-btn');
         const prevBtn = document.querySelector('.prev-btn');
+        let rawCards = Array.from(track.children); // Original cards
 
-        // Initial set of cards (before cloning)
-        let cards = Array.from(track.children);
-        if (cards.length === 0) return;
-
-        // Constants
-        const cloneCount = 3; // Max visible cards (desktop)
-
-        // Ensure we have enough copies if real cards < cloneCount
-        // To be safe, we want at least (cloneCount * 2) + 1 items usually, 
-        // but simple cloning of existing items works if we loop carefully.
-
-        // Clone for infinite loop
-        // If we have very fewer cards (e.g. 1 or 2), we might need to clone the whole set multiple times.
-        // Simplified approach: reliable cloning.
-
-        // Prepend copies for backward loop
-        for (let i = 0; i < cloneCount; i++) {
-            // Index from end: cards.length - 1 - i
-            let index = (cards.length - 1 - i);
-            // Wrap index protection
-            index = ((index % cards.length) + cards.length) % cards.length;
-
-            const clone = cards[index].cloneNode(true);
-            clone.classList.add('clone');
-            track.insertBefore(clone, track.firstChild);
-        }
-
-        // Append copies for forward loop
-        for (let i = 0; i < cloneCount; i++) {
-            let index = i;
-            // Wrap index protection
-            index = index % cards.length;
-
-            const clone = cards[index].cloneNode(true);
-            clone.classList.add('clone');
-            track.appendChild(clone);
-        }
-
-        // Re-query cards to include clones
-        let allCards = Array.from(track.children);
-
-        let currentIndex = cloneCount; // Start at the first real card
+        let currentIndex = 0;
         let isTransitioning = false;
+        let autoplayInterval;
+        let cloneCount = 0;
+        let activeCards = []; // Cards including clones
 
-        const updateCarousel = (transition = true) => {
-            const cardWidth = allCards[0].getBoundingClientRect().width;
+        // Function to determine visible cards based on CSS Breakpoints
+        const getVisibleCount = () => {
+            const width = window.innerWidth;
+            if (width <= 700) return 1;
+            if (width <= 1100) return 2;
+            return 3;
+        };
+
+        const setupCarousel = () => {
+            // Stop Autoplay/Events while resetting
+            stopAutoplay();
+
+            // 1. Clear Track (remove clones, keep originals)
+            // We use rawCards which are the original DOM pointers.
+            track.innerHTML = '';
+            rawCards.forEach(card => {
+                card.classList.remove('clone');
+                track.appendChild(card);
+            });
+
+            const visibleSlides = getVisibleCount();
+            const totalOriginal = rawCards.length;
+
+            // 2. Decide if we need Carousel Logic
+            // We need carousel if Loop is needed. Standard logic: if items > visible
+            // But user specific: if items <= visible on Desktop, SHOW STATIC (No loop/clones).
+            // On Mobile, if items > 1, show Carousel.
+
+            const needsCarousel = totalOriginal > visibleSlides;
+
+            if (needsCarousel) {
+                // Enable Buttons
+                if (nextBtn) nextBtn.style.display = 'flex';
+                if (prevBtn) prevBtn.style.display = 'flex';
+                track.style.justifyContent = 'flex-start'; // Normal
+
+                // 3. Clone Logic
+                cloneCount = visibleSlides; // Clone enough for buffer
+
+                // Prepend Clones
+                for (let i = 0; i < cloneCount; i++) {
+                    let index = (totalOriginal - 1 - i);
+                    index = ((index % totalOriginal) + totalOriginal) % totalOriginal;
+                    const clone = rawCards[index].cloneNode(true);
+                    clone.classList.add('clone');
+                    track.insertBefore(clone, track.firstChild);
+                }
+
+                // Append Clones
+                for (let i = 0; i < cloneCount; i++) {
+                    let index = i % totalOriginal;
+                    const clone = rawCards[index].cloneNode(true);
+                    clone.classList.add('clone');
+                    track.appendChild(clone);
+                }
+
+                // Set Start Index
+                currentIndex = cloneCount;
+                activeCards = Array.from(track.children);
+
+                // Initial Position
+                updateTrackPosition(false);
+
+                // Restart Autoplay
+                startAutoplay();
+
+            } else {
+                // Disable Buttons
+                if (nextBtn) nextBtn.style.display = 'none';
+                if (prevBtn) prevBtn.style.display = 'none';
+
+                // Center cards if they don't fill the space
+                track.style.justifyContent = 'center';
+                track.style.transform = 'none';
+                activeCards = rawCards;
+                currentIndex = 0;
+            }
+        };
+
+        const updateTrackPosition = (transition = true) => {
+            const cardWidth = activeCards[0].getBoundingClientRect().width;
             const trackStyle = window.getComputedStyle(track);
             const gap = parseFloat(trackStyle.gap) || 0;
-
             const moveAmount = (cardWidth + gap) * currentIndex;
 
             if (transition) {
@@ -134,72 +177,59 @@ document.addEventListener('DOMContentLoaded', () => {
             } else {
                 track.style.transition = 'none';
             }
-
             track.style.transform = `translateX(-${moveAmount}px)`;
         };
 
-        // Initial setup
-        setTimeout(() => {
-            updateCarousel(false);
-        }, 100);
-
         const nextSlide = () => {
             if (isTransitioning) return;
+            const visibleSlides = getVisibleCount();
+            // Safety: if no carousel needed, do nothing.
+            if (rawCards.length <= visibleSlides) return;
+
             currentIndex++;
             isTransitioning = true;
-            updateCarousel(true);
+            updateTrackPosition(true);
         };
 
         const prevSlide = () => {
             if (isTransitioning) return;
+            const visibleSlides = getVisibleCount();
+            if (rawCards.length <= visibleSlides) return;
+
             currentIndex--;
             isTransitioning = true;
-            updateCarousel(true);
+            updateTrackPosition(true);
         };
 
-        // Handle Transition End for Loop
         track.addEventListener('transitionend', () => {
+            if (!isTransitioning) return; // Ignore if not transitioning
             isTransitioning = false;
 
-            const totalRealCards = cards.length;
+            const visibleSlides = getVisibleCount();
+            if (rawCards.length <= visibleSlides) return;
 
-            // Forward Loop Check
-            if (currentIndex >= cloneCount + totalRealCards) {
-                currentIndex = currentIndex - totalRealCards;
-                updateCarousel(false);
+            // Normalize Index
+            const totalReal = rawCards.length;
+
+            // Forward Wrap
+            if (currentIndex >= cloneCount + totalReal) {
+                currentIndex = currentIndex - totalReal;
+                updateTrackPosition(false);
             }
-
-            // Backward Loop Check
+            // Backward Wrap
             if (currentIndex < cloneCount) {
-                // If we are at index 2 (clone) and real start is 3. We want to go to valid real equivalent.
-                // If cloneCount is 3. 0,1,2 are clones. 3 is real start.
-                // If we are at 2, we want (2 + totalRealCards).
-                currentIndex = currentIndex + totalRealCards;
-                updateCarousel(false);
+                currentIndex = currentIndex + totalReal;
+                updateTrackPosition(false);
             }
         });
 
-        if (nextBtn) {
-            nextBtn.addEventListener('click', () => {
-                nextSlide();
-                resetAutoplay();
-            });
-        }
-
-        if (prevBtn) {
-            prevBtn.addEventListener('click', () => {
-                prevSlide();
-                resetAutoplay();
-            });
-        }
-
-        // Autoplay Logic
-        let autoplayInterval;
-
         const startAutoplay = () => {
-            autoplayInterval = setInterval(() => {
-                nextSlide();
-            }, 2000); // 2 seconds
+            // Only if needed
+            const visibleSlides = getVisibleCount();
+            if (rawCards.length <= visibleSlides) return;
+
+            clearInterval(autoplayInterval);
+            autoplayInterval = setInterval(nextSlide, 2000);
         };
 
         const stopAutoplay = () => {
@@ -211,17 +241,25 @@ document.addEventListener('DOMContentLoaded', () => {
             startAutoplay();
         };
 
-        // Pause on hover
+        // Inputs
+        if (nextBtn) nextBtn.addEventListener('click', () => { nextSlide(); resetAutoplay(); });
+        if (prevBtn) prevBtn.addEventListener('click', () => { prevSlide(); resetAutoplay(); });
+
         track.addEventListener('mouseenter', stopAutoplay);
         track.addEventListener('mouseleave', startAutoplay);
 
-        // Start initially
-        startAutoplay();
-
+        // Resize Event - Debounced (Simple timeout)
+        let resizeTimer;
         window.addEventListener('resize', () => {
-            updateCarousel(false);
-            resetAutoplay();
+            clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(() => {
+                setupCarousel();
+            }, 200);
         });
+
+        // Initialize
+        // Wait for styles (gap etc) to be computed, though requestAnimationFrame is better, setTimeout is safe
+        setTimeout(setupCarousel, 100);
     }
 
     // Accordions (Course Detail)
