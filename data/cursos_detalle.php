@@ -4,7 +4,7 @@ $cursos_detalle = [
     'gestion-proyectos' => [ // Keeping as fallback or alias
         'titulo' => 'Gestión de Proyectos y Metodologías Ágiles',
         'subtitulo' => 'Domina el arte de liderar proyectos exitosos con enfoque tradicional y ágil.',
-        'imagen' => 'img/curso_proyectos.png',
+        'imagen' => 'img/cursos/curso_proyectos.png',
         'descripcion_corta' => 'Prepárate para las certificaciones más demandadas y lidera equipos de alto rendimiento.',
         'descripcion_larga' => '<p>Este curso integral está diseñado para profesionales que buscan elevar sus competencias en la gestión de proyectos. A diferencia de otros cursos teóricos, aquí nos enfocamos en la aplicación práctica de normas internacionales (PMBOK 7) y marcos de trabajo ágiles (Scrum, Kanban).</p><p>A lo largo del programa, desarrollarás un proyecto real aplicando herramientas de gestión, control de riesgos y liderazgo de equipos. Al finalizar, estarás listo para afrontar los exámenes de certificación PMP® y CAPM®.</p>',
         'beneficios' => [
@@ -62,7 +62,7 @@ $cursos_detalle = [
     'metodologias-agiles' => [
         'titulo' => 'Metodologías Ágiles (Scrum & Kanban)',
         'subtitulo' => 'Gestiona equipos de alto rendimiento y entrega valor continuo con marcos de trabajo ágiles.',
-        'imagen' => 'img/curso_agiles.png',
+        'imagen' => 'img/cursos/curso_agiles.png',
         'descripcion_corta' => 'Domina Scrum, Kanban y Lean para transformar la forma en que trabajas.',
         'descripcion_larga' => '<p>En un entorno VUCA, la agilidad no es una opción, es una necesidad. Este curso te enseñará a implementar Scrum y Kanban desde cero, mejorando la colaboración, transparencia y velocidad de entrega de tus equipos.</p><p>Aprenderás a facilitar eventos efectivos, gestionar backlogs y utilizar métricas ágiles para la mejora continua.</p>',
         'beneficios' => [
@@ -119,7 +119,7 @@ $cursos_detalle = [
     'investigacion-academica' => [
         'titulo' => 'Investigación Académica y Redacción Científica',
         'subtitulo' => 'Domina las técnicas de redacción, citado y metodología para tesis y artículos científicos.',
-        'imagen' => 'img/curso_investigacion.png',
+        'imagen' => 'img/cursos/curso_investigacion.png',
         'descripcion_corta' => 'Aprende a estructurar, redactar y publicar investigaciones de alto impacto.',
         'descripcion_larga' => '<p>Este curso está diseñado para estudiantes, tesistas e investigadores que desean perfeccionar sus habilidades en la redacción académica. Aprenderás a formular problemas de investigación, estructurar marcos teóricos sólidos y analizar datos con rigor científico.</p><p>Además, profundizaremos en las normas de citación (APA 7ma Edición) y estrategias para publicar en revistas indexadas.</p>',
         'beneficios' => [
@@ -172,7 +172,7 @@ $cursos_detalle = [
     'liderazgo-equipos-it' => [
         'titulo' => 'Liderazgo de Equipos IT y Habilidades Directivas',
         'subtitulo' => 'Desarrolla habilidades blandas y directivas para liderar equipos tecnológicos con éxito.',
-        'imagen' => 'img/curso_proyectos.png',
+        'imagen' => 'img/cursos/curso_proyectos.png',
         'descripcion_corta' => 'Pasa de ser un líder técnico a un líder de personas inspirador y efectivo.',
         'descripcion_larga' => '<p>En el sector tecnológico, las habilidades técnicas no bastan. Este curso te prepara para los desafíos de gestionar talento humano en entornos IT. Aprenderás a motivar equipos, resolver conflictos, negociar con stakeholders y comunicar visión estratégica.</p><p>Ideal para Tech Leads, Engineering Managers y CTOs en formación.</p>',
         'beneficios' => [
@@ -225,7 +225,7 @@ $cursos_detalle = [
     'certificacion-capm' => [
         'titulo' => 'Certificación CAPM® - Gestión de Proyectos',
         'subtitulo' => 'Domina los fundamentos de la gestión de proyectos y prepárate para la certificación CAPM del PMI.',
-        'imagen' => 'img/curso_proyectos.png',
+        'imagen' => 'img/cursos/curso_proyectos.png',
         'descripcion_corta' => 'Tu puerta de entrada al mundo de la gestión de proyectos profesional certificada.',
         'descripcion_larga' => '<p>El Certified Associate in Project Management (CAPM)® es una certificación reconocida mundialmente que valida tu comprensión de la terminología y los procesos fundamentales de la gestión eficaz de proyectos. Este curso cubre todo el contenido del ECO (Examination Content Outline) vigente.</p>',
         'beneficios' => [
@@ -277,6 +277,116 @@ $cursos_detalle = [
         'faq' => [
             ['q' => '¿Cuáles son los requisitos para el examen?', 'a' => 'Necesitas diploma de secundaria y 23 horas de educación en gestión de proyectos (que este curso cubre).'],
             ['q' => '¿El precio incluye el examen?', 'a' => 'No, el examen se paga directo al PMI. Este curso es la preparación completa.']
+        ]
+    ],
+    'preparacion-pmp' => [
+        'titulo' => 'Curso de preparación para el examen PMP',
+        'subtitulo' => 'Impulsa tu carrera profesional con nuestro curso de preparación PMP',
+        'imagen' => 'img/cursos/curso_pmp.jpeg',
+        'descripcion_corta' => 'Entrenamiento 100 % práctico basado en el ECO, simulacros reales, estrategias de examen y acompañamiento experto.',
+        'descripcion_larga' => '<p>Impulsa tu carrera profesional con nuestro curso de preparación PMP: entrenamiento 100 % práctico basado en el ECO (Esquema de Contenido del Examen), simulacros reales, estrategias de examen y acompañamiento experto hasta lograr tu certificación.</p>
+        <h3>¿A quién va dirigido este curso?</h3>
+        <ul>
+            <li>Profesionales que desean certificarse como PMP.</li>
+            <li>Directores de proyectos, líderes, ingenieros y consultores con experiencia en proyectos.</li>
+            <li>Personas con certificaciones como CAPM o Scrum Master que buscan dar el siguiente paso profesional.</li>
+            <li>Profesionales que buscan mejorar su perfil y obtener oportunidades laborales.</li>
+        </ul>',
+        'beneficios' => [
+            'Alineado al ECO vigente.',
+            'Simulador tipo examen con más de 300 preguntas.',
+            'Certificado de 35 horas de contacto (requisito del PMI).',
+            'Acceso virtual: 24/7.'
+        ],
+        'aprenderas' => [
+            'Enfoques predictivo, ágil e híbrido.',
+            'Cómo piensa el PMI y cómo responder el examen PMP.',
+            'Los dominios del ECO y su aplicación práctica.',
+            'Técnicas para resolver preguntas situacionales.',
+            'Estrategias para aprobar el examen PMP.'
+        ],
+        'info' => [
+            'duracion' => '6 Semanas',
+            'modalidad' => 'Online',
+            'nivel' => 'Avanzado',
+            'certificado' => 'Sí, 35 horas de contacto'
+        ],
+        'temario' => [
+            [
+                'modulo' => 'Lección 1: Contexto empresarial y estrategia del proyecto',
+                'lecciones' => [
+                    'Fundamentos modernos de la gestión de proyectos',
+                    'Enfoques predictivos, ágiles e híbridos',
+                    'Alineación de los proyectos con la estrategia',
+                    'Gestión del valor y beneficios',
+                    'Cultura organizacional y gestión del cambio',
+                    'Cumplimiento normativo y regulatorio'
+                ]
+            ],
+            [
+                'modulo' => 'Lección 2: Inicio del proyecto y definición del enfoque',
+                'lecciones' => [
+                    'Identificación y gestión de interesados',
+                    'Estrategias de comunicación',
+                    'Formación de equipos de alto desempeño',
+                    'Construcción de una visión compartida',
+                    'Selección del enfoque de gestión'
+                ]
+            ],
+            [
+                'modulo' => 'Lección 3: Planificación integral del proyecto',
+                'lecciones' => [
+                    'Planificación tradicional vs adaptativa',
+                    'Definición del alcance y MVP',
+                    'Cronograma y estimaciones',
+                    'Gestión de recursos y adquisiciones',
+                    'Planificación del presupuesto y riesgos',
+                    'Integración de planes'
+                ]
+            ],
+            [
+                'modulo' => 'Lección 4: Liderazgo y gestión del equipo del proyecto',
+                'lecciones' => [
+                    'Estilos de liderazgo',
+                    'Entornos colaborativos',
+                    'Empoderamiento y diversidad',
+                    'Seguimiento del desempeño (KPIs)',
+                    'Comunicación estratégica',
+                    'Gestión de conflictos'
+                ]
+            ],
+            [
+                'modulo' => 'Lección 5: Seguimiento, desempeño y mejora continua',
+                'lecciones' => [
+                    'Mejora continua',
+                    'Evaluación del desempeño',
+                    'Monitoreo del alcance, cronograma y costos',
+                    'Gestión de incidentes y riesgos',
+                    'Adaptación a los cambios'
+                ]
+            ],
+            [
+                'modulo' => 'Lección 6: Cierre del proyecto y entrega de valor',
+                'lecciones' => [
+                    'Cierre formal del proyecto',
+                    'Validación de entregables',
+                    'Lecciones aprendidas',
+                    'Seguimiento de beneficios',
+                    'Transferencia de conocimiento'
+                ]
+            ]
+        ],
+        'instructor' => [
+            'nombre' => 'Diego Ayasca',
+            'titulo_inst' => 'PMP®, Scrum Master & Agile Coach',
+            'bio' => 'Consultor senior con más de 10 años gestionando proyectos de tecnología e infraestructura. Ha capacitado a más de 5,000 profesionales en Latinoamérica.',
+            'foto' => 'img/mi-foto.jpg' 
+        ],
+        'precio' => 'S/ 800.00',
+        'precio_oferta' => 'S/ 800.00',
+        'faq' => [
+            ['q' => '¿Incluye el certificado PMP?', 'a' => 'No, este curso te brinda las 35 horas de contacto requeridas para postular al examen, pero la certificación la otorga el PMI tras aprobar su examen.'],
+            ['q' => '¿El simulador es parecido al real?', 'a' => 'Sí, contamos con un banco de preguntas alineadas al ECO vigente para que practiques en condiciones reales.']
         ]
     ]
 ];
