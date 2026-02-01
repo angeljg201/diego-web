@@ -126,7 +126,7 @@ $nav_prefix = '../';
                         <p>Nuestro sitio web podrá recoger información personal necesaria para la prestación de nuestros servicios educativos, por ejemplo:</p>
                         <ul>
                             <li><strong>Datos de contacto:</strong> Nombre completo, correo electrónico, número de teléfono.</li>
-                            <li><strong>Datos académicos:</strong> Intereses en cursos o programas específicos.</li>
+                            <li><strong>Datos académicos:</strong> Intereses en cursos específicos.</li>
                             <li><strong>Datos de navegación:</strong> Dirección IP, ubicación geográfica aproximada, tipo de navegador (a través de cookies).</li>
                         </ul>
 
