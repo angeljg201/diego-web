@@ -91,36 +91,6 @@ $nav_prefix = '';
             </div>
         </section>
 
-        <!-- Sobre Mí Section -->
-        <section id="sobre-mi" class="about-section">
-            <div class="container">
-                <div class="about-grid">
-                    <div class="about-text hidden-fade">
-                        <h2 class="section-title">Sobre <span class="highlight">Mí</span></h2>
-                        <h3>Hola, soy <span class="text-primary">Diego Ayasca</span></h3>
-                        <p class="lead">Consultor, Mentor e Instructor apasionado por la transformación educativa.</p>
-                        <p>Con más de una década de experiencia liderando proyectos y equipos multidisciplinarios, me dedico a empoderar a profesionales para que alcancen su máximo potencial. Mi enfoque combina la teoría rigurosa con la práctica aplicable, garantizando resultados tangibles.</p>
-                        <div class="stats-row">
-                            <div class="stat-item glass-mini">
-                                <span class="stat-number">+10</span>
-                                <span class="stat-label">Años de Exp.</span>
-                            </div>
-                            <div class="stat-item glass-mini">
-                                <span class="stat-number">+5k</span>
-                                <span class="stat-label">Alumnos</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="about-image hidden-fade">
-                        <div class="image-wrapper">
-                            <div class="image-bg-glow"></div>
-                            <img src="img/mi-foto.jpg" alt="Diego Ayasca Foto" class="glass-border-img">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
         <!-- Contacto Section -->
         <section id="contacto" class="contact-section">
             <div class="container">
@@ -145,7 +115,7 @@ $nav_prefix = '';
                                     <div class="icon-box"><i class="fas fa-phone-alt"></i></div>
                                     <div class="info-box">
                                         <span class="label">Llámame</span>
-                                        <span class="value">+51 979 611 826</span>
+                                        <span class="value">+51 926 949 986</span>
                                     </div>
                                 </div>
                             </div>
@@ -173,6 +143,36 @@ $nav_prefix = '';
                                 </div>
                                 <button type="submit" class="btn btn-gold btn-block uppercase-btn">ENVIAR MENSAJE</button>
                             </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sobre Mí Section -->
+        <section id="sobre-mi" class="about-section">
+            <div class="container">
+                <div class="about-grid">
+                    <div class="about-text hidden-fade">
+                        <h2 class="section-title">Sobre <span class="highlight">Mí</span></h2>
+                        <h3>Hola, soy <span class="text-primary">Diego Ayasca</span></h3>
+                        <p class="lead">Consultor, Mentor e Instructor apasionado por la transformación educativa.</p>
+                        <p>Con más de una década de experiencia liderando proyectos y equipos multidisciplinarios, me dedico a empoderar a profesionales para que alcancen su máximo potencial. Mi enfoque combina la teoría rigurosa con la práctica aplicable, garantizando resultados tangibles.</p>
+                        <div class="stats-row">
+                            <div class="stat-item glass-mini">
+                                <span class="stat-number">+10</span>
+                                <span class="stat-label">Años de Exp.</span>
+                            </div>
+                            <div class="stat-item glass-mini">
+                                <span class="stat-number">+5k</span>
+                                <span class="stat-label">Alumnos</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="about-image hidden-fade">
+                        <div class="image-wrapper">
+                            <div class="image-bg-glow"></div>
+                            <img src="img/mi-foto.jpg" alt="Diego Ayasca Foto" class="glass-border-img">
                         </div>
                     </div>
                 </div>

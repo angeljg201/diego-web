@@ -11,7 +11,7 @@
                     Somos una empresa en donde te preparamos y te enseñamos todo lo que necesitas saber para obtener las certificaciones PMP® y CAPM®.
                 </p>
                 <div class="contact-info">
-                    <p><i class="fab fa-whatsapp"></i> +51 979 611 826</p>
+                    <p><i class="fab fa-whatsapp"></i> +51 926 949 986</p>
                     <p><i class="fas fa-envelope"></i> contacto@diegoayasca.com</p>
                 </div>
             </div>
