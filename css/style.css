@@ -1077,64 +1077,185 @@ section {
 }
 
 .contact-wrapper {
-    max-width: 700px;
+    max-width: 100%;
     margin: 0 auto;
 }
 
-/* Clean Panel - Not Glass anymore, but "Floating" */
-.glass-panel {
-    background: var(--bg-card);
-    box-shadow: var(--shadow-hover);
-    border: 1px solid var(--border-light);
-    padding: 3rem;
-    border-radius: 24px;
+/* Glass Panel -> Dark Panel override for Contact */
+/* Glass Panel -> Dark Panel override for Contact */
+/* REMOVED CARD STYLING TO MAKE IT FULL SECTION */
+.contact-section {
+    background: #111827;
+}
+
+#contacto .glass-panel {
+    background: transparent;
+    border: none;
+    padding: 0;
+    box-shadow: none;
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    /* Info smaller, Form wider or equal */
+    gap: 4rem;
+    align-items: center;
+}
+
+/* Left Column: Info */
+.contact-info {
+    color: white;
+}
+
+.contact-subtitle {
+    font-size: 2rem;
+    font-weight: 800;
+    margin-bottom: 1.5rem;
+    line-height: 1.1;
+    text-transform: uppercase;
+    color: #fff;
+}
+
+.contact-desc {
+    font-size: 1rem;
+    color: #9ca3af;
+    /* Gray-400 */
+    margin-bottom: 2.5rem;
+    line-height: 1.6;
+}
+
+.contact-details {
+    margin-bottom: 2.5rem;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    margin-bottom: 1.5rem;
+}
+
+.icon-box {
+    width: 50px;
+    height: 50px;
+    background: rgba(251, 191, 36, 0.1);
+    color: var(--gold);
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+}
+
+.info-box .label {
+    display: block;
+    font-size: 0.8rem;
+    color: #6b7280;
+    /* Gray-500 */
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-bottom: 2px;
+}
+
+.info-box .value {
+    font-size: 1.1rem;
+    color: #f3f4f6;
+    font-weight: 500;
+}
+
+.social-connect {
+    display: flex;
+    gap: 1rem;
+}
+
+.social-connect a {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #1f2937;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s;
+}
+
+.social-connect a:hover {
+    background: var(--gold);
+    color: #111;
+    transform: translateY(-3px);
+}
+
+/* Right Column: Form */
+.contact-form-wrapper {
+    background: transparent;
+    /* Or a darker shade if needed */
 }
 
 .form-group {
     margin-bottom: 1.5rem;
 }
 
-.form-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1.5rem;
-}
-
-label {
-    display: block;
-    margin-bottom: 0.5rem;
-    font-weight: 600;
-    font-size: 0.9rem;
-    color: #374151;
-}
-
-input,
-textarea {
+/* Input Styles for Dark Theme */
+#contacto input,
+#contacto textarea {
     width: 100%;
+    /* Force full width */
+    box-sizing: border-box;
+    /* Ensure padding doesn't affect width */
+    background: transparent;
+    /* Clean transparent look */
+    border: 1px solid #374151;
+    /* Gray-700 */
+    color: white;
     padding: 1rem 1.2rem;
-    background: #F9FAFB;
-    /* Light Gray Input */
-    border: 1px solid var(--border-light);
-    border-radius: 12px;
-    color: #111827;
-    font-family: var(--font-main);
-    transition: var(--transition);
-    font-size: 1rem;
+    border-radius: 0;
+    border: 1px solid #374151;
+    border-radius: 8px;
+    /* Slight radius */
 }
 
-input:focus,
-textarea:focus {
-    outline: none;
-    border-color: var(--secondary);
-    background: #FFFFFF;
-    box-shadow: 0 0 0 4px rgba(251, 191, 36, 0.1);
-    /* Gold Ring focus */
+#contacto input:focus,
+#contacto textarea:focus {
+    border-color: var(--gold);
+    box-shadow: 0 0 0 2px rgba(251, 191, 36, 0.1);
+    background: #1f2937;
+}
+
+#contacto ::placeholder {
+    color: #6b7280;
 }
 
 .btn-block {
     width: 100%;
-    justify-content: center;
-    display: flex;
+}
+
+/* Responsive Contact */
+@media (max-width: 900px) {
+    .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+
+    .contact-info {
+        text-align: center;
+    }
+
+    .contact-item {
+        justify-content: center;
+        text-align: left;
+        /* Keep text aligned left relative to icon */
+    }
+
+    .contact-details {
+        display: inline-block;
+        text-align: left;
+    }
+
+    .social-connect {
+        justify-content: center;
+    }
 }
 
 /* Footer */

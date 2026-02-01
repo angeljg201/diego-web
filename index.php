@@ -124,28 +124,55 @@ $nav_prefix = '';
         <!-- Contacto Section -->
         <section id="contacto" class="contact-section">
             <div class="container">
-                <div class="section-header hidden-fade">
-                    <h2 class="section-title">Ponte en <span class="highlight">Contacto</span></h2>
-                </div>
+                <!-- Header removed as per request -->
                 
                 <div class="contact-wrapper glass-panel hidden-fade">
-                    <form action="#" method="POST" class="contact-form">
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="nombre">Nombre Completo</label>
-                                <input type="text" id="nombre" name="nombre" required placeholder="Tu nombre">
+                    <div class="contact-grid">
+                        <!-- Left Column: Info -->
+                        <div class="contact-info">
+                            <h3 class="contact-subtitle">Ponte en contacto <span class="highlight">con nosotros</span></h3>
+                            <p class="contact-desc">Estamos aquí para ayudarte. Si tienes dudas sobre nuestros cursos, deseas una capacitación personalizada para tu empresa o buscas asesoría experta, escríbenos.</p>
+                            
+                            <div class="contact-details">
+                                <div class="contact-item">
+                                    <div class="icon-box"><i class="fas fa-envelope"></i></div>
+                                    <div class="info-box">
+                                        <span class="label">Envíame un correo</span>
+                                        <span class="value">contacto@diegoayasca.com</span>
+                                    </div>
+                                </div>
+                                <div class="contact-item">
+                                    <div class="icon-box"><i class="fas fa-phone-alt"></i></div>
+                                    <div class="info-box">
+                                        <span class="label">Llámame</span>
+                                        <span class="value">+51 979 611 826</span>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="form-group">
-                                <label for="email">Correo Electrónico</label>
-                                <input type="email" id="email" name="email" required placeholder="tu@email.com">
+
+                            <div class="social-connect">
+                                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                                <a href="#"><i class="fab fa-whatsapp"></i></a>
+                                <a href="#"><i class="fab fa-instagram"></i></a>
                             </div>
                         </div>
-                        <div class="form-group">
-                            <label for="mensaje">Mensaje</label>
-                            <textarea id="mensaje" name="mensaje" rows="5" required placeholder="¿En qué puedo ayudarte?"></textarea>
+
+                        <!-- Right Column: Form -->
+                        <div class="contact-form-wrapper">
+                            <form action="#" method="POST" class="contact-form">
+                                <div class="form-group">
+                                    <input type="text" id="nombre" name="nombre" required placeholder="Nombre Completo">
+                                </div>
+                                <div class="form-group">
+                                    <input type="email" id="email" name="email" required placeholder="Correo Electrónico">
+                                </div>
+                                <div class="form-group">
+                                    <textarea id="mensaje" name="mensaje" rows="4" required placeholder="Escribe tu mensaje..."></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-gold btn-block uppercase-btn">ENVIAR MENSAJE</button>
+                            </form>
                         </div>
-                        <button type="submit" class="btn btn-primary btn-block">Enviar Mensaje</button>
-                    </form>
+                    </div>
                 </div>
             </div>
         </section>
