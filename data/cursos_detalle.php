@@ -47,8 +47,8 @@ $cursos_detalle = [
         ],
         'instructor' => [
             'nombre' => 'Diego Ayasca',
-            'titulo_inst' => 'PMP®, Scrum Master & Agile Coach',
-            'bio' => 'Consultor senior con más de 10 años gestionando proyectos de tecnología e infraestructura. Ha capacitado a más de 5,000 profesionales en Latinoamérica. Apasionado por transformar la teoría compleja en práctica simple.',
+            'titulo_inst' => 'PMP | CAPM | SMPC | Black Belt',
+            'bio' => 'Mi camino en la gestión de proyectos comenzó con Microsoft Project y evolucionó hacia el dominio de los estándares del PMBOK® y las metodologías ágiles como Scrum. Me certifiqué como Scrum Master, CAPM®, PMP® y Black Belt. Hoy, desde la docencia, acompaño a profesionales a liderar proyectos con impacto, enfoque humano y resultados sostenibles.',
             'foto' => 'img/mi-foto.jpg' 
         ],
         'precio' => 'S/ 350.00',
@@ -105,8 +105,8 @@ $cursos_detalle = [
         ],
         'instructor' => [
             'nombre' => 'Diego Ayasca',
-            'titulo_inst' => 'Agile Coach & Trainer',
-            'bio' => 'Ha acompañado la transformación ágil en empresas de banca y retail. Certificado en Scrum, Kanban y SAFe.',
+            'titulo_inst' => 'PMP | CAPM | SMPC | Black Belt',
+            'bio' => 'Mi camino en la gestión de proyectos comenzó con Microsoft Project y evolucionó hacia el dominio de los estándares del PMBOK® y las metodologías ágiles como Scrum. Me certifiqué como Scrum Master, CAPM®, PMP® y Black Belt. Hoy, desde la docencia, acompaño a profesionales a liderar proyectos con impacto, enfoque humano y resultados sostenibles.',
             'foto' => 'img/mi-foto.jpg' 
         ],
         'precio' => 'S/ 300.00',
@@ -158,8 +158,8 @@ $cursos_detalle = [
         ],
         'instructor' => [
             'nombre' => 'Diego Ayasca',
-            'titulo_inst' => 'Investigador y Asesor de Tesis',
-            'bio' => 'Experiencia asesorando más de 200 tesis de pregrado y posgrado. Publicaciones en revistas indexadas y conferencias internacionales.',
+            'titulo_inst' => 'PMP | CAPM | SMPC | Black Belt',
+            'bio' => 'Mi camino en la gestión de proyectos comenzó con Microsoft Project y evolucionó hacia el dominio de los estándares del PMBOK® y las metodologías ágiles como Scrum. Me certifiqué como Scrum Master, CAPM®, PMP® y Black Belt. Hoy, desde la docencia, acompaño a profesionales a liderar proyectos con impacto, enfoque humano y resultados sostenibles.',
             'foto' => 'img/mi-foto.jpg' 
         ],
         'precio' => 'S/ 250.00',
@@ -211,8 +211,8 @@ $cursos_detalle = [
         ],
         'instructor' => [
             'nombre' => 'Diego Ayasca',
-            'titulo_inst' => 'Engineering Manager & Coach',
-            'bio' => 'Ha liderado equipos de ingeniería en startups y corporativos. Especialista en formar líderes técnicos humanos y efectivos.',
+            'titulo_inst' => 'PMP | CAPM | SMPC | Black Belt',
+            'bio' => 'Mi camino en la gestión de proyectos comenzó con Microsoft Project y evolucionó hacia el dominio de los estándares del PMBOK® y las metodologías ágiles como Scrum. Me certifiqué como Scrum Master, CAPM®, PMP® y Black Belt. Hoy, desde la docencia, acompaño a profesionales a liderar proyectos con impacto, enfoque humano y resultados sostenibles.',
             'foto' => 'img/mi-foto.jpg' 
         ],
         'precio' => 'S/ 400.00',
@@ -268,8 +268,8 @@ $cursos_detalle = [
         ],
         'instructor' => [
             'nombre' => 'Diego Ayasca',
-            'titulo_inst' => 'PMP®, Instructor Certificado',
-            'bio' => 'Instructor con amplia experiencia preparando alumnos para certificaciones PMI con alta tasa de aprobados.',
+            'titulo_inst' => 'PMP | CAPM | SMPC | Black Belt',
+            'bio' => 'Mi camino en la gestión de proyectos comenzó con Microsoft Project y evolucionó hacia el dominio de los estándares del PMBOK® y las metodologías ágiles como Scrum. Me certifiqué como Scrum Master, CAPM®, PMP® y Black Belt. Hoy, desde la docencia, acompaño a profesionales a liderar proyectos con impacto, enfoque humano y resultados sostenibles.',
             'foto' => 'img/mi-foto.jpg' 
         ],
         'precio' => 'S/ 350.00',
@@ -378,8 +378,8 @@ $cursos_detalle = [
         ],
         'instructor' => [
             'nombre' => 'Diego Ayasca',
-            'titulo_inst' => 'PMP®, Scrum Master & Agile Coach',
-            'bio' => 'Consultor senior con más de 10 años gestionando proyectos de tecnología e infraestructura. Ha capacitado a más de 5,000 profesionales en Latinoamérica.',
+            'titulo_inst' => 'PMP | CAPM | SMPC | Black Belt',
+            'bio' => 'Mi camino en la gestión de proyectos comenzó con Microsoft Project y evolucionó hacia el dominio de los estándares del PMBOK® y las metodologías ágiles como Scrum. Me certifiqué como Scrum Master, CAPM®, PMP® y Black Belt. Hoy, desde la docencia, acompaño a profesionales a liderar proyectos con impacto, enfoque humano y resultados sostenibles.',
             'foto' => 'img/mi-foto.jpg' 
         ],
         'precio' => 'S/ 800.00',
