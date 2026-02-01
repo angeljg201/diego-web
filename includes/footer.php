@@ -32,7 +32,7 @@
                 <ul class="footer-links">
                     <li><a href="<?php echo $base_path; ?>politicas/terminos-condiciones"><i class="fas fa-chevron-right"></i> Terminos y Condiciones</a></li>
                     <li><a href="<?php echo $base_path; ?>politicas/politica-privacidad"><i class="fas fa-chevron-right"></i> Política de Privacidad</a></li>
-                    <li><a href="#"><i class="fas fa-book"></i> Libro de Reclamaciones</a></li>
+                    <li><a href="<?php echo $base_path; ?>politicas/libro-reclamaciones"><i class="fas fa-book"></i> Libro de Reclamaciones</a></li>
                 </ul>
             </div>
 
