@@ -151,9 +151,11 @@ $nav_prefix = '';
                             </div>
 
                             <div class="social-connect">
-                                <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                                <a href="#"><i class="fab fa-whatsapp"></i></a>
-                                <a href="#"><i class="fab fa-instagram"></i></a>
+                                <a href="https://www.facebook.com/profile.php?id=61578180192901" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                                <a href="https://www.instagram.com/diegoayasca" target="_blank"><i class="fab fa-instagram"></i></a>
+                                <a href="https://www.tiktok.com/@diegopmp2" target="_blank"><i class="fab fa-tiktok"></i></a>
+                                <a href="https://www.linkedin.com/in/diegoayasca/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                                <a href="https://www.youtube.com/channel/UCLRFZlx5SG65cfU1ZA7_K_Q" target="_blank"><i class="fab fa-youtube"></i></a>
                             </div>
                         </div>
 

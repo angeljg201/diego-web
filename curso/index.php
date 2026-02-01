@@ -175,9 +175,9 @@ $nav_prefix = '../index.php'; // On subpages, links go back to home
                                         </div>
                                         
                                         <div class="inst-socials">
-                                            <!-- Optional socials if data existed, or static for now -->
-                                            <a href="#"><i class="fab fa-linkedin"></i></a>
-                                            <a href="#"><i class="fas fa-envelope"></i></a>
+                                            <a href="https://www.linkedin.com/in/diegoayasca/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                                            <a href="https://www.instagram.com/diegoayasca" target="_blank"><i class="fab fa-instagram"></i></a>
+                                            <a href="https://www.facebook.com/profile.php?id=61578180192901" target="_blank"><i class="fab fa-facebook-f"></i></a>
                                         </div>
                                     </div>
                                 </div>
