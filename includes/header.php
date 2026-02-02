@@ -16,6 +16,7 @@
                 <li><a href="<?php echo $nav_prefix; ?>#cursos">Cursos</a></li>
                 <li><a href="<?php echo $nav_prefix; ?>#sobre-mi">Sobre mí</a></li>
                 <li><a href="<?php echo $nav_prefix; ?>#contacto">Contacto</a></li>
+                <li><a href="https://aula.diegoayasca.com/login/index.php" class="btn btn-gold" target="_blank"><i class="fas fa-user-graduate"></i> Aula Virtual</a></li>
             </ul>
         </nav>
     </div>

@@ -184,7 +184,8 @@ ul {
     position: fixed;
     top: 0;
     width: 100%;
-    z-index: 1000;
+    z-index: 2000;
+    /* Increased to cover WhatsApp button (z-index 1000) */
     padding: 1.5rem 0;
     background: transparent;
     /* Transparent initially */
@@ -234,6 +235,42 @@ ul {
 
 .main-nav a:hover::after {
     width: 100%;
+}
+
+/* Nav Button Specifics to override general nav styles */
+.main-nav a.btn {
+    color: #1e293b !important;
+    /* Force Navy text on Gold button */
+    padding: 0.5rem 1.5rem;
+    /* Reduced padding to match text height better */
+    font-size: 1rem;
+    /* Slightly smaller font for button to fit better */
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.main-nav a.btn::after {
+    display: none;
+    /* Remove underline effect for button */
+}
+
+.main-nav a.btn:hover {
+    color: #1e293b !important;
+    transform: translateY(-3px);
+}
+
+/* Mobile Menu Button Adjustments */
+@media (max-width: 768px) {
+    .main-nav a.btn {
+        width: auto;
+        /* Let it size naturally or set to 80% if needed */
+        justify-content: center;
+        margin-top: 1rem;
+        padding: 0.8rem 2rem;
+        /* Restore standard padding for mobile touch targets */
+        font-size: 1.2rem;
+    }
 }
 
 /* Scrolled Header State */
@@ -483,7 +520,7 @@ span.highlight {
     .mobile-toggle {
         display: block;
         /* Show hamburger */
-        z-index: 1001;
+        z-index: 2001;
     }
 
     .main-nav {
@@ -499,7 +536,7 @@ span.highlight {
         align-items: center;
         justify-content: center;
         transition: right 0.4s ease;
-        z-index: 1000;
+        z-index: 2000;
     }
 
     .main-nav.active {
