@@ -11,7 +11,16 @@ $nav_prefix = '';
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Diego Ayasca | Potencia tu carrera profesional</title>
+    <title>Diego Ayasca | Gestión de Proyectos, Agilidad e Investigación</title>
+    <meta name="description" content="Impulsa tu carrera profesional con cursos de Gestión de Proyectos (PMP, CAPM), Metodologías Ágiles (Scrum, Kanban) e Investigación Académica. Aprende con Diego Ayasca.">
+    <link rel="canonical" href="https://diegoayasca.com/">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://diegoayasca.com/">
+    <meta property="og:title" content="Diego Ayasca | Gestión de Proyectos y Agilidad">
+    <meta property="og:description" content="Domina las habilidades más demandadas: PMP, Scrum, Kanban y Redacción Científica. Fórmate con expertos.">
+    <meta property="og:image" content="https://diegoayasca.com/img/banner-inicio-diego-ayasca.png">
     <link rel="icon" href="img/logo.png" type="image/png">
     
     <!-- Google Fonts: Outfit -->

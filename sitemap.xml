@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Inicio -->
+  <url>
+    <loc>https://diegoayasca.com/</loc>
+    <lastmod>2026-02-01</lastmod>
+    <priority>1.0</priority>
+  </url>
+  
+  <!-- Cursos -->
+  <url>
+    <loc>https://diegoayasca.com/curso/gestion-proyectos</loc>
+    <lastmod>2026-02-01</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://diegoayasca.com/curso/metodologias-agiles</loc>
+    <lastmod>2026-02-01</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://diegoayasca.com/curso/liderazgo-equipos-it</loc>
+    <lastmod>2026-02-01</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://diegoayasca.com/curso/certificacion-capm</loc>
+    <lastmod>2026-02-01</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://diegoayasca.com/curso/preparacion-pmp</loc>
+    <lastmod>2026-02-01</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Proyecto Academia (Investigación Académica) -->
+  <url>
+    <loc>https://diegoayasca.com/curso/investigacion-academica</loc>
+    <lastmod>2026-02-01</lastmod>
+    <priority>0.9</priority>
+  </url>
+</urlset>

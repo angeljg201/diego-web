@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /includes/
+Disallow: /data/
+Disallow: /.git/
+
+Sitemap: https://diegoayasca.com/sitemap.xml
