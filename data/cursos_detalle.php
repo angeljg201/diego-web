@@ -388,6 +388,177 @@ $cursos_detalle = [
             ['q' => '¿Incluye el certificado PMP?', 'a' => 'No, este curso te brinda las 35 horas de contacto requeridas para postular al examen, pero la certificación la otorga el PMI tras aprobar su examen.'],
             ['q' => '¿El simulador es parecido al real?', 'a' => 'Sí, contamos con un banco de preguntas alineadas al ECO vigente para que practiques en condiciones reales.']
         ]
+    ],
+    'gestion-proyectos-ms-project' => [
+        'titulo' => 'Gestión de Proyectos con MS Project',
+        'subtitulo' => 'Domina la planificación, seguimiento y control de proyectos con la herramienta estándar de la industria.',
+        'imagen' => 'img/cursos/gestion_ms_project.webp',
+        'descripcion_corta' => 'Crea cronogramas precisos, gestiona recursos y controla costos eficientemente.',
+        'descripcion_larga' => '<p>Microsoft Project es la herramienta por excelencia para la gestión profesional de proyectos. En este curso, aprenderás desde la configuración inicial hasta el seguimiento avanzado y control de desviaciones.</p><p>Dominarás la creación de la EDT (WBS), la vinculación de tareas, la gestión de la ruta crítica y la generación de informes de valor ganado para asegurar el éxito de tus proyectos.</p>',
+        'beneficios' => [
+            'Creación de cronogramas dinámicos y realistas.',
+            'Gestión eficiente de recursos y costos.',
+            'Análisis de Ruta Crítica y Línea Base.',
+            'Generación de reportes de estado y curvas S.'
+        ],
+        'aprenderas' => [
+            'Entorno y configuración de MS Project.',
+            'Programación de tareas y hitos.',
+            'Asignación y nivelación de recursos.',
+            'Gestión de costos y presupuestos.',
+            'Seguimiento, actualización y control.',
+            'Reportes de Valor Ganado (EVM).'
+        ],
+        'info' => [
+            'duracion' => '5 Semanas',
+            'modalidad' => '100% Online (Asincrónico + Mentoría)',
+            'nivel' => 'Básico - Intermedio',
+            'certificado' => 'Sí, Certificado de Especialista'
+        ],
+        'temario' => [
+            [
+                'modulo' => 'Módulo 1: Fundamentos y Planificación Inicial',
+                'lecciones' => ['Interfaz y Configuración', 'Calendarios del Proyecto', 'Creación de la EDT (WBS)']
+            ],
+            [
+                'modulo' => 'Módulo 2: Programación y Recursos',
+                'lecciones' => ['Vinculación de Tareas y Secuenciamiento', 'Tipos de Tareas', 'Hoja de Recursos y Asignación']
+            ],
+            [
+                'modulo' => 'Módulo 3: Costos y Línea Base',
+                'lecciones' => ['Asignación de Costos Fijos y Variables', 'Análisis de Presupuesto', 'Establecimiento de Línea Base']
+            ],
+            [
+                'modulo' => 'Módulo 4: Seguimiento y Control',
+                'lecciones' => ['Actualización de Progreso', 'Análisis de Desviaciones', 'Informes y Dashboards']
+            ]
+        ],
+        'instructor' => [
+            'nombre' => 'Diego Ayasca',
+            'titulo_inst' => 'PMP | CAPM | BSMP | MS Project Expert',
+            'bio' => 'Consultor experto en Gestión de Proyectos y PMO. Con años de experiencia implementando soluciones de gestión con herramientas Microsoft. Ayudo a organizaciones a optimizar su cartera de proyectos mediante la tecnología.',
+            'foto' => 'img/mi-foto.jpg' 
+        ],
+        'precio' => 'S/ 350.00',
+        'precio_oferta' => 'S/ 299.00',
+        'faq' => [
+            ['q' => '¿Qué versión de MS Project necesito?', 'a' => 'Se recomienda MS Project 2019, 2021 o la versión de Project Online Desktop Client.'],
+            ['q' => '¿Es compatible con Mac?', 'a' => 'MS Project es nativo de Windows. En Mac necesitas una máquina virtual (Parallels/VMware) o Bootcamp.']
+        ]
+    ],
+    'gestion-proyectos-ia' => [
+        'titulo' => 'Gestión de Proyectos con IA',
+        'subtitulo' => 'Revoluciona tu productividad y toma de decisiones integrando Inteligencia Artificial en tus proyectos.',
+        'imagen' => 'img/cursos/gestion_ia.webp',
+        'descripcion_corta' => 'Multiplica tu eficiencia automatizando tareas y mejorando el análisis con IA.',
+        'descripcion_larga' => '<p>La Inteligencia Artificial está transformando el rol del Project Manager. Este curso te enseña cómo utilizar herramientas como ChatGPT, Claude y Copilot para automatizar documentación, identificar riesgos ocultos y optimizar la comunicación del equipo.</p><p>Aprende ingeniería de prompts específica para gestión de proyectos y mantente a la vanguardia tecnológica.</p>',
+        'beneficios' => [
+            'Automatización de actas, correos y reportes.',
+            'Análisis predictivo de riesgos.',
+            'Asistente virtual para toma de decisiones.',
+            'Prompts avanzados para marcos Ágiles y Predictivos.'
+        ],
+        'aprenderas' => [
+            'Fundamentos de IA Generativa para PMs.',
+            'Ingeniería de Prompts para PMBOK y Scrum.',
+            'Creación automática de Historias de Usuario.',
+            'Análisis de datos de proyectos con IA.',
+            'Herramientas de IA para productividad.',
+            'Ética y seguridad en el uso de IA.'
+        ],
+        'info' => [
+            'duracion' => '4 Semanas',
+            'modalidad' => '100% Online (En Vivo)',
+            'nivel' => 'Todos los niveles',
+            'certificado' => 'Sí, Certificado de Innovación en GP'
+        ],
+        'temario' => [
+            [
+                'modulo' => 'Módulo 1: Introducción a la IA en Proyectos',
+                'lecciones' => ['Panorama de herramientas (ChatGPT, Copilot, Gemini)', 'Ingeniería de Prompts Básica', 'Casos de uso en GP']
+            ],
+            [
+                'modulo' => 'Módulo 2: Planificación Asistida por IA',
+                'lecciones' => ['Generación de WBS y Cronogramas', 'Estimación de Tiempos y Costos', 'Identificación de Riesgos']
+            ],
+            [
+                'modulo' => 'Módulo 3: Ejecución y Monitoreo',
+                'lecciones' => ['Redacción de Informes de Estado', 'Análisis de sentimiento del equipo', 'Resolución de problemas complejos']
+            ],
+            [
+                'modulo' => 'Módulo 4: Habilidades Blandas e IA',
+                'lecciones' => ['Role-playing con IA para negociaciones', 'Mejora de la comunicación escrita', 'El futuro del Project Manager']
+            ]
+        ],
+        'instructor' => [
+            'nombre' => 'Diego Ayasca',
+            'titulo_inst' => 'PMP | AI Enthusiast',
+            'bio' => 'Apasionado por la intersección entre la gestión de proyectos y la tecnología emergente. Investigo y aplico activamente soluciones de IA para potenciar la eficiencia de las oficinas de proyectos.',
+            'foto' => 'img/mi-foto.jpg' 
+        ],
+        'precio' => 'S/ 300.00',
+        'precio_oferta' => 'S/ 249.00',
+        'faq' => [
+            ['q' => '¿Necesito saber programar?', 'a' => 'No, el enfoque es No-Code, utilizando herramientas de lenguaje natural.'],
+            ['q' => '¿Las herramientas son gratuitas?', 'a' => 'Usamos principalmente versiones gratuitas o freemium de las herramientas más populares.']
+        ]
+    ],
+    'gestion-proyectos-powerbi' => [
+        'titulo' => 'Gestión de Proyectos con Power BI',
+        'subtitulo' => 'Transforma los datos de tus proyectos em Dashboards de alto impacto para la toma de decisiones estratégica.',
+        'imagen' => 'img/cursos/gestion_power_bi.webp',
+        'descripcion_corta' => 'Visualiza el éxito. Crea tableros de control interactivos conectados a tus herramientas de gestión.',
+        'descripcion_larga' => '<p>Deja atrás los reportes estáticos en Excel y PowerPoint. Con Power BI, aprenderás a conectar múltiples fuentes de datos (Microsoft Project, Excel, Jira) para crear tableros de control dinámicos y automatizados.</p><p>Visualiza el estado del portafolio, controla indicadores clave (KPIs) y presenta la información de manera visualmente impactante a los stakeholders.</p>',
+        'beneficios' => [
+            'Dashboards automatizados e interactivos.',
+            'Conexión directa a MS Project y Excel.',
+            'Visualización clara de Curva S y KPIs.',
+            'Mejor comunicación con stakeholders.'
+        ],
+        'aprenderas' => [
+            'Fundamentos de Business Intelligence.',
+            'ETL: Extracción y limpieza de datos de proyectos.',
+            'Modelado de datos (Estrella).',
+            'Fórmulas DAX para métricas de proyectos (SPI, CPI).',
+            'Visualizaciones efectivas y Storytelling.',
+            'Publicación y actualización programada.'
+        ],
+        'info' => [
+            'duracion' => '6 Semanas',
+            'modalidad' => '100% Online (Práctico)',
+            'nivel' => 'Intermedio',
+            'certificado' => 'Sí, Certificado en Project Analytics'
+        ],
+        'temario' => [
+            [
+                'modulo' => 'Módulo 1: Fundamentos y Conexión de Datos',
+                'lecciones' => ['Introducción a Power BI', 'Conectando a Excel y Project', 'Limpieza de datos con Power Query']
+            ],
+            [
+                'modulo' => 'Módulo 2: Modelado y DAX Básico',
+                'lecciones' => ['Relaciones entre tablas', 'Medidas vs Columnas calculadas', 'DAX para cronogramas y costos']
+            ],
+            [
+                'modulo' => 'Módulo 3: Visualización de Datos',
+                'lecciones' => ['Gráficos de Gantt y líneas de tiempo', 'Creación de Curva S', 'Semáforos e indicadores (KPIs)']
+            ],
+            [
+                'modulo' => 'Módulo 4: Publicación y Colaboración',
+                'lecciones' => ['Diseño de Dashboards Ejecutivos', 'Publicación en Power BI Service', 'Exportación y Seguridad']
+            ]
+        ],
+        'instructor' => [
+            'nombre' => 'Diego Ayasca',
+            'titulo_inst' => 'PMP | Data Analyst',
+            'bio' => 'Especialista en Project Management Office (PMO) y Análisis de Datos. Ayudo a las empresas a tomar decisiones basadas en datos reales, transformando la información compleja en visualizaciones claras y accionables.',
+            'foto' => 'img/mi-foto.jpg' 
+        ],
+        'precio' => 'S/ 350.00',
+        'precio_oferta' => 'S/ 299.00',
+        'faq' => [
+            ['q' => '¿Necesito licencia Pro de Power BI?', 'a' => 'Para el curso basta con Power BI Desktop (gratuito). Para compartir en entornos corporativos sí se requiere licencia Pro.'],
+            ['q' => '¿Se integra con Jira?', 'a' => 'Sí, veremos cómo conectar diversas fuentes de datos, incluyendo la lógica para conectar con gestores de tareas.']
+        ]
     ]
 ];
 ?>
