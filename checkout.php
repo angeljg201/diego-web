@@ -422,6 +422,7 @@ $amount_culqi = intval($price_numeric * 100);
                                 <p class="culqi-text">
                                     Acepta pagos con <strong>tarjetas de débito y crédito, Yape, Cuotéalo BCP y PagoEfectivo</strong> (billeteras móviles, agentes y bodegas).
                                 </p>
+                                <button type="button" class="submit-btn" id="btn-pay" style="margin-top: 1.5rem;">Realizar el pedido</button>
                             </div>
                         </div>
                     </div>
@@ -438,9 +439,7 @@ $amount_culqi = intval($price_numeric * 100);
                         
                         <div class="payment-details">
                             <div class="paypal-info">
-                                 <button type="button" class="btn-paypal-custom" id="btn-paypal-trigger">
-                                    Pagar con <strong>PayPal</strong> <i class="fab fa-paypal"></i>
-                                 </button>
+                                 <div id="paypal-button-container"></div>
                                  <p class="paypal-help-text">
                                     ¿Tienes alguna duda? Visita nuestra <a href="#">página de Ayuda</a> o <a href="#">contáctanos</a>.
                                  </p>
@@ -470,7 +469,11 @@ $amount_culqi = intval($price_numeric * 100);
                 <span><?php echo $course_price_display; ?></span>
             </div>
             
-            <button type="button" class="submit-btn" id="btn-pay">Realizar el pedido</button>
+            <div style="margin-top: 2rem; padding: 1rem; background: rgba(255,255,255,0.1); border-radius: 8px; text-align: center;">
+                <p style="font-size: 0.95rem; margin-bottom: 0.5rem;"><i class="fas fa-graduation-cap" style="color: var(--gold); margin-right: 0.5rem;"></i> Acceso inmediato al <strong>Aula Virtual</strong></p>
+                <p style="font-size: 0.8rem; opacity: 0.8;">Material descargable y certificado incluido.</p>
+            </div>
+
             <p style="margin-top: 1rem; font-size: 0.8rem; opacity: 0.8; text-align: center;">
                 <i class="fas fa-lock"></i> Pago 100% Seguro y Encriptado
             </p>
@@ -483,6 +486,8 @@ $amount_culqi = intval($price_numeric * 100);
 
 <!-- Include Culqi v4 -->
 <script src="https://checkout.culqi.com/js/v4"></script>
+<!-- Include PayPal SDK -->
+<script src="https://www.paypal.com/sdk/js?client-id=AX26VdDqxl1qJ4pyLwP9556MfO9-Vt8lTJeRP08Wz0gdtDkKfzMZ8Uf1CBHwoo-feBWZI8OOC2g32Rf1&currency=PEN"></script>
 
 <script>
     // Configuración de Culqi
@@ -491,23 +496,31 @@ $amount_culqi = intval($price_numeric * 100);
     // Configuración del botón de pago
     const btnPay = document.getElementById('btn-pay');
     const form = document.getElementById('checkout-form');
-    
+    const paypalContainer = document.getElementById('paypal-button-container');
+
+    // Function to toggle buttons based on selection
+    // Function to toggle buttons based on selection
+    function togglePaymentButtons(method) {
+        // Logic handled by CSS .payment-card.active .payment-details
+        // When PayPal is selected, Culqi card is not active -> details hidden -> btnPay hidden
+        // When Culqi is selected, Culqi card is active -> details shown -> btnPay shown
+    }
+
     // Handle Radio Button Styling & Visibility
     const paymentCards = document.querySelectorAll('.payment-card');
     
     paymentCards.forEach(card => {
-        // Add click event to the whole card header to trigger selection
         const header = card.querySelector('.payment-option-header');
+        const radio = card.querySelector('input[type="radio"]');
 
         header.addEventListener('click', function(e) {
             // Remove active class from all
             paymentCards.forEach(c => c.classList.remove('active'));
-            
             // Add active class to current
             card.classList.add('active');
             
-            // Radio is handled by label 'for' attribute or nesting, 
-            // but we ensure consistent UI state here.
+            // Toggle Logic
+            togglePaymentButtons(radio.value);
         });
     });
 
@@ -516,17 +529,50 @@ $amount_culqi = intval($price_numeric * 100);
     radios.forEach(radio => {
         radio.addEventListener('change', function() {
             if(this.checked) {
-                // Find parent card
                 const targetCard = this.closest('.payment-card');
-                
-                // Clear all
                 paymentCards.forEach(c => c.classList.remove('active'));
-                
-                // Set active
                 if(targetCard) targetCard.classList.add('active');
+                
+                // Toggle Logic
+                togglePaymentButtons(this.value);
             }
         });
     });
+
+    // Initial check
+    const checkedRadio = document.querySelector('input[name="payment_method"]:checked');
+    if(checkedRadio) {
+        togglePaymentButtons(checkedRadio.value);
+    }
+
+    // PayPal Button Rendering
+    paypal.Buttons({
+        fundingSource: paypal.FUNDING.PAYPAL, // Show only PayPal button
+        style: {
+            layout: 'vertical',
+            color:  'blue',
+            shape:  'rect',
+            label:  'paypal'
+        },
+        createOrder: function(data, actions) {
+            return actions.order.create({
+                purchase_units: [{
+                    amount: {
+                        value: '350.00' // Fixed amount as requested
+                    }
+                }]
+            });
+        },
+        onApprove: function(data, actions) {
+            return actions.order.capture().then(function(details) {
+                console.log(details);
+                alert('Pago Exitoso con PayPal! ID: ' + details.id + '\nEstado: ' + details.status);
+                // Here you would redirect to a success page
+                // window.location.href = "gracias.php?order_id=" + details.id;
+            });
+        }
+    }).render('#paypal-button-container');
+
 
     btnPay.addEventListener('click', function(e) {
         e.preventDefault();
@@ -555,7 +601,7 @@ $amount_culqi = intval($price_numeric * 100);
                 title: 'Diego Ayasca - Cursos',
                 currency: 'PEN',
                 description: 'Curso: <?php echo addslashes($course_title); ?>',
-                amount: <?php echo $amount_culqi; ?> // Dynamic Amount
+                amount: <?php echo $amount_culqi; ?> 
             });
 
             // Opciones de personalización visual de Culqi
@@ -570,9 +616,8 @@ $amount_culqi = intval($price_numeric * 100);
             });
 
             Culqi.open();
-        } else {
-            alert('La integración con PayPal estará disponible pronto.');
-        }
+        } 
+        // Note: PayPal button handles its own click, so this block activates only for Culqi
     });
 
     function validateEmail(email) {
