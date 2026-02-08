@@ -487,7 +487,7 @@ $amount_culqi = intval($price_numeric * 100);
 <!-- Include Culqi v4 -->
 <script src="https://checkout.culqi.com/js/v4"></script>
 <!-- Include PayPal SDK -->
-<script src="https://www.paypal.com/sdk/js?client-id=AX26VdDqxl1qJ4pyLwP9556MfO9-Vt8lTJeRP08Wz0gdtDkKfzMZ8Uf1CBHwoo-feBWZI8OOC2g32Rf1&currency=PEN"></script>
+<script src="https://www.paypal.com/sdk/js?client-id=AX26VdDqxl1qJ4pyLwP9556MfO9-Vt8lTJeRP08Wz0gdtDkKfzMZ8Uf1CBHwoo-feBWZI8OOC2g32Rf1&currency=USD"></script>
 
 <script>
     // Configuración de Culqi
@@ -558,7 +558,8 @@ $amount_culqi = intval($price_numeric * 100);
             return actions.order.create({
                 purchase_units: [{
                     amount: {
-                        value: '350.00' // Fixed amount as requested
+                        value: '350.00', // Fixed amount as requested
+                        currency_code: 'USD'
                     }
                 }]
             });
