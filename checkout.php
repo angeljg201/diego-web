@@ -140,55 +140,151 @@ $amount_culqi = intval($price_numeric * 100);
             box-shadow: 0 0 0 3px rgba(30, 41, 59, 0.1);
         }
 
-        /* Payment Methods */
+        /* Payment Methods Redesign */
         .payment-methods {
             margin-top: 2.5rem;
         }
 
-        .payment-option {
+        .payment-card {
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            margin-bottom: 1.5rem;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            background: #fff;
+        }
+
+        .payment-card.active {
+            border-color: #3b82f6;
+            box-shadow: 0 0 0 1px #3b82f6;
+        }
+
+        .payment-option-header {
             display: flex;
             align-items: center;
-            padding: 1rem;
-            border: 1px solid #e2e8f0;
-            border-radius: 10px;
-            margin-bottom: 1rem;
+            justify-content: space-between;
+            padding: 1.25rem;
+            background: #f8fafc;
             cursor: pointer;
-            transition: all 0.3s;
+            width: 100%;
+            margin: 0;
+            font-weight: 600;
+            color: #0f172a;
         }
 
-        .payment-option:hover {
-            border-color: var(--primary);
-            background-color: #f8fafc;
-        }
-
-        .payment-option.selected {
-            border-color: var(--primary);
-            background-color: #f1f5f9;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        .payment-card.active .payment-option-header {
+             background: #eff6ff;
         }
 
         .payment-radio {
             margin-right: 1rem;
-            accent-color: var(--primary);
-            transform: scale(1.2);
+            accent-color: #0f172a;
+            width: 1.2rem;
+            height: 1.2rem;
         }
 
-        .payment-label {
-            flex-grow: 1;
-            font-weight: 600;
-            color: #1e293b;
+        .payment-title {
+            font-size: 1.05rem;
+            font-weight: 700;
+        }
+
+        .payment-logo-small {
+            height: 24px;
+            object-fit: contain;
+        }
+
+        /* Payment Details */
+        .payment-details {
+            display: none;
+            padding: 1.5rem;
+            border-top: 1px solid #e2e8f0;
+            background: #fff;
+            animation: slideDown 0.3s ease-out;
+        }
+
+        .payment-card.active .payment-details {
+            display: block;
+        }
+
+        @keyframes slideDown {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Culqi Info */
+        .culqi-info {
+            color: #64748b;
+            font-size: 0.95rem;
+        }
+
+        .culqi-header {
             display: flex;
-            justify-content: space-between;
             align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .logo-culqi {
+            height: 28px;
+        }
+
+        .payment-icons-row {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .payment-icons-row img {
+            height: 24px;
+            object-fit: contain;
+        }
+
+        .culqi-text {
+            line-height: 1.6;
         }
         
-        .payment-icons {
-            font-size: 1.5rem;
-            color: var(--primary);
+        .culqi-text strong {
+            color: #334155;
         }
 
-        .fa-cc-paypal { color: #003087; }
-        .fa-credit-card { color: #1e293b; }
+        /* PayPal Info */
+        .paypal-info {
+            text-align: center;
+        }
+
+        .btn-paypal-custom {
+            background-color: #0070ba;
+            color: white;
+            font-weight: 700;
+            font-size: 1.1rem;
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            border: none;
+            width: 100%;
+            max-width: 400px;
+            cursor: pointer;
+            transition: background 0.2s;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .btn-paypal-custom:hover {
+            background-color: #005ea6;
+        }
+
+        .paypal-help-text {
+            font-size: 0.9rem;
+            color: #64748b;
+        }
+
+        .paypal-help-text a {
+            color: #0070ba;
+            text-decoration: underline;
+        }
 
         /* Right Column: Order Summary (Sticky) */
         .checkout-summary-col {
@@ -299,23 +395,58 @@ $amount_culqi = intval($price_numeric * 100);
                 </div>
 
                 <div class="payment-methods">
-                    <h3 class="form-label" style="font-size: 1.2rem; margin-bottom: 1rem;">Método de pago</h3>
+                    <h3 class="form-label" style="font-size: 1.2rem; margin-bottom: 1.5rem;">Método de pago</h3>
                     
-                    <label class="payment-option selected" id="option-culqi">
-                        <input type="radio" name="payment_method" value="culqi" class="payment-radio" checked>
-                        <span class="payment-label">
-                            Tarjeta de Débito/Crédito
-                            <span class="payment-icons"><i class="fas fa-credit-card"></i></span>
-                        </span>
-                    </label>
+                    <!-- Option 1: Culqi (Credit/Debit Card) -->
+                    <div class="payment-card active" id="card-culqi">
+                        <label class="payment-option-header" for="radio-culqi">
+                            <div style="display: flex; align-items: center;">
+                                <input type="radio" name="payment_method" value="culqi" id="radio-culqi" class="payment-radio" checked>
+                                <span class="payment-title">Pagar con Culqi</span>
+                            </div>
+                            <img src="img/pagos/logo-culqi.webp" alt="Culqi" class="payment-logo-small">
+                        </label>
+                        
+                        <div class="payment-details">
+                            <div class="culqi-info">
+                                <div class="culqi-header">
+                                    <img src="img/pagos/logo-culqi.webp" alt="Culqi" class="logo-culqi">
+                                    <div class="payment-icons-row">
+                                        <img src="img/pagos/checkout-visa.webp" alt="Visa">
+                                        <img src="img/pagos/checkout-master-card.webp" alt="Mastercard">
+                                        <img src="img/pagos/checkout-american-express.webp" alt="Amex">
+                                        <img src="img/pagos/checkout-yape.webp" alt="Yape">
+                                        <img src="img/pagos/checkout-pago-efectivo.webp" alt="PagoEfectivo">
+                                    </div>
+                                </div>
+                                <p class="culqi-text">
+                                    Acepta pagos con <strong>tarjetas de débito y crédito, Yape, Cuotéalo BCP y PagoEfectivo</strong> (billeteras móviles, agentes y bodegas).
+                                </p>
+                            </div>
+                        </div>
+                    </div>
                     
-                    <label class="payment-option" id="option-paypal">
-                        <input type="radio" name="payment_method" value="paypal" class="payment-radio">
-                        <span class="payment-label">
-                            PayPal
-                            <span class="payment-icons"><i class="fab fa-cc-paypal"></i></span>
-                        </span>
-                    </label>
+                    <!-- Option 2: PayPal -->
+                    <div class="payment-card" id="card-paypal">
+                        <label class="payment-option-header" for="radio-paypal">
+                            <div style="display: flex; align-items: center;">
+                                <input type="radio" name="payment_method" value="paypal" id="radio-paypal" class="payment-radio">
+                                <span class="payment-title">Pagar con PayPal</span>
+                            </div>
+                            <img src="img/pagos/logo-paypal.webp" alt="PayPal" class="payment-logo-small">
+                        </label>
+                        
+                        <div class="payment-details">
+                            <div class="paypal-info">
+                                 <button type="button" class="btn-paypal-custom" id="btn-paypal-trigger">
+                                    Pagar con <strong>PayPal</strong> <i class="fab fa-paypal"></i>
+                                 </button>
+                                 <p class="paypal-help-text">
+                                    ¿Tienes alguna duda? Visita nuestra <a href="#">página de Ayuda</a> o <a href="#">contáctanos</a>.
+                                 </p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </form>
         </div>
@@ -361,17 +492,39 @@ $amount_culqi = intval($price_numeric * 100);
     const btnPay = document.getElementById('btn-pay');
     const form = document.getElementById('checkout-form');
     
-    // Handle Radio Button Styling
-    const paymentOptions = document.querySelectorAll('.payment-option');
-    paymentOptions.forEach(option => {
-        option.addEventListener('click', function() {
-            // Reset styles
-            paymentOptions.forEach(opt => opt.classList.remove('selected'));
-            // Add style to clicked
-            this.classList.add('selected');
-            // Check the radio input inside
-            const radio = this.querySelector('input[type="radio"]');
-            radio.checked = true;
+    // Handle Radio Button Styling & Visibility
+    const paymentCards = document.querySelectorAll('.payment-card');
+    
+    paymentCards.forEach(card => {
+        // Add click event to the whole card header to trigger selection
+        const header = card.querySelector('.payment-option-header');
+
+        header.addEventListener('click', function(e) {
+            // Remove active class from all
+            paymentCards.forEach(c => c.classList.remove('active'));
+            
+            // Add active class to current
+            card.classList.add('active');
+            
+            // Radio is handled by label 'for' attribute or nesting, 
+            // but we ensure consistent UI state here.
+        });
+    });
+
+    // Also listen for change events on the radios directly
+    const radios = document.querySelectorAll('input[name="payment_method"]');
+    radios.forEach(radio => {
+        radio.addEventListener('change', function() {
+            if(this.checked) {
+                // Find parent card
+                const targetCard = this.closest('.payment-card');
+                
+                // Clear all
+                paymentCards.forEach(c => c.classList.remove('active'));
+                
+                // Set active
+                if(targetCard) targetCard.classList.add('active');
+            }
         });
     });
 
