@@ -19,34 +19,18 @@ if (!$curso) {
 $base_path = '../'; 
 $nav_prefix = '../index.php'; // On subpages, links go back to home
 ?>
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?php echo $curso['titulo']; ?> | Diego Ayasca</title>
-    <meta name="description" content="<?php echo strip_tags($curso['descripcion_corta']); ?>">
-    <link rel="canonical" href="https://diegoayasca.com/curso/<?php echo $slug; ?>">
 
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="article">
-    <meta property="og:url" content="https://diegoayasca.com/curso/<?php echo $slug; ?>">
-    <meta property="og:title" content="<?php echo $curso['titulo']; ?> | Diego Ayasca">
-    <meta property="og:description" content="<?php echo strip_tags($curso['descripcion_corta']); ?>">
-    <meta property="og:image" content="https://diegoayasca.com/<?php echo $curso['imagen']; ?>">
-    <link rel="icon" href="../img/logo.png" type="image/png">
-    
-    <!-- Google Fonts: Outfit -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700;800&display=swap" rel="stylesheet">
-    
-    <!-- FontAwesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="../css/style.css">
-</head>
+<?php
+    // Set Dynamic Meta Tags for Global Head
+    $page_title = $curso['titulo'] . ' | Diego Ayasca';
+    $page_desc = strip_tags($curso['descripcion_corta']);
+    $page_url = "https://diegoayasca.com/curso/" . $slug;
+    $page_image = "https://diegoayasca.com/" . $curso['imagen'];
+    $og_type = 'article';
+
+    // Include Global Head
+    include dirname(__DIR__) . '/includes/head_global.php';
+    ?>
 <body>
 
     <?php include '../includes/header.php'; ?>
