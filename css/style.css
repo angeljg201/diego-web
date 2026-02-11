@@ -2338,3 +2338,13 @@ section {
 .btn-whatsapp-custom:active {
     transform: translateY(0);
 }
+
+.features-list-container {
+    padding-top: 0 !important;
+    margin-top: 10px;
+    /* Small gap separate from buttons */
+}
+
+.features-list-container h4 {
+    margin-top: 0;
+}
