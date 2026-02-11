@@ -1658,30 +1658,7 @@ section {
     color: #4b5563;
 }
 
-/* Sticky Sidebar */
-.sticky-sidebar {
-    position: sticky;
-    top: 110px;
-    /* Header is fixed, so we need space */
-    z-index: 20;
-    transition: top 0.3s ease;
-}
-
-.details-sidebar {
-    margin-top: -550px;
-    /* Adjusted for shorter hero */
-    margin-bottom: -550px;
-    /* Compensate */
-    position: relative;
-    z-index: 30;
-    height: calc(100% + 550px);
-    /* Adjusted track length */
-    pointer-events: none;
-}
-
-.details-sidebar>* {
-    pointer-events: auto;
-}
+/* Sticky Sidebar moved to end of file for consolidation */
 
 @media (max-width: 992px) {
     .details-sidebar {
@@ -2251,7 +2228,20 @@ section {
 
 .details-sidebar {
     position: relative;
-    height: 100%;
+    z-index: 30;
+    margin-top: -550px;
+    /* Overlap hero */
+    margin-bottom: -550px;
+    /* Compensate layout */
+    height: calc(100% + 550px);
+    /* Extend track length for sticky */
+    pointer-events: none;
+    /* Allow clicks to pass through transparent part */
+}
+
+.details-sidebar>* {
+    pointer-events: auto;
+    /* Restore events for content */
 }
 
 .sticky-sidebar {
