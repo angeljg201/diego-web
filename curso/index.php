@@ -212,7 +212,13 @@ $nav_prefix = '../index.php'; // On subpages, links go back to home
                                     
                                     <div class="sidebar-actions">
                                         <a href="../checkout.php?course=<?php echo $slug; ?>" class="btn btn-primary btn-block btn-lg uppercase-btn">MATRICÚLATE AHORA <i class="fas fa-chevron-right"></i></a>
-                                        <a href="https://wa.me/51979611826?text=<?php echo urlencode('Hola, estoy en la página web y deseo acceder al CURSO: *' . $curso['titulo'] . '*'); ?>" class="btn btn-outline btn-block btn-lg uppercase-btn" target="_blank">MÁS INFORMACIÓN <i class="fas fa-external-link-alt"></i></a>
+                                        <a href="https://wa.me/51979611826?text=<?php echo urlencode('Hola, estoy en la página web y deseo acceder al CURSO: *' . $curso['titulo'] . '*'); ?>" class="btn-whatsapp-custom" target="_blank">
+                                            <div class="whatsapp-content">
+                                                <span class="whatsapp-small">Solicitar información por</span>
+                                                <span class="whatsapp-large">WHATSAPP</span>
+                                            </div>
+                                            <i class="fab fa-whatsapp whatsapp-icon"></i>
+                                        </a>
                                     </div>
                                     
                                     <div class="features-list-container">
