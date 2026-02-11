@@ -2256,7 +2256,7 @@ section {
 
 .sticky-sidebar {
     position: sticky;
-    top: 110px;
+    top: 80px;
     /* Adjust based on header height (~80-90px) + gap */
     transition: top 0.3s ease;
     z-index: 10;
