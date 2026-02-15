@@ -1,59 +1,33 @@
-<footer class="main-footer-dark">
+<footer class="main-footer-clean">
     <div class="container">
-        <div class="footer-grid">
-            <!-- Brand Column -->
-            <div class="footer-col brand-col">
-                <div class="footer-logo">
-                    <!-- Using text logo for now to match style, or keep image if preferred -->
-                    <h3>Diego Ayasca</h3> 
-                </div>
-                <p class="footer-desc">
-                    Somos una empresa en donde te preparamos y te enseñamos todo lo que necesitas saber para obtener las certificaciones PMP® y CAPM®.
-                </p>
-                <div class="contact-info">
-                    <p><i class="fab fa-whatsapp"></i> +51 926 949 986</p>
-                    <p><i class="fas fa-envelope"></i> contacto@diegoayasca.com</p>
-                </div>
+        <div class="footer-centered-content">
+            
+            <!-- Logo -->
+            <div class="footer-logo-clean">
+                <h3>Diego Ayasca</h3> 
             </div>
 
-            <!-- Navigation Column -->
-            <div class="footer-col">
-                <h4>Navega</h4>
-                <ul class="footer-links">
-                    <li><a href="../index.php"><i class="fas fa-chevron-right"></i> Inicio</a></li>
-                    <li><a href="#"><i class="fas fa-chevron-right"></i> Todo los Cursos</a></li>
-                    <li><a href="#"><i class="fas fa-chevron-right"></i> Cursos Gratis</a></li>
-                </ul>
+            <!-- Social Media -->
+            <div class="footer-social-clean">
+                <a href="https://www.facebook.com/profile.php?id=61578180192901" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.instagram.com/diegoayasca" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.tiktok.com/@diegopmp2" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                <a href="https://www.youtube.com/channel/UCLRFZlx5SG65cfU1ZA7_K_Q" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                <a href="https://www.linkedin.com/in/diegoayasca/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
             </div>
 
-            <!-- Legal Column -->
-            <div class="footer-col">
-                <h4>Avisos Legales</h4>
-                <ul class="footer-links">
-                    <li><a href="<?php echo $base_path; ?>politicas/terminos-condiciones"><i class="fas fa-chevron-right"></i> Terminos y Condiciones</a></li>
-                    <li><a href="<?php echo $base_path; ?>politicas/politica-privacidad"><i class="fas fa-chevron-right"></i> Política de Privacidad</a></li>
-                    <li><a href="<?php echo $base_path; ?>politicas/libro-reclamaciones"><i class="fas fa-book"></i> Libro de Reclamaciones</a></li>
-                </ul>
+            <!-- Legal Navigation -->
+            <div class="footer-legal-clean">
+                <a href="<?php echo $base_path; ?>politicas/terminos-condiciones">Términos y Condiciones</a>
+                <a href="<?php echo $base_path; ?>politicas/politica-privacidad">Política de Privacidad</a>
+                <a href="<?php echo $base_path; ?>politicas/libro-reclamaciones">Libro de Reclamaciones</a>
             </div>
 
-            <!-- Social Column -->
-            <div class="footer-col">
-                <h4>Síguenos</h4>
-                <div class="social-icons-footer">
-                    <a href="https://www.facebook.com/profile.php?id=61578180192901" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                    <a href="https://www.instagram.com/diegoayasca" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                    <a href="https://www.tiktok.com/@diegopmp2" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
-                    <a href="https://www.youtube.com/channel/UCLRFZlx5SG65cfU1ZA7_K_Q" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
-                    <a href="https://www.linkedin.com/in/diegoayasca/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                </div>
+            <!-- Copyright & Disclaimer -->
+            <div class="footer-copyright-clean">
+                <p>&copy; <?php echo date('Y'); ?> Diego Ayasca. Todos los derechos reservados</p>
             </div>
-        </div>
 
-        <div class="footer-bottom-dark">
-            <p>Copyright © <?php echo date('Y'); ?> Diego Ayasca. Todos los derechos reservados</p>
-            <p class="legal-text">
-                PMP, CAPM, PMI-ACP, PgMP, PMI-RMP, PMI-SP, PMBOK, Project Management Professional, Certified Associate in Project Management (CAPM), Project Management Professional (PMP), PMI Agile Certified Practitioner (PMI-ACP), Program Management Professional (PgMP), PMI Risk Management Professional (PMI-RMP), PMI Scheduling Professional (PMI-SP), A Guide to the Project Management Body of Knowledge (PMBOK Guide) son marcas registradas del Project Management Institute, Inc.
-            </p>
         </div>
     </div>
     
