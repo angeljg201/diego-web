@@ -474,7 +474,7 @@ include 'includes/head_global.php';
 <!-- Include Culqi v4 -->
 <script src="https://checkout.culqi.com/js/v4"></script>
 <!-- Include PayPal SDK -->
-<script src="https://www.paypal.com/sdk/js?client-id=AX26VdDqxl1qJ4pyLwP9556MfO9-Vt8lTJeRP08Wz0gdtDkKfzMZ8Uf1CBHwoo-feBWZI8OOC2g32Rf1&currency=USD"></script>
+<script src="https://www.paypal.com/sdk/js?client-id=AVf4TOUm4EqG1saRNJmTR6eFB4hfrSTw6J6HSoiM8nDW9LO91D15rnA2Yv5s0X0jRQb-FODSdpRIVbfm&currency=USD"></script>
 
 <script>
     // Configuración de Culqi
