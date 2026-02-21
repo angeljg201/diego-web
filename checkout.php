@@ -4,6 +4,13 @@ $page_title = "Finalizar Compra | Diego Ayasca";
 $base_path = './'; 
 require_once __DIR__ . '/data/cursos_detalle.php'; // Include data to potentially use it
 
+// Load .env variables
+$env_file = __DIR__ . '/.env';
+$env_vars = file_exists($env_file) ? parse_ini_file($env_file) : [];
+
+$paypal_client_id = isset($env_vars['PAYPAL_CLIENT_ID']) ? $env_vars['PAYPAL_CLIENT_ID'] : '';
+$culqi_public_key = isset($env_vars['CULQI_PUBLIC_KEY']) ? $env_vars['CULQI_PUBLIC_KEY'] : '';
+
 // Check if course is passed
 $course_slug = isset($_GET['course']) ? $_GET['course'] : 'gestion-proyectos-ms-project';
 $selected_course = isset($cursos_detalle[$course_slug]) ? $cursos_detalle[$course_slug] : $cursos_detalle['gestion-proyectos-ms-project'];
@@ -474,11 +481,11 @@ include 'includes/head_global.php';
 <!-- Include Culqi v4 -->
 <script src="https://checkout.culqi.com/js/v4"></script>
 <!-- Include PayPal SDK -->
-<script src="https://www.paypal.com/sdk/js?client-id=AVf4TOUm4EqG1saRNJmTR6eFB4hfrSTw6J6HSoiM8nDW9LO91D15rnA2Yv5s0X0jRQb-FODSdpRIVbfm&currency=USD"></script>
+<script src="https://www.paypal.com/sdk/js?client-id=<?php echo htmlspecialchars($paypal_client_id); ?>&currency=USD"></script>
 
 <script>
     // Configuración de Culqi
-    Culqi.publicKey = 'pk_test_bWJ7Jseex6l7hISc';
+    Culqi.publicKey = '<?php echo htmlspecialchars($culqi_public_key); ?>';
     
     // Configuración del botón de pago
     const btnPay = document.getElementById('btn-pay');
