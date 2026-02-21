@@ -278,10 +278,6 @@ $extra_head = '
                                 <span class="stat-number">+10</span>
                                 <span class="stat-label">Años de Exp.</span>
                             </div>
-                            <div class="stat-item glass-mini">
-                                <span class="stat-number">+5k</span>
-                                <span class="stat-label">Alumnos</span>
-                            </div>
                         </div>
                     </div>
                     <div class="about-image hidden-fade">
@@ -324,11 +320,11 @@ $extra_head = '
                             </div>
 
                             <div class="social-connect">
+                                <a href="https://www.youtube.com/channel/UCLRFZlx5SG65cfU1ZA7_K_Q" target="_blank"><i class="fab fa-youtube"></i></a>
+                                <a href="https://www.linkedin.com/in/diegoayasca/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
                                 <a href="https://www.facebook.com/profile.php?id=61578180192901" target="_blank"><i class="fab fa-facebook-f"></i></a>
                                 <a href="https://www.instagram.com/diegoayasca" target="_blank"><i class="fab fa-instagram"></i></a>
                                 <a href="https://www.tiktok.com/@diegopmp2" target="_blank"><i class="fab fa-tiktok"></i></a>
-                                <a href="https://www.linkedin.com/in/diegoayasca/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-                                <a href="https://www.youtube.com/channel/UCLRFZlx5SG65cfU1ZA7_K_Q" target="_blank"><i class="fab fa-youtube"></i></a>
                             </div>
                         </div>
 
