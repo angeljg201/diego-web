@@ -515,14 +515,14 @@ include 'includes/head_global.php';
 
 <?php include 'includes/footer.php'; ?>
 
-<!-- Include Culqi v4 -->
-<script src="https://checkout.culqi.com/js/v4"></script>
+<!-- Include Culqi Multipago -->
+<script src="https://js.culqi.com/checkout-js"></script>
 <!-- Include PayPal SDK -->
 <script src="https://www.paypal.com/sdk/js?client-id=<?php echo htmlspecialchars($paypal_client_id); ?>&currency=USD"></script>
 
 <script>
-    // Configuración de Culqi
-    Culqi.publicKey = '<?php echo htmlspecialchars($culqi_public_key); ?>';
+    // Configuración de Culqi (se asignará dentro del listener para asegurar que la librería haya cargado)
+    // Culqi.publicKey = '<?php echo htmlspecialchars($culqi_public_key); ?>';
     
     // Configuración del botón de pago
     const btnPay = document.getElementById('btn-pay');
@@ -671,26 +671,139 @@ include 'includes/head_global.php';
         const paymentMethod = document.querySelector('input[name="payment_method"]:checked').value;
         
         if (paymentMethod === 'culqi') {
-            // Configurar settings de Culqi antes de abrir
-            Culqi.settings({
-                title: 'Diego Ayasca - Cursos',
-                currency: 'PEN',
-                description: 'Curso: <?php echo addslashes($course_title); ?>',
-                amount: <?php echo $amount_culqi; ?> 
-            });
+            const emailValue = document.getElementById('email').value.trim();
+            const nombresValue = document.getElementById('nombres').value.trim();
+            const apellidosValue = document.getElementById('apellidos').value.trim();
+            
+            // Cambiar estado del botón a cargando
+            const originalBtnText = btnPay.innerText;
+            btnPay.innerText = 'Procesando...';
+            btnPay.disabled = true;
 
-            // Opciones de personalización visual de Culqi
-            Culqi.options({
-                style: {
-                    logo: 'https://diegoayasca.com/img/logo.png',
-                    maincolor: '#1e293b',
-                    buttontext: '#ffffff',
-                    maintext: '#4a4a4a',
-                    desctext: '#4a4a4a'
+            // 3. Llamar al backend para generar y obtener el Order ID de Culqi
+            fetch('crear_orden_culqi.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    first_name: nombresValue,
+                    last_name: apellidosValue,
+                    email: emailValue,
+                    amount: <?php echo $amount_culqi; ?>,
+                    currency_code: 'PEN'
+                })
+            })
+            .then(res => res.json())
+            .then(data => {
+                // Restaurar botón
+                btnPay.innerText = originalBtnText;
+                btnPay.disabled = false;
+
+                if (!data.success) {
+                    alert('No se pudo generar la orden de pago: ' + (data.message || 'Error desconocido'));
+                    console.error('Detalles del error:', data);
+                    return;
                 }
-            });
 
-            Culqi.open();
+                const order_id_generado = data.order_id;
+
+                const client = {
+                    email: emailValue
+                };
+
+                const paymentMethods = {
+                    tarjeta: true, 
+                    yape: true, 
+                    billetera: true, 
+                    bancaMovil: true, 
+                    agente: true, 
+                    cuotealo: true
+                };
+
+                const options = {
+                    lang: 'auto',
+                    installments: false,
+                    modal: true,
+                    paymentMethods: paymentMethods,
+                    paymentMethodsSort: Object.keys(paymentMethods)
+                };
+
+                const settings = {
+                    title: 'Gestión de Proyectos',
+                    currency: 'PEN',
+                    amount: <?php echo $amount_culqi; ?>, 
+                    order: order_id_generado
+                };
+
+                const config = {
+                    settings,
+                    client,
+                    options
+                };
+
+                const publicKey = '<?php echo htmlspecialchars($culqi_public_key); ?>';
+                
+                // Inicializa el checkout instanciando la nueva clase (v4)
+                const Culqi = new CulqiCheckout(publicKey, config);
+
+                // Configura el manejador de la acción
+                Culqi.culqi = function() {
+                    if (Culqi.token) { 
+                        // ¡Objeto Token creado exitosamente!
+                        const token = Culqi.token.id;
+                        const emailResult = Culqi.token.email;
+                        
+                        // Send to our backend to create order o procesar el cargo de la tarjeta
+                        fetch('crear_orden.php', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json'
+                            },
+                            body: JSON.stringify({
+                                token: token,
+                                email: emailResult,
+                                nombres: nombresValue,
+                                apellidos: apellidosValue,
+                                amount: <?php echo $amount_culqi; ?> 
+                            })
+                        })
+                        .then(res => res.json())
+                        .then(dataResponse => {
+                            if(dataResponse.success) {
+                                alert('Pago Exitoso con Culqi! ID de Orden: ' + dataResponse.order_id);
+                                 // window.location.href = "gracias.php?order_id=" + dataResponse.order_id;
+                            } else {
+                                alert('Error en el pago: ' + dataResponse.message);
+                            }
+                        })
+                        .catch(error => {
+                            console.error('Error:', error);
+                            alert('Ocurrió un error al procesar el pago.');
+                        });
+                        
+                    } else if (Culqi.order) {
+                        // ¡Objeto Order creado exitosamente! (Pago con PagoEfectivo, Yape, etc)
+                        console.log("Order: ", Culqi.order);
+                        alert('Orden creada exitosamente. Procede con el pago en tu aplicación o agente.');
+                    } else { 
+                        // ¡Hubo algún problema!
+                        console.log(Culqi.error);
+                        if (Culqi.error) {
+                            alert(Culqi.error.user_message);
+                        }
+                    }
+                };
+                
+                // Abrir el modal
+                Culqi.open();
+            })
+            .catch(error => {
+                btnPay.innerText = originalBtnText;
+                btnPay.disabled = false;
+                console.error('Error de red al crear la orden:', error);
+                alert('No se pudo conectar con el servidor para iniciar el pago.');
+            });
         } 
         // Note: PayPal button handles its own click, so this block activates only for Culqi
     });
@@ -699,51 +812,6 @@ include 'includes/head_global.php';
         const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         return re.test(email);
     }
-
-    // 3. Callback de Culqi
-    function culqi() {
-        if (Culqi.token) { 
-            // ¡Objeto Token creado exitosamente!
-            const token = Culqi.token.id;
-            const email = Culqi.token.email;
-            
-            const nombres = document.getElementById('nombres').value.trim();
-            const apellidos = document.getElementById('apellidos').value.trim();
-            
-            // Send to our backend to create order
-            fetch('crear_orden.php', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                    token: token,
-                    email: email,
-                    nombres: nombres,
-                    apellidos: apellidos,
-                    amount: <?php echo $amount_culqi; ?> 
-                })
-            })
-            .then(res => res.json())
-            .then(data => {
-                if(data.success) {
-                    alert('Pago Exitoso con Culqi! ID de Orden: ' + data.order_id);
-                     // window.location.href = "gracias.php?order_id=" + data.order_id;
-                } else {
-                    alert('Error en el pago: ' + data.message);
-                }
-            })
-            .catch(error => {
-                console.error('Error:', error);
-                alert('Ocurrió un error al procesar el pago.');
-            });
-            
-        } else { 
-            // ¡Hubo algún problema!
-            console.log(Culqi.error);
-            alert(Culqi.error.user_message);
-        }
-    };
 </script>
 
 </body>
