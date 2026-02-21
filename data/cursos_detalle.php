@@ -1,5 +1,39 @@
 <?php
 // Mock Data for Course Details
+require_once __DIR__ . '/cursos.php';
+
+// Helper function to find price from cursos.php based on title
+function get_curso_price($titulo_buscar, $cursos_array) {
+    foreach ($cursos_array as $c) {
+        if ($c['titulo'] === $titulo_buscar) {
+            return reset(explode(' ', $c['precio'])); // keep 'S/' or just the array structure if preferred. Wait, the array has 'S/ 300.00'. I will return exactly what's there.
+        }
+    }
+    return 'S/ 0.00'; // Default
+}
+
+function get_curso_price_exact($titulo_buscar, $cursos_array) {
+    foreach ($cursos_array as $c) {
+        if ($c['titulo'] === $titulo_buscar) {
+            return $c['precio']; 
+        }
+    }
+    return 'S/ 0.00'; // Default
+}
+
+// Since titles might differ slightly between files, it's safer to map by slug/link if possible. 
+// However, cursos.php has 'link' => 'curso/metodologias-agiles'. We can use that!.
+
+function get_price_by_slug($slug_buscar, $cursos_array) {
+    $search_link = 'curso/' . $slug_buscar;
+    foreach ($cursos_array as $c) {
+        if (isset($c['link']) && $c['link'] === $search_link) {
+            return $c['precio'];
+        }
+    }
+    return false; // return false if not found so we can rely on a fallback
+}
+     
 $cursos_detalle = [
     'gestion-proyectos' => [ // Keeping as fallback or alias
         'titulo' => 'Gestión de Proyectos y Metodologías Ágiles',
@@ -51,7 +85,7 @@ $cursos_detalle = [
             'bio' => 'Mi camino en la gestión de proyectos comenzó con Microsoft Project y evolucionó hacia el dominio de los estándares del PMBOK® y las metodologías ágiles como Scrum. Me certifiqué como Scrum Master, CAPM®, PMP® y Black Belt. Hoy, desde la docencia, acompaño a profesionales a liderar proyectos con impacto, enfoque humano y resultados sostenibles.',
             'foto' => 'img/mi-foto.jpg' 
         ],
-        'precio' => 'S/ 350.00',
+        'precio' => get_price_by_slug('gestion-proyectos', $cursos) ?: 'S/ 350.00',
         'precio_oferta' => 'S/ 299.00',
         'faq' => [
             ['q' => '¿Necesito experiencia previa?', 'a' => 'No es indispensable, pero se recomienda tener conocimientos básicos de trabajo en equipo o participación en proyectos.'],
@@ -109,7 +143,7 @@ $cursos_detalle = [
             'bio' => 'Mi camino en la gestión de proyectos comenzó con Microsoft Project y evolucionó hacia el dominio de los estándares del PMBOK® y las metodologías ágiles como Scrum. Me certifiqué como Scrum Master, CAPM®, PMP® y Black Belt. Hoy, desde la docencia, acompaño a profesionales a liderar proyectos con impacto, enfoque humano y resultados sostenibles.',
             'foto' => 'img/mi-foto.jpg' 
         ],
-        'precio' => 'S/ 300.00',
+        'precio' => get_price_by_slug('metodologias-agiles', $cursos) ?: 'S/ 300.00',
         'precio_oferta' => 'S/ 249.00',
         'faq' => [
             ['q' => '¿Es solo para software?', 'a' => 'No, Scrum y Kanban se aplican en marketing, RRHH y cualquier área de gestión.'],
@@ -162,7 +196,7 @@ $cursos_detalle = [
             'bio' => 'Mi camino en la gestión de proyectos comenzó con Microsoft Project y evolucionó hacia el dominio de los estándares del PMBOK® y las metodologías ágiles como Scrum. Me certifiqué como Scrum Master, CAPM®, PMP® y Black Belt. Hoy, desde la docencia, acompaño a profesionales a liderar proyectos con impacto, enfoque humano y resultados sostenibles.',
             'foto' => 'img/mi-foto.jpg' 
         ],
-        'precio' => 'S/ 250.00',
+        'precio' => get_price_by_slug('investigacion-academica', $cursos) ?: 'S/ 250.00',
         'precio_oferta' => 'S/ 199.00',
         'faq' => [
             ['q' => '¿Sirve para cualquier carrera?', 'a' => 'Sí, los fundamentos de investigación son transversales, aunque se dan ejemplos de diversas áreas.'],
@@ -215,7 +249,7 @@ $cursos_detalle = [
             'bio' => 'Mi camino en la gestión de proyectos comenzó con Microsoft Project y evolucionó hacia el dominio de los estándares del PMBOK® y las metodologías ágiles como Scrum. Me certifiqué como Scrum Master, CAPM®, PMP® y Black Belt. Hoy, desde la docencia, acompaño a profesionales a liderar proyectos con impacto, enfoque humano y resultados sostenibles.',
             'foto' => 'img/mi-foto.jpg' 
         ],
-        'precio' => 'S/ 400.00',
+        'precio' => get_price_by_slug('liderazgo-equipos-it', $cursos) ?: 'S/ 400.00',
         'precio_oferta' => 'S/ 350.00',
         'faq' => [
             ['q' => '¿Es solo para programadores?', 'a' => 'Está enfocado en líderes de tecnología (Devs, QA, UX), pero los principios aplican a cualquier líder de equipos creativos.'],
@@ -272,7 +306,7 @@ $cursos_detalle = [
             'bio' => 'Mi camino en la gestión de proyectos comenzó con Microsoft Project y evolucionó hacia el dominio de los estándares del PMBOK® y las metodologías ágiles como Scrum. Me certifiqué como Scrum Master, CAPM®, PMP® y Black Belt. Hoy, desde la docencia, acompaño a profesionales a liderar proyectos con impacto, enfoque humano y resultados sostenibles.',
             'foto' => 'img/mi-foto.jpg' 
         ],
-        'precio' => 'S/ 350.00',
+        'precio' => get_price_by_slug('certificacion-capm', $cursos) ?: 'S/ 350.00',
         'precio_oferta' => 'S/ 299.00',
         'faq' => [
             ['q' => '¿Cuáles son los requisitos para el examen?', 'a' => 'Necesitas diploma de secundaria y 23 horas de educación en gestión de proyectos (que este curso cubre).'],
@@ -382,7 +416,7 @@ $cursos_detalle = [
             'bio' => 'Mi camino en la gestión de proyectos comenzó con Microsoft Project y evolucionó hacia el dominio de los estándares del PMBOK® y las metodologías ágiles como Scrum. Me certifiqué como Scrum Master, CAPM®, PMP® y Black Belt. Hoy, desde la docencia, acompaño a profesionales a liderar proyectos con impacto, enfoque humano y resultados sostenibles.',
             'foto' => 'img/mi-foto.jpg' 
         ],
-        'precio' => 'S/ 800.00',
+        'precio' => get_price_by_slug('preparacion-pmp', $cursos) ?: 'S/ 800.00',
         'precio_oferta' => 'S/ 800.00',
         'faq' => [
             ['q' => '¿Incluye el certificado PMP?', 'a' => 'No, este curso te brinda las 35 horas de contacto requeridas para postular al examen, pero la certificación la otorga el PMI tras aprobar su examen.'],
@@ -439,7 +473,7 @@ $cursos_detalle = [
             'bio' => 'Consultor experto en Gestión de Proyectos y PMO. Con años de experiencia implementando soluciones de gestión con herramientas Microsoft. Ayudo a organizaciones a optimizar su cartera de proyectos mediante la tecnología.',
             'foto' => 'img/mi-foto.jpg' 
         ],
-        'precio' => 'S/ 350.00',
+        'precio' => get_price_by_slug('gestion-proyectos-ms-project', $cursos) ?: 'S/ 299.00',
         'precio_oferta' => 'S/ 299.00',
         'faq' => [
             ['q' => '¿Qué versión de MS Project necesito?', 'a' => 'Se recomienda MS Project 2019, 2021 o la versión de Project Online Desktop Client.'],
@@ -496,7 +530,7 @@ $cursos_detalle = [
             'bio' => 'Apasionado por la intersección entre la gestión de proyectos y la tecnología emergente. Investigo y aplico activamente soluciones de IA para potenciar la eficiencia de las oficinas de proyectos.',
             'foto' => 'img/mi-foto.jpg' 
         ],
-        'precio' => 'S/ 300.00',
+        'precio' => get_price_by_slug('gestion-proyectos-ia', $cursos) ?: 'S/ 249.00',
         'precio_oferta' => 'S/ 249.00',
         'faq' => [
             ['q' => '¿Necesito saber programar?', 'a' => 'No, el enfoque es No-Code, utilizando herramientas de lenguaje natural.'],
@@ -553,7 +587,7 @@ $cursos_detalle = [
             'bio' => 'Especialista en Project Management Office (PMO) y Análisis de Datos. Ayudo a las empresas a tomar decisiones basadas en datos reales, transformando la información compleja en visualizaciones claras y accionables.',
             'foto' => 'img/mi-foto.jpg' 
         ],
-        'precio' => 'S/ 350.00',
+        'precio' => get_price_by_slug('gestion-proyectos-powerbi', $cursos) ?: 'S/ 299.00',
         'precio_oferta' => 'S/ 299.00',
         'faq' => [
             ['q' => '¿Necesito licencia Pro de Power BI?', 'a' => 'Para el curso basta con Power BI Desktop (gratuito). Para compartir en entornos corporativos sí se requiere licencia Pro.'],

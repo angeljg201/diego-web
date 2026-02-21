@@ -625,9 +625,38 @@ include 'includes/head_global.php';
         if (Culqi.token) { 
             // ¡Objeto Token creado exitosamente!
             const token = Culqi.token.id;
+            const email = Culqi.token.email;
             
-            console.log('Token creado: ', token);
-            alert('Token generado exitosamente: ' + token + '\\nPara procesar el cargo necesitas enviar este token a tu backend.');
+            const nombres = document.getElementById('nombres').value.trim();
+            const apellidos = document.getElementById('apellidos').value.trim();
+            
+            // Send to our backend to create order
+            fetch('crear_orden.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    token: token,
+                    email: email,
+                    nombres: nombres,
+                    apellidos: apellidos,
+                    amount: <?php echo $amount_culqi; ?> 
+                })
+            })
+            .then(res => res.json())
+            .then(data => {
+                if(data.success) {
+                    alert('Pago Exitoso con Culqi! ID de Orden: ' + data.order_id);
+                     // window.location.href = "gracias.php?order_id=" + data.order_id;
+                } else {
+                    alert('Error en el pago: ' + data.message);
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Ocurrió un error al procesar el pago.');
+            });
             
         } else { 
             // ¡Hubo algún problema!

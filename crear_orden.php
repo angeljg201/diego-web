@@ -24,7 +24,11 @@ $nombres = $data['nombres'] ?? 'Cliente';
 $apellidos = $data['apellidos'] ?? 'Demos';
 $email = $data['email'] ?? 'test@culqi.com';
 $telefono = $data['telefono'] ?? '999999999';
-$amount = 35000; // Monto fijo del curso (en céntimos)
+
+// Obtener el curso dinámicamente o usar el monto enviado
+// Reforzamiento de seguridad: Deberíamos consultar de nuevo el precio real del curso por su ID,
+// pero por ahora para mantenerlo simple y funcional con tu estructura actual, lo recibimos en el payload.
+$amount = isset($data['amount']) ? (int)$data['amount'] : 35000; // Monto en céntimos
 
 // Generar un número de pedido único y corto
 $order_number = 'ord-' . time();
