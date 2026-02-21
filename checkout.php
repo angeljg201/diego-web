@@ -344,6 +344,32 @@ $amount_culqi = intval($price_numeric * 100);
             background: #f59e0b;
         }
         
+        .alert-error {
+            background-color: #fee2e2;
+            color: #991b1b;
+            border: 1px solid #f87171;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        .input-error {
+            border-color: #ef4444 !important;
+            box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.2) !important;
+        }
+
+        .form-row {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .form-row .form-group {
+            flex: 1;
+            margin-bottom: 1.5rem;
+        }
+
         /* Responsive */
         @media (max-width: 900px) {
             .checkout-grid {
@@ -354,6 +380,13 @@ $amount_culqi = intval($price_numeric * 100);
                 position: static;
                 order: -1; /* Show summary first on mobile usually, or keep bottom */
                 margin-bottom: 2rem;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .form-row {
+                flex-direction: column;
+                gap: 0;
             }
         }
     </style>
@@ -372,15 +405,19 @@ include 'includes/head_global.php';
         <div class="checkout-form-col">
             <h2 class="section-title-checkout">Detalles de facturación</h2>
             
+            <div id="form-error-msg" class="alert-error" style="display: none;">Por favor, completa todos los campos requeridos para continuar.</div>
+
             <form id="checkout-form">
-                <div class="form-group">
-                    <label for="nombres" class="form-label">Nombres</label>
-                    <input type="text" id="nombres" class="form-control" placeholder="Ingresa tus nombres" required>
-                </div>
-                
-                <div class="form-group">
-                    <label for="apellidos" class="form-label">Apellidos</label>
-                    <input type="text" id="apellidos" class="form-control" placeholder="Ingresa tus apellidos" required>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="nombres" class="form-label">Nombres</label>
+                        <input type="text" id="nombres" class="form-control" placeholder="Ingresa tus nombres" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="apellidos" class="form-label">Apellidos</label>
+                        <input type="text" id="apellidos" class="form-control" placeholder="Ingresa tus apellidos" required>
+                    </div>
                 </div>
                 
                 <div class="form-group">
@@ -539,6 +576,52 @@ include 'includes/head_global.php';
         togglePaymentButtons(checkedRadio.value);
     }
 
+    function validarFormulario() {
+        const nombresInput = document.getElementById('nombres');
+        const apellidosInput = document.getElementById('apellidos');
+        const emailInput = document.getElementById('email');
+        const errorMsg = document.getElementById('form-error-msg');
+        
+        let isValid = true;
+        let errorMessage = 'Por favor, completa todos los campos requeridos para continuar.';
+
+        // Reiniciar estilos
+        [nombresInput, apellidosInput, emailInput].forEach(input => {
+            input.classList.remove('input-error');
+        });
+        errorMsg.style.display = 'none';
+
+        const nombres = nombresInput.value.trim();
+        const apellidos = apellidosInput.value.trim();
+        const email = emailInput.value.trim();
+
+        // Validar vacíos
+        if (!nombres || !apellidos || !email) {
+            isValid = false;
+        }
+
+        // Validar formato de email
+        if (email && !validateEmail(email)) {
+            isValid = false;
+            errorMessage = 'Por favor, ingresa un correo electrónico válido.';
+        }
+
+        if (!isValid) {
+            // Resaltar inputs vacíos o inválidos
+            if (!nombres) nombresInput.classList.add('input-error');
+            if (!apellidos) apellidosInput.classList.add('input-error');
+            if (!email || !validateEmail(email)) emailInput.classList.add('input-error');
+            
+            errorMsg.innerText = errorMessage;
+            errorMsg.style.display = 'block';
+            
+            // Hacer scroll hacia el mensaje de error para que el usuario lo vea
+            errorMsg.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+
+        return isValid;
+    }
+
     // PayPal Button Rendering
     paypal.Buttons({
         fundingSource: paypal.FUNDING.PAYPAL, // Show only PayPal button
@@ -547,6 +630,13 @@ include 'includes/head_global.php';
             color:  'blue',
             shape:  'rect',
             label:  'paypal'
+        },
+        onClick: function(data, actions) {
+            if (!validarFormulario()) {
+                return actions.reject();
+            } else {
+                return actions.resolve();
+            }
         },
         createOrder: function(data, actions) {
             return actions.order.create({
@@ -573,17 +663,7 @@ include 'includes/head_global.php';
         e.preventDefault();
         
         // 1. Validar formulario
-        const nombres = document.getElementById('nombres').value.trim();
-        const apellidos = document.getElementById('apellidos').value.trim();
-        const email = document.getElementById('email').value.trim();
-        
-        if (!nombres || !apellidos || !email) {
-            alert('Por favor, completa todos los campos del formulario.');
-            return;
-        }
-
-        if (!validateEmail(email)) {
-            alert('Por favor, ingresa un correo electrónico válido.');
+        if (!validarFormulario()) {
             return;
         }
         
