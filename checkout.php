@@ -552,7 +552,7 @@ include 'includes/head_global.php';
             return actions.order.create({
                 purchase_units: [{
                     amount: {
-                        value: '350.00', // Fixed amount as requested
+                        value: '<?php echo number_format($price_numeric, 2, '.', ''); ?>',
                         currency_code: 'USD'
                     }
                 }]
