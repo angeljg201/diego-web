@@ -756,7 +756,7 @@ include 'includes/head_global.php';
                         const emailResult = Culqi.token.email;
                         
                         // Send to our backend to create order o procesar el cargo de la tarjeta
-                        fetch('crear_orden.php', {
+                        fetch('procesar_pago.php', {
                             method: 'POST',
                             headers: {
                                 'Content-Type': 'application/json'
@@ -772,10 +772,10 @@ include 'includes/head_global.php';
                         .then(res => res.json())
                         .then(dataResponse => {
                             if(dataResponse.success) {
-                                alert('Pago Exitoso con Culqi! ID de Orden: ' + dataResponse.order_id);
-                                 // window.location.href = "gracias.php?order_id=" + dataResponse.order_id;
+                                alert('Pago Exitoso con Culqi! ID de Cargo: ' + dataResponse.charge_id);
+                                 // window.location.href = "gracias.php?order_id=" + dataResponse.charge_id;
                             } else {
-                                alert('Error en el pago: ' + dataResponse.message);
+                                alert('Error al procesar el pago: ' + dataResponse.message);
                             }
                         })
                         .catch(error => {
