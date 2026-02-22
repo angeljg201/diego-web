@@ -728,16 +728,23 @@ include '../includes/head_global.php';
                 };
 
                 const settings = {
-                    title: 'Gestión de Proyectos',
+                    title: '<?php echo addslashes($course_title); ?>',
                     currency: 'PEN',
                     amount: <?php echo $amount_culqi; ?>,
                     order: order_id_generado
                 };
 
+                const appearance = {
+                    theme: "default",
+                    hiddenCulqiLogo: false,
+                    logo: 'https://diegoayasca.com/img/logo.png'
+                };
+
                 const config = {
                     settings,
                     client,
-                    options
+                    options,
+                    appearance
                 };
 
                 const publicKey = '<?php echo htmlspecialchars($culqi_public_key); ?>';
