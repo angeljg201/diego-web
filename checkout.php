@@ -446,12 +446,10 @@ include 'includes/head_global.php';
                                         <img src="img/pagos/checkout-visa.webp" alt="Visa">
                                         <img src="img/pagos/checkout-master-card.webp" alt="Mastercard">
                                         <img src="img/pagos/checkout-american-express.webp" alt="Amex">
-                                        <img src="img/pagos/checkout-yape.webp" alt="Yape">
-                                        <img src="img/pagos/checkout-pago-efectivo.webp" alt="PagoEfectivo">
                                     </div>
                                 </div>
                                 <p class="culqi-text">
-                                    Acepta pagos con <strong>tarjetas de débito y crédito, Yape, Cuotéalo BCP y PagoEfectivo</strong> (billeteras móviles, agentes y bodegas).
+                                    Acepta pagos de forma segura con <strong>tarjetas de débito y crédito</strong>.
                                 </p>
                                 <button type="button" class="submit-btn" id="btn-pay" style="margin-top: 1.5rem;">Realizar el pedido</button>
                             </div>
@@ -680,6 +678,7 @@ include 'includes/head_global.php';
             btnPay.innerText = 'Procesando...';
             btnPay.disabled = true;
 
+            /*
             // 3. Llamar al backend para generar y obtener el Order ID de Culqi
             fetch('crear_orden_culqi.php', {
                 method: 'POST',
@@ -707,6 +706,9 @@ include 'includes/head_global.php';
                 }
 
                 const order_id_generado = data.order_id;
+            */
+                btnPay.innerText = originalBtnText;
+                btnPay.disabled = false;
 
                 const client = {
                     email: emailValue
@@ -714,11 +716,11 @@ include 'includes/head_global.php';
 
                 const paymentMethods = {
                     tarjeta: true, 
-                    yape: true, 
-                    billetera: true, 
-                    bancaMovil: true, 
-                    agente: true, 
-                    cuotealo: true
+                    yape: false, 
+                    billetera: false, 
+                    bancaMovil: false, 
+                    agente: false, 
+                    cuotealo: false
                 };
 
                 const options = {
@@ -732,8 +734,7 @@ include 'includes/head_global.php';
                 const settings = {
                     title: 'Gestión de Proyectos',
                     currency: 'PEN',
-                    amount: <?php echo $amount_culqi; ?>, 
-                    order: order_id_generado
+                    amount: <?php echo $amount_culqi; ?> 
                 };
 
                 const config = {
@@ -797,6 +798,7 @@ include 'includes/head_global.php';
                 
                 // Abrir el modal
                 Culqi.open();
+            /*
             })
             .catch(error => {
                 btnPay.innerText = originalBtnText;
@@ -804,6 +806,7 @@ include 'includes/head_global.php';
                 console.error('Error de red al crear la orden:', error);
                 alert('No se pudo conectar con el servidor para iniciar el pago.');
             });
+            */
         } 
         // Note: PayPal button handles its own click, so this block activates only for Culqi
     });
