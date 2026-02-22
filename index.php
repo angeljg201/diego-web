@@ -15,6 +15,7 @@ $fecha_lanzamiento = '';
 $title_lanzamiento = 'LANZAMIENTO OFICIAL';
 $subtitle_lanzamiento = 'Curso de Preparación para el Examen PMP®';
 $bg_lanzamiento = 'img/cursos/curso_pmp.jpeg';
+$curso_slug = 'preparacion-pmp'; // Default fallback
 
 if (file_exists($json_file)) {
     $json_data = file_get_contents($json_file);
@@ -28,6 +29,18 @@ if (file_exists($json_file)) {
     }
     if (isset($lanzamiento['background_url'])) {
         $bg_lanzamiento = $lanzamiento['background_url'];
+    }
+    if (isset($lanzamiento['curso_slug'])) {
+        $curso_slug = $lanzamiento['curso_slug'];
+    }
+}
+
+// Find course details link based on slug
+$curso_detail_link = 'curso/' . $curso_slug; // Fallback
+foreach ($cursos as $c) {
+    if (strpos($c['link'], $curso_slug) !== false) {
+        $curso_detail_link = $c['link'];
+        break;
     }
 }
 
@@ -94,7 +107,7 @@ $extra_head = '
 .countdown-timer {
     display: flex;
     justify-content: center;
-    gap: 1.5rem;
+    gap: 4rem;
     flex-wrap: wrap;
     font-family: "Outfit", sans-serif;
 }
@@ -103,40 +116,61 @@ $extra_head = '
     display: flex;
     flex-direction: column;
     align-items: center;
-    min-width: 100px;
+    min-width: 80px;
 }
 
 .timer-item .number {
-    font-size: clamp(3rem, 8vw, 6rem);
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
     font-weight: 700;
     line-height: 1;
     color: #fff;
 }
 
 .timer-item .label {
-    font-size: 0.875rem;
-    text-transform: uppercase;
+    font-size: 1rem;
+    text-transform: capitalize;
     letter-spacing: 1px;
     margin-top: 0.5rem;
-    color: rgba(255, 255, 255, 0.8);
+    color: #fff;
+    font-weight: 500;
 }
 
 .countdown-cta {
-    display: none;
-    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 3rem;
+    flex-wrap: wrap;
 }
 
 .btn-cta-launch {
     background-color: #d4af37; /* Gold */
     color: #000;
-    padding: 1rem 2.5rem;
-    font-size: 1.2rem;
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
     font-weight: 700;
     border-radius: 50px;
     text-decoration: none;
     transition: all 0.3s ease;
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
     box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+}
+
+.btn-cta-launch-outline {
+    background-color: transparent;
+    color: #fff;
+    border: 2px solid #fff;
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+    font-weight: 700;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
 }
 
 .btn-cta-launch:hover {
@@ -146,15 +180,23 @@ $extra_head = '
     box-shadow: 0 8px 25px rgba(212, 175, 55, 0.5);
 }
 
+.btn-cta-launch-outline:hover {
+    background-color: #fff;
+    color: #000;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(255, 255, 255, 0.3);
+}
+
 @media (max-width: 768px) {
     .countdown-timer {
-        gap: 1rem;
+        gap: 1.5rem;
     }
     .timer-item {
-        min-width: 70px;
+        min-width: auto;
+        padding: 0;
     }
     .timer-item .number {
-        font-size: 2.5rem;
+        font-size: 2rem;
     }
 }
 </style>
@@ -258,7 +300,8 @@ $extra_head = '
             </div>
 
             <div id="countdown-cta" class="countdown-cta">
-                <a href="#cursos" class="btn-cta-launch">¡INSCRIPCIONES ABIERTAS! - ACCEDER AHORA</a>
+                <a href="pagos/checkout.php?course=<?php echo urlencode($curso_slug); ?>" class="btn-cta-launch"><i class="fas fa-shopping-cart"></i> Adquirir el curso</a>
+                <a href="<?php echo $curso_detail_link; ?>" class="btn-cta-launch-outline"><i class="fas fa-info-circle"></i> Ver detalle del curso</a>
             </div>
         </div>
     </section>
@@ -369,8 +412,10 @@ $extra_head = '
 
             if (distance < 0) {
                 clearInterval(countdownTimer);
-                timerElement.style.display = "none";
-                ctaElement.style.display = "block";
+                document.getElementById("days").innerText = "00";
+                document.getElementById("hours").innerText = "00";
+                document.getElementById("minutes").innerText = "00";
+                document.getElementById("seconds").innerText = "00";
                 return;
             }
 

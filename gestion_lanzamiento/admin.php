@@ -6,9 +6,21 @@ $upload_dir = '../img/uploads/';
 // Initialize default values
 $data = [
     'title' => 'Curso de Preparación para el Examen PMP®',
+    'curso_slug' => 'preparacion-pmp',
     'fecha_lanzamiento' => date('Y-m-d H:i:s'),
     'background_url' => 'img/cursos/curso_pmp.jpeg'
 ];
+
+// Include courses data to populate select
+require_once '../data/cursos.php';
+// We'll extract slugs from links since cursos.php is an indexed array
+$available_courses = [];
+foreach ($cursos as $c) {
+    // Extract slug from link "curso/my-slug"
+    $parts = explode('/', $c['link']);
+    $slug = end($parts);
+    $available_courses[$slug] = $c['titulo'];
+}
 
 // Load existing data
 if (file_exists($json_file)) {
@@ -20,7 +32,10 @@ $message = '';
 
     // Handle Form Submission
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $data['title'] = $_POST['title'] ?? '';
+    $slug_selected = $_POST['curso_slug'] ?? '';
+    $data['curso_slug'] = $slug_selected;
+    // Set title based on selected course
+    $data['title'] = $available_courses[$slug_selected] ?? 'Curso Desconocido';
     
     // Convert datetime-local format (T) to DB format (space)
     $fecha_raw = $_POST['fecha_lanzamiento'] ?? '';
@@ -101,8 +116,14 @@ $date_for_input = date('Y-m-d\TH:i', strtotime($data['fecha_lanzamiento']));
                     
                     <form action="" method="POST" enctype="multipart/form-data">
                         <div class="mb-3">
-                            <label for="title" class="form-label">Título del Evento/Curso</label>
-                            <input type="text" class="form-control" id="title" name="title" value="<?php echo htmlspecialchars($data['title']); ?>" required>
+                            <label for="curso_slug" class="form-label">Seleccionar Curso para Lanzamiento</label>
+                            <select class="form-select" id="curso_slug" name="curso_slug" required>
+                                <?php foreach ($available_courses as $slug => $titulo): ?>
+                                    <option value="<?php echo htmlspecialchars($slug); ?>" <?php echo ($data['curso_slug'] === $slug) ? 'selected' : ''; ?>>
+                                        <?php echo htmlspecialchars($titulo); ?>
+                                    </option>
+                                <?php endforeach; ?>
+                            </select>
                         </div>
 
                         <div class="mb-3">
