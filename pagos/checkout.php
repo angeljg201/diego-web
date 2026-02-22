@@ -1,11 +1,12 @@
 <?php
 // checkout.php
 $page_title = "Finalizar Compra | Diego Ayasca";
-$base_path = './'; 
-require_once __DIR__ . '/data/cursos_detalle.php'; // Include data to potentially use it
+$base_path = '../'; 
+$nav_prefix = '../index.php';
+require_once __DIR__ . '/../data/cursos_detalle.php'; // Include data to potentially use it
 
 // Load .env variables
-$env_file = __DIR__ . '/.env';
+$env_file = __DIR__ . '/../.env';
 $env_vars = file_exists($env_file) ? parse_ini_file($env_file) : [];
 
 $paypal_client_id = isset($env_vars['PAYPAL_CLIENT_ID']) ? $env_vars['PAYPAL_CLIENT_ID'] : '';
@@ -392,11 +393,11 @@ $amount_culqi = intval($price_numeric * 100);
     </style>
 <?php
 $extra_head = ob_get_clean();
-include 'includes/head_global.php';
+include '../includes/head_global.php';
 ?>
 <body>
 
-<?php include 'includes/header.php'; ?>
+<?php include '../includes/header.php'; ?>
 
 <section class="checkout-section">
     <div class="container checkout-grid">
@@ -435,17 +436,17 @@ include 'includes/head_global.php';
                                 <input type="radio" name="payment_method" value="culqi" id="radio-culqi" class="payment-radio" checked>
                                 <span class="payment-title">Pagar con Culqi</span>
                             </div>
-                            <img src="img/pagos/logo-culqi.webp" alt="Culqi" class="payment-logo-small">
+                            <img src="../img/pagos/logo-culqi.webp" alt="Culqi" class="payment-logo-small">
                         </label>
                         
                         <div class="payment-details">
                             <div class="culqi-info">
                                 <div class="culqi-header">
-                                    <img src="img/pagos/logo-culqi.webp" alt="Culqi" class="logo-culqi">
+                                    <img src="../img/pagos/logo-culqi.webp" alt="Culqi" class="logo-culqi">
                                     <div class="payment-icons-row">
-                                        <img src="img/pagos/checkout-visa.webp" alt="Visa">
-                                        <img src="img/pagos/checkout-master-card.webp" alt="Mastercard">
-                                        <img src="img/pagos/checkout-american-express.webp" alt="Amex">
+                                        <img src="../img/pagos/checkout-visa.webp" alt="Visa">
+                                        <img src="../img/pagos/checkout-master-card.webp" alt="Mastercard">
+                                        <img src="../img/pagos/checkout-american-express.webp" alt="Amex">
                                     </div>
                                 </div>
                                 <p class="culqi-text">
@@ -463,7 +464,7 @@ include 'includes/head_global.php';
                                 <input type="radio" name="payment_method" value="paypal" id="radio-paypal" class="payment-radio">
                                 <span class="payment-title">Pagar con PayPal</span>
                             </div>
-                            <img src="img/pagos/logo-paypal.webp" alt="PayPal" class="payment-logo-small">
+                            <img src="../img/pagos/logo-paypal.webp" alt="PayPal" class="payment-logo-small">
                         </label>
                         
                         <div class="payment-details">
@@ -511,7 +512,7 @@ include 'includes/head_global.php';
     </div>
 </section>
 
-<?php include 'includes/footer.php'; ?>
+<?php include '../includes/footer.php'; ?>
 
 <!-- Include Culqi Multipago -->
 <script src="https://js.culqi.com/checkout-js"></script>
@@ -649,9 +650,8 @@ include 'includes/head_global.php';
         onApprove: function(data, actions) {
             return actions.order.capture().then(function(details) {
                 console.log(details);
-                alert('Pago Exitoso con PayPal! ID: ' + details.id + '\nEstado: ' + details.status);
-                // Here you would redirect to a success page
-                // window.location.href = "gracias.php?order_id=" + details.id;
+                // Redirect to success page
+                window.location.href = "gracias.php?course=<?php echo urlencode($course_slug); ?>&charge_id=" + encodeURIComponent(details.id);
             });
         }
     }).render('#paypal-button-container');
@@ -772,8 +772,8 @@ include 'includes/head_global.php';
                         .then(res => res.json())
                         .then(dataResponse => {
                             if(dataResponse.success) {
-                                alert('Pago Exitoso con Culqi! ID de Cargo: ' + dataResponse.charge_id);
-                                 // window.location.href = "gracias.php?order_id=" + dataResponse.charge_id;
+                                // Redirigir a la página de éxito
+                                window.location.href = "gracias.php?course=<?php echo urlencode($course_slug); ?>&charge_id=" + encodeURIComponent(dataResponse.charge_id);
                             } else {
                                 alert('Error al procesar el pago: ' + dataResponse.message);
                             }

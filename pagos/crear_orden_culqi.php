@@ -3,7 +3,7 @@
 header('Content-Type: application/json');
 
 // 1. Cargar Variables de Entorno
-$env_file = __DIR__ . '/.env';
+$env_file = __DIR__ . '/../.env';
 $env_vars = file_exists($env_file) ? parse_ini_file($env_file) : [];
 $SECRET_KEY = isset($env_vars['CULQI_PRIVATE_KEY']) ? $env_vars['CULQI_PRIVATE_KEY'] : '';
 

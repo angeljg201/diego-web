@@ -196,7 +196,7 @@ $nav_prefix = '../index.php'; // On subpages, links go back to home
                                     </div>
                                     
                                     <div class="sidebar-actions">
-                                        <a href="../checkout.php?course=<?php echo $slug; ?>" class="btn btn-primary btn-block btn-lg uppercase-btn">MATRICÚLATE AHORA <i class="fas fa-chevron-right"></i></a>
+                                        <a href="../pagos/checkout.php?course=<?php echo $slug; ?>" class="btn btn-primary btn-block btn-lg uppercase-btn">MATRICÚLATE AHORA <i class="fas fa-chevron-right"></i></a>
                                         <a href="https://wa.me/51979611826?text=<?php echo urlencode('Hola, estoy en la página web y deseo acceder al CURSO: *' . $curso['titulo'] . '*'); ?>" class="btn-whatsapp-custom" target="_blank">
                                             <div class="whatsapp-content">
                                                 <span class="whatsapp-small">Solicitar información por</span>
