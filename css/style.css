@@ -1879,8 +1879,8 @@ section {
    ========================================= */
 /* Clean Centered Footer */
 .main-footer-clean {
-    background-color: #0f172a;
-    /* Deep dark blue/black */
+    background-color: #050b14;
+    /* Deep dark blue/black - updated for contrast */
     color: #fff;
     padding: 5rem 0 3rem;
     position: relative;
