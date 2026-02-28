@@ -326,7 +326,7 @@ $extra_head = '
                     <div class="about-image hidden-fade">
                         <div class="image-wrapper">
                             <div class="image-bg-glow"></div>
-                            <img src="img/mi-foto.jpg" alt="Diego Ayasca Foto" class="glass-border-img">
+                            <img src="img/mi-foto.webp" alt="Diego Ayasca Foto" class="glass-border-img">
                         </div>
                     </div>
                 </div>
