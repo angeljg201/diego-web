@@ -2311,3 +2311,11 @@ section {
 .features-list-container h4 {
     margin-top: 0;
 }
+
+/* Ocultar hero bg img en móviles */
+@media (max-width: 768px) {
+    .hero-section {
+        background-image: none !important;
+        background-color: #0f172a !important;
+    }
+}
