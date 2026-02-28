@@ -2302,20 +2302,218 @@ section {
     transform: translateY(0);
 }
 
-.features-list-container {
-    padding-top: 0 !important;
-    margin-top: 10px;
-    /* Small gap separate from buttons */
+/* =========================================
+   Mobile Sticky Purchase Bar & WhatsApp
+   ========================================= */
+
+/* Desktop Display Normal */
+.mobile-fixed-bottom {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 15px;
 }
 
-.features-list-container h4 {
-    margin-top: 0;
+.mobile-price-group {
+    display: flex;
+    align-items: baseline;
+    gap: 5px;
+    justify-content: center;
 }
 
-/* Ocultar hero bg img en móviles */
+.price-currency-mobile {
+    display: none;
+    /* Hide 'PEN' on desktop to match original design */
+}
+
+.sidebar-actions-main .btn-buy-now {
+    width: 100%;
+}
+
+.sidebar-actions-whatsapp {
+    margin-bottom: 15px;
+    /* Space above features */
+}
+
+/* Specific WhatsApp Desktop Adjustments */
+.sidebar-actions-whatsapp .whatsapp-icon {
+    font-size: 2.5rem;
+}
+
+.whatsapp-text-mobile {
+    display: none;
+    /* Hide text on desktop */
+}
+
+/* Desktop vs Mobile display utilities for fixed bottom */
+.d-none-desktop {
+    display: none !important;
+}
+
+/* Ocultar hero bg img en móviles y activar barra flotante */
 @media (max-width: 768px) {
+    .d-none-desktop {
+        display: unset !important;
+    }
+
+    .mobile-fixed-bottom.d-none-desktop {
+        display: flex !important;
+    }
+
+    .desktop-price-action {
+        display: none !important;
+    }
+
     .hero-section {
         background-image: none !important;
         background-color: #0f172a !important;
+    }
+
+    /* Ocultar el resto de la tarjeta de precios en móvil */
+    .pricing-card {
+        background: transparent !important;
+        border: none !important;
+        box-shadow: none !important;
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+
+    .card-header-image,
+    .features-list-container {
+        display: none !important;
+    }
+
+    .price-body {
+        padding: 0 !important;
+    }
+
+    /* Fixed Bottom Bar on Mobile */
+    .mobile-fixed-bottom {
+        position: fixed !important;
+        /* Force fixed */
+        bottom: 0 !important;
+        /* Force 0 */
+        left: 0 !important;
+        width: 100% !important;
+        background-color: #fff !important;
+        padding: 10px 15px !important;
+        margin: 0 !important;
+        /* OVERRIDE DESKTOP MARGIN-BOTTOM */
+        box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.1) !important;
+        z-index: 9998 !important;
+        /* High index to sit on top of everything */
+        display: flex !important;
+        /* Force flex layout */
+        flex-direction: row !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+        gap: 15px !important;
+        border-top: 1px solid var(--border-light) !important;
+    }
+
+    .mobile-price-group {
+        flex-direction: row;
+        align-items: baseline;
+        gap: 4px;
+    }
+
+    .mobile-price-group .price-display-large {
+        font-size: 1.5rem;
+        line-height: 1;
+        margin-bottom: 0;
+        color: #111;
+    }
+
+    .price-currency-mobile {
+        display: block;
+        font-size: 1rem;
+        font-weight: 700;
+        color: #111;
+    }
+
+    .sidebar-actions-main {
+        flex: 1;
+        max-width: none;
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    .sidebar-actions-main .btn-buy-now {
+        font-size: 1rem;
+        padding: 0.8rem 1.5rem;
+        border-radius: 8px;
+        margin: 0;
+        box-shadow: none;
+        background-color: #fbbf24 !important;
+        /* Gold */
+        color: #111 !important;
+        border: none !important;
+        font-weight: 700;
+        white-space: nowrap;
+    }
+
+    /* WhatsApp Floating Button */
+    .sidebar-actions-whatsapp {
+        position: fixed;
+        bottom: 85px;
+        /* Adjusting height so it fits precisely above the bar */
+        right: 15px;
+        z-index: 9999;
+        margin: 0;
+    }
+
+    .sidebar-actions-whatsapp .btn-whatsapp-custom {
+        width: auto;
+        height: auto;
+        border-radius: 50px;
+        padding: 8px 18px;
+        /* Slightly tighter padding like pill */
+        background-color: #00c13e !important;
+        border: none !important;
+        box-shadow: 0 4px 15px rgba(0, 187, 45, 0.4);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 8px;
+        transition: transform 0.2s;
+    }
+
+    .sidebar-actions-whatsapp .whatsapp-text-mobile {
+        display: inline-block;
+        /* Show on mobile */
+        color: #fff;
+        font-size: 1rem;
+        font-weight: 700;
+    }
+
+    .sidebar-actions-whatsapp .whatsapp-content {
+        display: none;
+    }
+
+    .sidebar-actions-whatsapp .whatsapp-icon {
+        color: #fff;
+        margin: 0;
+        font-size: 1.5rem;
+    }
+
+    /* Prevent content from hiding behind the sticky bottom bar */
+    .course-details {
+        padding-bottom: 80px;
+    }
+
+    /* Fix Stacking Context for Fixed positioning */
+    .details-sidebar,
+    .sticky-sidebar,
+    .sticky-sidebar.show,
+    .sticky-sidebar.hidden-fade,
+    .pricing-card {
+        transform: none !important;
+        animation: none !important;
+        transition: none !important;
+    }
+
+    /* Hide global WhatsApp float on mobile to prevent double buttons */
+    .whatsapp-float {
+        display: none !important;
     }
 }

@@ -191,19 +191,22 @@ $nav_prefix = '../index.php'; // On subpages, links go back to home
                                 </div>
                                 
                                 <div class="price-body">
-                                    <div class="price-display-large">
-                                        <?php echo $curso['precio']; ?>
-                                    </div>
-                                    
-                                    <div class="sidebar-actions">
-                                        <a href="../pagos/checkout.php?course=<?php echo $slug; ?>" class="btn btn-primary btn-block btn-lg uppercase-btn">MATRICÚLATE AHORA <i class="fas fa-chevron-right"></i></a>
-                                        <a href="https://wa.me/51979611826?text=<?php echo urlencode('Hola, estoy en la página web y deseo acceder al CURSO: *' . $curso['titulo'] . '*'); ?>" class="btn-whatsapp-custom" target="_blank">
-                                            <div class="whatsapp-content">
-                                                <span class="whatsapp-small">Solicitar información por</span>
-                                                <span class="whatsapp-large">WHATSAPP</span>
-                                            </div>
-                                            <i class="fab fa-whatsapp whatsapp-icon"></i>
-                                        </a>
+                                    <!-- Desktop Price and Main Action -->
+                                    <div class="desktop-price-action">
+                                        <div class="price-display-large">
+                                            <?php echo $curso['precio']; ?>
+                                        </div>
+                                        
+                                        <div class="sidebar-actions">
+                                            <a href="../pagos/checkout.php?course=<?php echo $slug; ?>" class="btn btn-primary btn-block btn-lg uppercase-btn">MATRICÚLATE AHORA <i class="fas fa-chevron-right"></i></a>
+                                            <a href="https://wa.me/51979611826?text=<?php echo urlencode('Hola, estoy en la página web y deseo acceder al CURSO: *' . $curso['titulo'] . '*'); ?>" class="btn-whatsapp-custom" target="_blank">
+                                                <div class="whatsapp-content">
+                                                    <span class="whatsapp-small">Solicitar información por</span>
+                                                    <span class="whatsapp-large">WHATSAPP</span>
+                                                </div>
+                                                <i class="fab fa-whatsapp whatsapp-icon"></i>
+                                            </a>
+                                        </div>
                                     </div>
                                     
                                     <div class="features-list-container">
@@ -232,6 +235,26 @@ $nav_prefix = '../index.php'; // On subpages, links go back to home
 
     <?php include '../includes/footer.php'; ?>
     
+    <!-- Mobile Fixed Elements (Placed outside main flow to ensure bottom: 0 works) -->
+    <div class="mobile-fixed-bottom d-none-desktop">
+        <div class="mobile-price-group">
+            <div class="price-display-large">
+                <?php echo $curso['precio']; ?>
+            </div>
+            <span class="price-currency-mobile">PEN</span>
+        </div>
+        <div class="sidebar-actions-main">
+            <a href="../pagos/checkout.php?course=<?php echo $slug; ?>" class="btn btn-primary btn-block btn-lg uppercase-btn btn-buy-now">Comprar ahora</a>
+        </div>
+    </div>
+    
+    <div class="sidebar-actions-whatsapp d-none-desktop">
+        <a href="https://wa.me/51979611826?text=<?php echo urlencode('Hola, estoy en la página web y deseo acceder al CURSO: *' . $curso['titulo'] . '*'); ?>" class="btn-whatsapp-custom" target="_blank">
+            <span class="whatsapp-text-mobile">¡Conversemos aquí!</span>
+            <i class="fab fa-whatsapp whatsapp-icon"></i>
+        </a>
+    </div>
+
     <script src="../js/script.js"></script>
 </body>
 </html>
