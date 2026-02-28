@@ -9,7 +9,6 @@ require_once __DIR__ . '/../data/cursos_detalle.php'; // Include data to potenti
 $env_file = __DIR__ . '/../.env';
 $env_vars = file_exists($env_file) ? parse_ini_file($env_file) : [];
 
-$paypal_client_id = isset($env_vars['PAYPAL_CLIENT_ID']) ? $env_vars['PAYPAL_CLIENT_ID'] : '';
 $culqi_public_key = isset($env_vars['CULQI_PUBLIC_KEY']) ? $env_vars['CULQI_PUBLIC_KEY'] : '';
 
 // Check if course is passed
@@ -240,44 +239,6 @@ $amount_culqi = intval($price_numeric * 100);
             color: #334155;
         }
 
-        /* PayPal Info */
-        .paypal-info {
-            text-align: center;
-        }
-
-        .btn-paypal-custom {
-            background-color: #0070ba;
-            color: white;
-            font-weight: 700;
-            font-size: 1.1rem;
-            padding: 0.8rem 2rem;
-            border-radius: 50px;
-            border: none;
-            width: 100%;
-            max-width: 400px;
-            cursor: pointer;
-            transition: background 0.2s;
-            display: inline-flex;
-            justify-content: center;
-            align-items: center;
-            gap: 0.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .btn-paypal-custom:hover {
-            background-color: #005ea6;
-        }
-
-        .paypal-help-text {
-            font-size: 0.9rem;
-            color: #64748b;
-        }
-
-        .paypal-help-text a {
-            color: #0070ba;
-            text-decoration: underline;
-        }
-
         /* Right Column: Order Summary (Sticky) */
         .checkout-summary-col {
             position: sticky;
@@ -457,25 +418,6 @@ include '../includes/head_global.php';
                         </div>
                     </div>
                     
-                    <!-- Option 2: PayPal -->
-                    <div class="payment-card" id="card-paypal">
-                        <label class="payment-option-header" for="radio-paypal">
-                            <div style="display: flex; align-items: center;">
-                                <input type="radio" name="payment_method" value="paypal" id="radio-paypal" class="payment-radio">
-                                <span class="payment-title">Pagar con PayPal</span>
-                            </div>
-                            <img src="../img/pagos/logo-paypal.webp" alt="PayPal" class="payment-logo-small">
-                        </label>
-                        
-                        <div class="payment-details">
-                            <div class="paypal-info">
-                                 <div id="paypal-button-container"></div>
-                                 <p class="paypal-help-text">
-                                    ¿Tienes alguna duda? Visita nuestra <a href="#">página de Ayuda</a> o <a href="#">contáctanos</a>.
-                                 </p>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </form>
         </div>
@@ -516,8 +458,7 @@ include '../includes/head_global.php';
 
 <!-- Include Culqi Multipago -->
 <script src="https://js.culqi.com/checkout-js"></script>
-<!-- Include PayPal SDK -->
-<script src="https://www.paypal.com/sdk/js?client-id=<?php echo htmlspecialchars($paypal_client_id); ?>&currency=USD"></script>
+
 
 <script>
     // Configuración de Culqi (se asignará dentro del listener para asegurar que la librería haya cargado)
@@ -526,14 +467,9 @@ include '../includes/head_global.php';
     // Configuración del botón de pago
     const btnPay = document.getElementById('btn-pay');
     const form = document.getElementById('checkout-form');
-    const paypalContainer = document.getElementById('paypal-button-container');
 
-    // Function to toggle buttons based on selection
-    // Function to toggle buttons based on selection
     function togglePaymentButtons(method) {
-        // Logic handled by CSS .payment-card.active .payment-details
-        // When PayPal is selected, Culqi card is not active -> details hidden -> btnPay hidden
-        // When Culqi is selected, Culqi card is active -> details shown -> btnPay shown
+        // Logic removed
     }
 
     // Handle Radio Button Styling & Visibility
@@ -620,42 +556,6 @@ include '../includes/head_global.php';
 
         return isValid;
     }
-
-    // PayPal Button Rendering
-    paypal.Buttons({
-        fundingSource: paypal.FUNDING.PAYPAL, // Show only PayPal button
-        style: {
-            layout: 'vertical',
-            color:  'blue',
-            shape:  'rect',
-            label:  'paypal'
-        },
-        onClick: function(data, actions) {
-            if (!validarFormulario()) {
-                return actions.reject();
-            } else {
-                return actions.resolve();
-            }
-        },
-        createOrder: function(data, actions) {
-            return actions.order.create({
-                purchase_units: [{
-                    amount: {
-                        value: '<?php echo number_format($price_numeric, 2, '.', ''); ?>',
-                        currency_code: 'USD'
-                    }
-                }]
-            });
-        },
-        onApprove: function(data, actions) {
-            return actions.order.capture().then(function(details) {
-                console.log(details);
-                // Redirect to success page
-                window.location.href = "gracias.php?course=<?php echo urlencode($course_slug); ?>&charge_id=" + encodeURIComponent(details.id);
-            });
-        }
-    }).render('#paypal-button-container');
-
 
     btnPay.addEventListener('click', function(e) {
         e.preventDefault();
