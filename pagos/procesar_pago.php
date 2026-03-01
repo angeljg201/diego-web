@@ -1,5 +1,13 @@
 <?php
 // procesar_pago.php
+
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
+require __DIR__ . '/PHPMailer/src/Exception.php';
+require __DIR__ . '/PHPMailer/src/PHPMailer.php';
+require __DIR__ . '/PHPMailer/src/SMTP.php';
+
 header('Content-Type: application/json');
 
 // 1. Cargar Variables de Entorno (Llave Privada)
@@ -69,6 +77,84 @@ $json_response = json_decode($response, true);
 
 // 201 significa "Creado exitosamente" para la API de V2 charges
 if ($http_code === 201) {
+
+    // =========================================================================
+    // INICIO ENVÍO DE CORREO AUTOMATIZADO CON PHPMAILER
+    // =========================================================================
+    try {
+        $correo_cliente = $email;  
+        $nombre_cliente = trim("$nombres $apellidos");
+        
+        // Culqi procesa montos en céntimos
+        $monto_pagado = number_format($amount / 100, 2); 
+        $moneda = 'PEN';
+
+        $mail = new PHPMailer(true);
+
+        // --- Configuración del Servidor SMTP (Hostinger) ---
+        $mail->isSMTP();
+        $mail->Host       = 'smtp.hostinger.com';
+        $mail->SMTPAuth   = true;
+        $mail->Username   = 'soporte@diegoayasca.com';
+        $mail->Password   = 'cZH4dQpR#arg3Z@';
+        $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS; // Seguridad SSL
+        $mail->Port       = 465;                         // Puerto SSL
+        $mail->CharSet    = 'UTF-8';
+
+        // --- Remitente y Destinatario ---
+        $mail->setFrom('soporte@diegoayasca.com', 'Academia Diego Ayasca');
+        $mail->addAddress($correo_cliente, $nombre_cliente);
+
+        // --- Contenido del Correo ---
+        $mail->isHTML(true);
+        $mail->Subject = '¡Bienvenido! Detalles de tu compra y accesos al curso.';
+
+        // Plantilla HTML Profesional y Limpia
+        $mail->Body = '
+        <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; color: #333333; border: 1px solid #e0e0e0; border-radius: 8px;">
+            <div style="text-align: center; margin-bottom: 20px;">
+                <h2 style="color: #0056b3; margin: 0;">¡Gracias por tu compra, ' . htmlspecialchars($nombre_cliente) . '!</h2>
+            </div>
+            
+            <p style="font-size: 16px; line-height: 1.5;">Tu pago se ha procesado correctamente. Nos emociona que des este gran paso en tu aprendizaje. A continuación, te compartimos los detalles de tu compra y las instrucciones para acceder a tu contenido.</p>
+            
+            <div style="background-color: #f7f9fc; padding: 15px; border-left: 4px solid #0056b3; border-radius: 4px; margin: 25px 0;">
+                <p style="margin: 0; font-size: 16px;"><strong>Monto total pagado:</strong> ' . $moneda . ' ' . $monto_pagado . '</p>
+            </div>
+
+            <h3 style="color: #333333; border-bottom: 1px solid #e0e0e0; padding-bottom: 10px;">Instrucciones de acceso a la plataforma</h3>
+            
+            <p style="font-size: 16px;">Para ingresar y comenzar de inmediato, sigue estos pasos y utiliza las credenciales a continuación:</p>
+            
+            <ul style="list-style-type: none; padding: 0; font-size: 16px; line-height: 1.8;">
+                <li>🌐 <strong>Enlace de la plataforma:</strong> <a href="https://aula.diegoayasca.com/login/index.php" style="color: #0056b3; text-decoration: none; font-weight: bold;">Acceder al Aula Virtual</a></li>
+                <li>👤 <strong>Usuario:</strong> alumno</li>
+                <li>🔑 <strong>Contraseña:</strong> Prueba.2026</li>
+            </ul>
+
+            <div style="margin-top: 30px; text-align: center;">
+                <a href="https://aula.diegoayasca.com/login/index.php" style="background-color: #0056b3; color: #ffffff; padding: 12px 24px; text-decoration: none; font-weight: bold; border-radius: 5px; display: inline-block;">Ir a mi curso ahora</a>
+            </div>
+
+            <hr style="border: none; border-top: 1px solid #e0e0e0; margin: 30px 0;" />
+            
+            <p style="font-size: 12px; color: #777777; text-align: center;">
+                Si tienes alguna pregunta o inconveniente, simplemente responde a este correo (soporte@diegoayasca.com) y estaremos encantados de ayudarte.
+            </p>
+        </div>
+        ';
+
+        // Enviar correo
+        $mail->send();
+
+    } catch (Exception $e) {
+        // Silenciamos el error para no afectar el flujo del pago
+        error_log("Error al enviar el correo a $correo_cliente: " . $e->getMessage());
+    }
+    // =========================================================================
+    // FIN ENVÍO DE CORREO AUTOMATIZADO CON PHPMAILER
+    // =========================================================================
+
     echo json_encode([
         'success'   => true,
         'charge_id' => $json_response['id'], // El id real del cargo ej. chr_test_xxyz
