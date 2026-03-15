@@ -1869,7 +1869,7 @@ section {
    ========================================= */
 /* Clean Centered Footer */
 .main-footer-clean {
-    background-color: #050b14;
+    background-color: #000000;
     /* Deep dark blue/black - updated for contrast */
     color: #fff;
     padding: 5rem 0 3rem;
@@ -2516,4 +2516,22 @@ section {
     .whatsapp-float {
         display: none !important;
     }
+}
+
+/* =========================================
+   Ajustes Visuales del Footer
+   ========================================= */
+
+/* 1. Fondo del contenedor principal del footer a negro puro */
+.main-footer-clean {
+    background-color: #000000 !important;
+}
+
+/* 2. Agrandar logo desde el centro sin empujar elementos y sin usar position: absolute */
+.footer-logo-clean img {
+    transform: scale(1.8);
+    transform-origin: center center;
+    /* Forzamos relative por si acaso, para evitar comportamientos indeseados */
+    position: relative !important; 
+    transition: transform 0.3s ease; /* Opcional: para que si cambia de tamaño lo haga suavemente */
 }
