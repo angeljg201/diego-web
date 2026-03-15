@@ -56,7 +56,7 @@ $meta_type = isset($og_type) ? $og_type : 'website';
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <!-- Custom CSS (Root-Relative Path) -->
-    <link rel="stylesheet" href="<?php echo isset($base_path) ? $base_path : '/'; ?>css/style.css">
+    <link rel="stylesheet" href="<?php echo isset($base_path) ? $base_path : '/'; ?>css/style.css?v=2.0.0">
 
     <?php if (isset($extra_head)) echo $extra_head; ?>
 </head>
