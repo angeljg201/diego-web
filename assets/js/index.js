@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", function () {
         btnSubmit.innerText = "ENVIANDO...";
         btnSubmit.disabled = true;
 
-        const url = "https://script.google.com/macros/s/AKfycbw-2nIApj9d2gpjHhM4-DJePKxfM0kCo3QCf18sSHnzepZD2kl5Fw-MyBp3KtUPBQp6Gg/exec";
+        const url = "https://script.google.com/macros/s/AKfycbx_HeZiMNWhA-5M-NraBfvCS9IAB-uTjMqo7XZ4l0DoO1Fl-ONj8gPvWCGKZa7T0G1A/exec";
         const formData = new FormData(form);
 
         fetch(url, {
