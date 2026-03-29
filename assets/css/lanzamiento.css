@@ -1,0 +1,148 @@
+/* Countdown Hero */
+.countdown-hero {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    min-height: 600px;
+    background-color: #1a1a1a;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #fff;
+    overflow: hidden;
+}
+
+.countdown-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 1;
+}
+
+.countdown-content {
+    position: relative;
+    z-index: 2;
+    padding: 20px;
+    width: 100%;
+    max-width: 1200px;
+}
+
+.countdown-title {
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 1rem;
+    font-weight: 500;
+    opacity: 0.9;
+}
+
+.countdown-subtitle {
+    font-size: clamp(2rem, 5vw, 4rem);
+    font-weight: 700;
+    margin-bottom: 3rem;
+    line-height: 1.2;
+    color: #fff;
+}
+
+.countdown-timer {
+    display: flex;
+    justify-content: center;
+    gap: 4rem;
+    flex-wrap: wrap;
+    font-family: "Outfit", sans-serif;
+}
+
+.timer-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 80px;
+}
+
+.timer-item .number {
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    font-weight: 700;
+    line-height: 1;
+    color: #fff;
+}
+
+.timer-item .label {
+    font-size: 1rem;
+    text-transform: capitalize;
+    letter-spacing: 1px;
+    margin-top: 0.5rem;
+    color: #fff;
+    font-weight: 500;
+}
+
+.countdown-cta {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 3rem;
+    flex-wrap: wrap;
+}
+
+.btn-cta-launch {
+    background-color: #d4af37; /* Gold */
+    color: #000;
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+    font-weight: 700;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+}
+
+.btn-cta-launch-outline {
+    background-color: transparent;
+    color: #fff;
+    border: 2px solid #fff;
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+    font-weight: 700;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.btn-cta-launch:hover {
+    background-color: #fff;
+    color: #d4af37;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(212, 175, 55, 0.5);
+}
+
+.btn-cta-launch-outline:hover {
+    background-color: #fff;
+    color: #000;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(255, 255, 255, 0.3);
+}
+
+@media (max-width: 768px) {
+    .countdown-timer {
+        gap: 1.5rem;
+    }
+    .timer-item {
+        min-width: auto;
+        padding: 0;
+    }
+    .timer-item .number {
+        font-size: 2rem;
+    }
+}

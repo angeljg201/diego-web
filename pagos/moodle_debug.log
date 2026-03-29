@@ -1,0 +1,26 @@
+[2026-03-29 19:20:17] Iniciando proceso Moodle para: angeljulca501@gmail.com
+----------------------------------------
+[2026-03-29 19:20:17] Petición GET USER
+Datos: wstoken=43dff590807f9569f95c95d6b6126b73&wsfunction=core_user_get_users_by_field&moodlewsrestformat=json&field=username&values[0]=angeljulca501%40gmail.com
+----------------------------------------
+[2026-03-29 19:20:18] Respuesta cruda GET USER:
+Datos: []
+----------------------------------------
+[2026-03-29 19:20:18] Usuario no encontrado en Moodle. Procediendo a crear.
+----------------------------------------
+[2026-03-29 19:20:18] Petición CREATE USER
+Datos: wstoken=43dff590807f9569f95c95d6b6126b73&wsfunction=core_user_create_users&moodlewsrestformat=json&users[0][username]=angeljulca501%40gmail.com&users[0][email]=angeljulca501%40gmail.com&users[0][firstname]=Angel&users[0][lastname]=Gallardo&users[0][password]=9vm%40-%28%40%25wF
+----------------------------------------
+[2026-03-29 19:20:19] Respuesta cruda CREATE USER:
+Datos: [{"id":14,"username":"angeljulca501@gmail.com"}]
+----------------------------------------
+[2026-03-29 19:20:19] Usuario Creado Exitosamente. ID: 14
+----------------------------------------
+[2026-03-29 19:20:19] Petición ENROL USER
+Datos: wstoken=43dff590807f9569f95c95d6b6126b73&wsfunction=enrol_manual_enrol_users&moodlewsrestformat=json&enrolments[0][roleid]=5&enrolments[0][userid]=14&enrolments[0][courseid]=2
+----------------------------------------
+[2026-03-29 19:20:20] Respuesta cruda ENROL USER:
+Datos: null
+----------------------------------------
+[2026-03-29 19:20:20] Matriculación ejecutada. (Null o Empty usualmente significa éxito en Moodle enrol API).
+----------------------------------------

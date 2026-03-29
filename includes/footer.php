@@ -4,7 +4,7 @@
             
             <!-- Logo -->
             <div class="footer-logo-clean">
-                <img src="<?php echo $base_path; ?>img/logo-footer.png" alt="Diego Ayasca" style="max-height: 80px; width: auto; margin: 0 auto;">
+                <img src="<?php echo $base_path; ?>assets/img/logo-footer.png" alt="Diego Ayasca" style="max-height: 80px; width: auto; margin: 0 auto;">
             </div>
 
             <!-- Social Media -->

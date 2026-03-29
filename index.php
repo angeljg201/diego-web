@@ -14,7 +14,7 @@ $fecha_lanzamiento = '';
 // Default Values
 $title_lanzamiento = 'LANZAMIENTO OFICIAL';
 $subtitle_lanzamiento = 'Curso de Preparación para el Examen PMP®';
-$bg_lanzamiento = 'img/cursos/curso_pmp.jpeg';
+$bg_lanzamiento = 'assets/img/cursos/curso_pmp.jpeg';
 $curso_slug = 'preparacion-pmp'; // Default fallback
 
 if (file_exists($json_file)) {
@@ -45,161 +45,12 @@ foreach ($cursos as $c) {
 }
 
 // Determine background URL
-$bg_url_final = (file_exists($bg_lanzamiento) || file_exists(__DIR__ . '/' . $bg_lanzamiento)) ? $bg_lanzamiento : 'img/cursos/curso_pmp.jpeg';
+$bg_url_final = (file_exists($bg_lanzamiento) || file_exists(__DIR__ . '/' . $bg_lanzamiento)) ? $bg_lanzamiento : 'assets/img/cursos/curso_pmp.jpeg';
 
 // Countdown Styles (Concert Theme)
 $extra_head = '
-<style>
-/* Countdown Hero */
-.countdown-hero {
-    position: relative;
-    width: 100%;
-    height: 100vh;
-    min-height: 600px;
-    background-color: #1a1a1a;
-    background-image: url("' . $bg_url_final . '");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    color: #fff;
-    overflow: hidden;
-}
-
-.countdown-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.7);
-    z-index: 1;
-}
-
-.countdown-content {
-    position: relative;
-    z-index: 2;
-    padding: 20px;
-    width: 100%;
-    max-width: 1200px;
-}
-
-.countdown-title {
-    font-size: 1rem;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    margin-bottom: 1rem;
-    font-weight: 500;
-    opacity: 0.9;
-}
-
-.countdown-subtitle {
-    font-size: clamp(2rem, 5vw, 4rem);
-    font-weight: 700;
-    margin-bottom: 3rem;
-    line-height: 1.2;
-    color: #fff;
-}
-
-.countdown-timer {
-    display: flex;
-    justify-content: center;
-    gap: 4rem;
-    flex-wrap: wrap;
-    font-family: "Outfit", sans-serif;
-}
-
-.timer-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    min-width: 80px;
-}
-
-.timer-item .number {
-    font-size: clamp(2.5rem, 6vw, 4.5rem);
-    font-weight: 700;
-    line-height: 1;
-    color: #fff;
-}
-
-.timer-item .label {
-    font-size: 1rem;
-    text-transform: capitalize;
-    letter-spacing: 1px;
-    margin-top: 0.5rem;
-    color: #fff;
-    font-weight: 500;
-}
-
-.countdown-cta {
-    display: flex;
-    justify-content: center;
-    gap: 1.5rem;
-    margin-top: 3rem;
-    flex-wrap: wrap;
-}
-
-.btn-cta-launch {
-    background-color: #d4af37; /* Gold */
-    color: #000;
-    padding: 1rem 2rem;
-    font-size: 1.1rem;
-    font-weight: 700;
-    border-radius: 50px;
-    text-decoration: none;
-    transition: all 0.3s ease;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
-}
-
-.btn-cta-launch-outline {
-    background-color: transparent;
-    color: #fff;
-    border: 2px solid #fff;
-    padding: 1rem 2rem;
-    font-size: 1.1rem;
-    font-weight: 700;
-    border-radius: 50px;
-    text-decoration: none;
-    transition: all 0.3s ease;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-}
-
-.btn-cta-launch:hover {
-    background-color: #fff;
-    color: #d4af37;
-    transform: translateY(-3px);
-    box-shadow: 0 8px 25px rgba(212, 175, 55, 0.5);
-}
-
-.btn-cta-launch-outline:hover {
-    background-color: #fff;
-    color: #000;
-    transform: translateY(-3px);
-    box-shadow: 0 8px 25px rgba(255, 255, 255, 0.3);
-}
-
-@media (max-width: 768px) {
-    .countdown-timer {
-        gap: 1.5rem;
-    }
-    .timer-item {
-        min-width: auto;
-        padding: 0;
-    }
-    .timer-item .number {
-        font-size: 2rem;
-    }
-}
-</style>
+<link rel="stylesheet" href="assets/css/lanzamiento.css">
+<style>.countdown-hero { background-image: url(\'' . $bg_url_final . '\'); }</style>
 ';
 ?>
 
@@ -326,7 +177,7 @@ $extra_head = '
                     <div class="about-image hidden-fade">
                         <div class="image-wrapper">
                             <div class="image-bg-glow"></div>
-                            <img src="img/mi-foto.webp" alt="Diego Ayasca Foto" class="glass-border-img">
+                            <img src="assets/img/mi-foto.webp" alt="Diego Ayasca Foto" class="glass-border-img">
                         </div>
                     </div>
                 </div>
@@ -373,7 +224,7 @@ $extra_head = '
 
                         <!-- Right Column: Form -->
                         <div class="contact-form-wrapper">
-                            <form action="#" method="POST" class="contact-form">
+                            <form id="form-contacto" class="contact-form">
                                 <div class="form-group">
                                     <input type="text" id="nombre" name="nombre" required placeholder="Nombre Completo">
                                 </div>
@@ -383,8 +234,9 @@ $extra_head = '
                                 <div class="form-group">
                                     <textarea id="mensaje" name="mensaje" rows="4" required placeholder="Escribe tu mensaje..."></textarea>
                                 </div>
-                                <button type="submit" class="btn btn-gold btn-block uppercase-btn">ENVIAR MENSAJE</button>
+                                <button type="submit" id="btn-submit" class="btn btn-gold btn-block uppercase-btn">ENVIAR MENSAJE</button>
                             </form>
+                            <div id="mensaje-exito" style="display: none; padding: 15px; margin-top: 15px; border-radius: 5px; background-color: #d4edda; color: #155724; border: 1px solid #c3e6cb; text-align: center;">¡Mensaje enviado con éxito!</div>
                         </div>
                     </div>
                 </div>
@@ -394,42 +246,9 @@ $extra_head = '
 
     <?php include 'includes/footer.php'; ?>
     
-    <script src="js/script.js"></script>
-    <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const launchDateStr = "<?php echo $fecha_lanzamiento; ?>";
-        if (!launchDateStr) return;
-
-        const launchDate = new Date(launchDateStr.replace(/-/g, "/")).getTime(); // Replace for Safari compatibility
-        const timerElement = document.getElementById("countdown-timer");
-        const ctaElement = document.getElementById("countdown-cta");
-
-        if (!timerElement || !ctaElement) return;
-
-        const countdownTimer = setInterval(function() {
-            const now = new Date().getTime();
-            const distance = launchDate - now;
-
-            if (distance < 0) {
-                clearInterval(countdownTimer);
-                document.getElementById("days").innerText = "00";
-                document.getElementById("hours").innerText = "00";
-                document.getElementById("minutes").innerText = "00";
-                document.getElementById("seconds").innerText = "00";
-                return;
-            }
-
-            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-            document.getElementById("days").innerText = days < 10 ? "0" + days : days;
-            document.getElementById("hours").innerText = hours < 10 ? "0" + hours : hours;
-            document.getElementById("minutes").innerText = minutes < 10 ? "0" + minutes : minutes;
-            document.getElementById("seconds").innerText = seconds < 10 ? "0" + seconds : seconds;
-        }, 1000);
-    });
-    </script>
+    <script src="assets/js/script.js"></script>
+    <script>window.launchDateGlobal = "<?php echo $fecha_lanzamiento; ?>";</script>
+    <script src="assets/js/lanzamiento.js"></script>
+    <script src="assets/js/index.js"></script>
 </body>
 </html>

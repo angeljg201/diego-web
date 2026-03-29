@@ -3,9 +3,10 @@
 $db_cursos = [
   'metodologias-agiles' => 
   [
+    //Landing Page del curso
     'titulo' => 'Metodologías Ágiles (Scrum & Kanban)',
     'subtitulo' => 'Gestiona equipos de alto rendimiento y entrega valor continuo con marcos de trabajo ágiles.',
-    'imagen' => 'img/cursos/curso_agiles.png',
+    'imagen' => 'assets/img/cursos/curso_agiles.png',
     'descripcion_corta' => 'Domina Scrum, Kanban y Lean para transformar la forma en que trabajas.',
     'descripcion_larga' => '<p>En un entorno VUCA, la agilidad no es una opción, es una necesidad. Este curso te enseñará a implementar Scrum y Kanban desde cero, mejorando la colaboración, transparencia y velocidad de entrega de tus equipos.</p><p>Aprenderás a facilitar eventos efectivos, gestionar backlogs y utilizar métricas ágiles para la mejora continua.</p>',
     'beneficios' => 
@@ -79,7 +80,7 @@ $db_cursos = [
       'nombre' => 'Diego Ayasca',
       'titulo_inst' => 'PMP | CAPM | SMPC | Black Belt',
       'bio' => 'Mi camino en la gestión de proyectos comenzó con Microsoft Project y evolucionó hacia el dominio de los estándares del PMBOK® y las metodologías ágiles como Scrum. Me certifiqué como Scrum Master, CAPM®, PMP® y Black Belt. Hoy, desde la docencia, acompaño a profesionales a liderar proyectos con impacto, enfoque humano y resultados sostenibles.',
-      'foto' => 'img/mi-foto.jpg',
+      'foto' => 'assets/img/mi-foto.jpg',
     ],
     'precio' => 'S/ 300.00',
     'precio_oferta' => 'S/ 249.00',
@@ -96,10 +97,11 @@ $db_cursos = [
         'a' => 'Recibes un certificado del curso y preparación para PSM I (Scrum.org).',
       ],
     ],
+    //Catalogo del curso
     'mostrar_en_catalogo' => true,
     'titulo_catalogo' => 'Metodologías Ágiles',
     'descripcion' => 'Aprende Scrum, Kanban y Lean para gestionar equipos de alto rendimiento en entornos dinámicos.',
-    'imagen_catalogo' => 'img/cursos/curso_agiles.png',
+    'imagen_catalogo' => 'assets/img/cursos/curso_agiles.png',
     'lecciones_catalogo' => '18 Lecciones',
     'horas' => '16 Hrs',
     'estudiantes' => '120 Alumnos',
@@ -109,7 +111,7 @@ $db_cursos = [
   [
     'titulo' => 'Certificación CAPM® - Gestión de Proyectos',
     'subtitulo' => 'Domina los fundamentos de la gestión de proyectos y prepárate para la certificación CAPM del PMI.',
-    'imagen' => 'img/cursos/curso_proyectos.png',
+    'imagen' => 'assets/img/cursos/curso_proyectos.png',
     'descripcion_corta' => 'Tu puerta de entrada al mundo de la gestión de proyectos profesional certificada.',
     'descripcion_larga' => '<p>El Certified Associate in Project Management (CAPM)® es una certificación reconocida mundialmente que valida tu comprensión de la terminología y los procesos fundamentales de la gestión eficaz de proyectos. Este curso cubre todo el contenido del ECO (Examination Content Outline) vigente.</p>',
     'beneficios' => 
@@ -183,7 +185,7 @@ $db_cursos = [
       'nombre' => 'Diego Ayasca',
       'titulo_inst' => 'PMP | CAPM | SMPC | Black Belt',
       'bio' => 'Mi camino en la gestión de proyectos comenzó con Microsoft Project y evolucionó hacia el dominio de los estándares del PMBOK® y las metodologías ágiles como Scrum. Me certifiqué como Scrum Master, CAPM®, PMP® y Black Belt. Hoy, desde la docencia, acompaño a profesionales a liderar proyectos con impacto, enfoque humano y resultados sostenibles.',
-      'foto' => 'img/mi-foto.jpg',
+      'foto' => 'assets/img/mi-foto.jpg',
     ],
     'precio' => 'S/ 350.00',
     'precio_oferta' => 'S/ 299.00',
@@ -203,7 +205,7 @@ $db_cursos = [
     'mostrar_en_catalogo' => true,
     'titulo_catalogo' => 'Certificación CAPM',
     'descripcion' => 'Domina los fundamentos de la gestión de proyectos y prepárate para la certificación CAPM del PMI.',
-    'imagen_catalogo' => 'img/cursos/curso_proyectos.png',
+    'imagen_catalogo' => 'assets/img/cursos/curso_proyectos.png',
     'lecciones_catalogo' => '23 Lecciones',
     'horas' => '24 Hrs',
     'estudiantes' => '85 Alumnos',
@@ -213,7 +215,7 @@ $db_cursos = [
   [
     'titulo' => 'Curso de preparación para el examen PMP',
     'subtitulo' => 'Impulsa tu carrera profesional con nuestro curso de preparación PMP',
-    'imagen' => 'img/cursos/curso_pmp.jpeg',
+    'imagen' => 'assets/img/cursos/curso_pmp.jpeg',
     'descripcion_corta' => 'Entrenamiento 100 % práctico basado en el ECO, simulacros reales, estrategias de examen y acompañamiento experto.',
     'descripcion_larga' => '<p>Impulsa tu carrera profesional con nuestro curso de preparación PMP: entrenamiento 100 % práctico basado en el ECO (Esquema de Contenido del Examen), simulacros reales, estrategias de examen y acompañamiento experto hasta lograr tu certificación.</p>
         <h3>¿A quién va dirigido este curso?</h3>
@@ -328,7 +330,7 @@ $db_cursos = [
       'nombre' => 'Diego Ayasca',
       'titulo_inst' => 'PMP | CAPM | SMPC | Black Belt',
       'bio' => 'Mi camino en la gestión de proyectos comenzó con Microsoft Project y evolucionó hacia el dominio de los estándares del PMBOK® y las metodologías ágiles como Scrum. Me certifiqué como Scrum Master, CAPM®, PMP® y Black Belt. Hoy, desde la docencia, acompaño a profesionales a liderar proyectos con impacto, enfoque humano y resultados sostenibles.',
-      'foto' => 'img/mi-foto.jpg',
+      'foto' => 'assets/img/mi-foto.jpg',
     ],
     'precio' => 'S/ 800.00',
     'precio_oferta' => 'S/ 800.00',
@@ -348,7 +350,7 @@ $db_cursos = [
     'mostrar_en_catalogo' => true,
     'titulo_catalogo' => 'Curso de preparación para el examen PMP',
     'descripcion' => 'Curso de preparación PMP con enfoque PMI, simulacros reales, estrategias de examen y acompañamiento experto.',
-    'imagen_catalogo' => 'img/cursos/curso_pmp.jpeg',
+    'imagen_catalogo' => 'assets/img/cursos/curso_pmp.jpeg',
     'lecciones_catalogo' => '6 Lecciones',
     'horas' => '36 Hrs',
     'estudiantes' => '60 Alumnos',
@@ -358,7 +360,7 @@ $db_cursos = [
   [
     'titulo' => 'Gestión de Proyectos con MS Project',
     'subtitulo' => 'Domina la planificación, seguimiento y control de proyectos con la herramienta estándar de la industria.',
-    'imagen' => 'img/cursos/gestion_ms_project.webp',
+    'imagen' => 'assets/img/cursos/gestion_ms_project.webp',
     'descripcion_corta' => 'Crea cronogramas precisos, gestiona recursos y controla costos eficientemente.',
     'descripcion_larga' => '<p>Microsoft Project es la herramienta por excelencia para la gestión profesional de proyectos. En este curso, aprenderás desde la configuración inicial hasta el seguimiento avanzado y control de desviaciones.</p><p>Dominarás la creación de la EDT (WBS), la vinculación de tareas, la gestión de la ruta crítica y la generación de informes de valor ganado para asegurar el éxito de tus proyectos.</p>',
     'beneficios' => 
@@ -432,7 +434,7 @@ $db_cursos = [
       'nombre' => 'Diego Ayasca',
       'titulo_inst' => 'PMP | CAPM | BSMP | MS Project Expert',
       'bio' => 'Consultor experto en Gestión de Proyectos y PMO. Con años de experiencia implementando soluciones de gestión con herramientas Microsoft. Ayudo a organizaciones a optimizar su cartera de proyectos mediante la tecnología.',
-      'foto' => 'img/mi-foto.jpg',
+      'foto' => 'assets/img/mi-foto.jpg',
     ],
     'precio' => 'S/ 299.00',
     'precio_oferta' => 'S/ 299.00',
@@ -452,7 +454,7 @@ $db_cursos = [
     'mostrar_en_catalogo' => true,
     'titulo_catalogo' => 'Gestión de Proyectos con MS Project',
     'descripcion' => 'Domina el estándar de la industria para planificar, programar y controlar proyectos exitosos.',
-    'imagen_catalogo' => 'img/cursos/gestion_ms_project.webp',
+    'imagen_catalogo' => 'assets/img/cursos/gestion_ms_project.webp',
     'lecciones_catalogo' => '12 Lecciones',
     'horas' => '10 Hrs',
     'estudiantes' => 'New',
@@ -462,7 +464,7 @@ $db_cursos = [
   [
     'titulo' => 'Gestión de Proyectos con IA',
     'subtitulo' => 'Revoluciona tu productividad y toma de decisiones integrando Inteligencia Artificial en tus proyectos.',
-    'imagen' => 'img/cursos/gestion_ia.webp',
+    'imagen' => 'assets/img/cursos/gestion_ia.webp',
     'descripcion_corta' => 'Multiplica tu eficiencia automatizando tareas y mejorando el análisis con IA.',
     'descripcion_larga' => '<p>La Inteligencia Artificial está transformando el rol del Project Manager. Este curso te enseña cómo utilizar herramientas como ChatGPT, Claude y Copilot para automatizar documentación, identificar riesgos ocultos y optimizar la comunicación del equipo.</p><p>Aprende ingeniería de prompts específica para gestión de proyectos y mantente a la vanguardia tecnológica.</p>',
     'beneficios' => 
@@ -536,7 +538,7 @@ $db_cursos = [
       'nombre' => 'Diego Ayasca',
       'titulo_inst' => 'PMP | AI Enthusiast',
       'bio' => 'Apasionado por la intersección entre la gestión de proyectos y la tecnología emergente. Investigo y aplico activamente soluciones de IA para potenciar la eficiencia de las oficinas de proyectos.',
-      'foto' => 'img/mi-foto.jpg',
+      'foto' => 'assets/img/mi-foto.jpg',
     ],
     'precio' => 'S/ 300.00',
     'precio_oferta' => 'S/ 249.00',
@@ -556,7 +558,7 @@ $db_cursos = [
     'mostrar_en_catalogo' => true,
     'titulo_catalogo' => 'Gestión de Proyectos con IA',
     'descripcion' => 'Aprende a utilizar la Inteligencia Artificial para optimizar la gestión y liderazgo de tus proyectos.',
-    'imagen_catalogo' => 'img/cursos/gestion_ia.webp',
+    'imagen_catalogo' => 'assets/img/cursos/gestion_ia.webp',
     'lecciones_catalogo' => '8 Lecciones',
     'horas' => '6 Hrs',
     'estudiantes' => 'New',
@@ -566,7 +568,7 @@ $db_cursos = [
   [
     'titulo' => 'Gestión de Proyectos con Power BI',
     'subtitulo' => 'Transforma los datos de tus proyectos em Dashboards de alto impacto para la toma de decisiones estratégica.',
-    'imagen' => 'img/cursos/gestion_power_bi.webp',
+    'imagen' => 'assets/img/cursos/gestion_power_bi.webp',
     'descripcion_corta' => 'Visualiza el éxito. Crea tableros de control interactivos conectados a tus herramientas de gestión.',
     'descripcion_larga' => '<p>Deja atrás los reportes estáticos en Excel y PowerPoint. Con Power BI, aprenderás a conectar múltiples fuentes de datos (Microsoft Project, Excel, Jira) para crear tableros de control dinámicos y automatizados.</p><p>Visualiza el estado del portafolio, controla indicadores clave (KPIs) y presenta la información de manera visualmente impactante a los stakeholders.</p>',
     'beneficios' => 
@@ -640,7 +642,7 @@ $db_cursos = [
       'nombre' => 'Diego Ayasca',
       'titulo_inst' => 'PMP | Data Analyst',
       'bio' => 'Especialista en Project Management Office (PMO) y Análisis de Datos. Ayudo a las empresas a tomar decisiones basadas en datos reales, transformando la información compleja en visualizaciones claras y accionables.',
-      'foto' => 'img/mi-foto.jpg',
+      'foto' => 'assets/img/mi-foto.jpg',
     ],
     'precio' => 'S/ 299.00',
     'precio_oferta' => 'S/ 299.00',
@@ -660,7 +662,7 @@ $db_cursos = [
     'mostrar_en_catalogo' => true,
     'titulo_catalogo' => 'Gestión de Proyectos con Power BI',
     'descripcion' => 'Crea dashboards de alto impacto para visualizar y controlar el rendimiento de tus proyectos.',
-    'imagen_catalogo' => 'img/cursos/gestion_power_bi.webp',
+    'imagen_catalogo' => 'assets/img/cursos/gestion_power_bi.webp',
     'lecciones_catalogo' => '15 Lecciones',
     'horas' => '12 Hrs',
     'estudiantes' => 'New',

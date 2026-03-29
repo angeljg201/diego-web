@@ -397,17 +397,17 @@ include '../includes/head_global.php';
                                 <input type="radio" name="payment_method" value="culqi" id="radio-culqi" class="payment-radio" checked>
                                 <span class="payment-title">Pagar con Culqi</span>
                             </div>
-                            <img src="../img/pagos/logo-culqi.webp" alt="Culqi" class="payment-logo-small">
+                            <img src="../assets/img/pagos/logo-culqi.webp" alt="Culqi" class="payment-logo-small">
                         </label>
                         
                         <div class="payment-details">
                             <div class="culqi-info">
                                 <div class="culqi-header">
-                                    <img src="../img/pagos/logo-culqi.webp" alt="Culqi" class="logo-culqi">
+                                    <img src="../assets/img/pagos/logo-culqi.webp" alt="Culqi" class="logo-culqi">
                                     <div class="payment-icons-row">
-                                        <img src="../img/pagos/checkout-visa.webp" alt="Visa">
-                                        <img src="../img/pagos/checkout-master-card.webp" alt="Mastercard">
-                                        <img src="../img/pagos/checkout-american-express.webp" alt="Amex">
+                                        <img src="../assets/img/pagos/checkout-visa.webp" alt="Visa">
+                                        <img src="../assets/img/pagos/checkout-master-card.webp" alt="Mastercard">
+                                        <img src="../assets/img/pagos/checkout-american-express.webp" alt="Amex">
                                     </div>
                                 </div>
                                 <p class="culqi-text">
@@ -637,7 +637,7 @@ include '../includes/head_global.php';
                 const appearance = {
                     theme: "default",
                     hiddenCulqiLogo: false,
-                    logo: 'https://diegoayasca.com/img/logo.png'
+                    logo: 'https://diegoayasca.com/assets/img/logo.png'
                 };
 
                 const config = {

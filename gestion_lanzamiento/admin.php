@@ -1,14 +1,14 @@
 <?php
 // Admin Panel for Countdown Timer
 $json_file = 'data.json';
-$upload_dir = '../img/uploads/';
+$upload_dir = '../assets/img/uploads/';
 
 // Initialize default values
 $data = [
     'title' => 'Curso de Preparación para el Examen PMP®',
     'curso_slug' => 'preparacion-pmp',
     'fecha_lanzamiento' => date('Y-m-d H:i:s'),
-    'background_url' => 'img/cursos/curso_pmp.jpeg'
+    'background_url' => 'assets/img/cursos/curso_pmp.jpeg'
 ];
 
 // Include courses data to populate select
@@ -49,7 +49,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // Sanitize filename
         $file_name = preg_replace('/[^a-zA-Z0-9._-]/', '_', $file_name);
         
-        $target_dir = '../img/uploads/';
+        $target_dir = '../assets/img/uploads/';
         $target_file = $target_dir . $file_name;
         
         // Ensure upload directory exists
@@ -62,7 +62,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if (empty($message)) {
             if (move_uploaded_file($file_tmp, $target_file)) {
                 // Store relative path for frontend use (force forward slashes)
-                $data['background_url'] = 'img/uploads/' . $file_name;
+                $data['background_url'] = 'assets/img/uploads/' . $file_name;
             } else {
                 $message = '<div class="alert alert-danger">Error al mover la imagen subida. Verifique permisos.</div>';
             }

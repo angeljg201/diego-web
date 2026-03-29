@@ -255,6 +255,6 @@ $nav_prefix = '../index.php'; // On subpages, links go back to home
         </a>
     </div>
 
-    <script src="../js/script.js"></script>
+    <script src="../assets/js/script.js"></script>
 </body>
 </html>

@@ -12,7 +12,7 @@
 // Default Values
 $default_title = 'Diego Ayasca | Gestión de Proyectos, Agilidad e Investigación';
 $default_desc = 'Impulsa tu carrera profesional con cursos de Gestión de Proyectos (PMP, CAPM), Metodologías Ágiles (Scrum, Kanban) e Investigación Académica. Aprende con Diego Ayasca.';
-$default_image = 'https://diegoayasca.com/img/banner-inicio-diego-ayasca.png';
+$default_image = 'https://diegoayasca.com/assets/img/banner-inicio-diego-ayasca.png';
 $default_url = 'https://diegoayasca.com/';
 
 // Logic to set values if not provided by the parent page
@@ -45,7 +45,7 @@ $meta_type = isset($og_type) ? $og_type : 'website';
     <meta property="og:image" content="<?php echo $meta_image; ?>">
     
     <!-- Favicon -->
-    <link rel="icon" href="<?php echo isset($base_path) ? $base_path : '/'; ?>img/logo.png" type="image/png">
+    <link rel="icon" href="<?php echo isset($base_path) ? $base_path : '/'; ?>assets/img/logo.png" type="image/png">
     
     <!-- Google Fonts: Outfit -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -56,7 +56,7 @@ $meta_type = isset($og_type) ? $og_type : 'website';
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <!-- Custom CSS (Root-Relative Path) -->
-    <link rel="stylesheet" href="<?php echo isset($base_path) ? $base_path : '/'; ?>css/style.css?v=2.0.0">
+    <link rel="stylesheet" href="<?php echo isset($base_path) ? $base_path : '/'; ?>assets/css/style.css?v=2.0.0">
 
     <?php if (isset($extra_head)) echo $extra_head; ?>
 </head>
